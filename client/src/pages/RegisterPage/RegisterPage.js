@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
 
-const RegisterPage = ({ setAlert }) => {
+const RegisterPage = ({ setAlert, register, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -23,9 +24,13 @@ const RegisterPage = ({ setAlert }) => {
         if(password !== password2){
             setAlert('Passwords do not match', 'danger');
         } else {
-            console.log('Success');
+            register({ name, username, email, password });
         }
     };
+
+    if(isAuthenticated) {
+      return (<Redirect to="/home" />);
+    }
 
     return (
         <Fragment>
@@ -33,24 +38,24 @@ const RegisterPage = ({ setAlert }) => {
             <form onSubmit={e => onSubmit(e)} >
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Name</label>
-                <input name='name' type="text" className="form-control" value={name} onChange={e => onChange(e)} required />
+                <input name='name' type="text" className="form-control" value={name} onChange={e => onChange(e)} />
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Username</label>
-                <input name='username' type="text" className="form-control" value={username} onChange={e => onChange(e)} required />
+                <input name='username' type="text" className="form-control" value={username} onChange={e => onChange(e)} />
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
-                <input name='email' type="email" className="form-control" value={email} onChange={e => onChange(e)} required />
+                <input name='email' type="email" className="form-control" value={email} onChange={e => onChange(e)} />
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
-                <input name='password' type="password" minLength='6' className="form-control" value={password} onChange={e => onChange(e)} required />
+                <input name='password' type="password" minLength='6' className="form-control" value={password} onChange={e => onChange(e)} />
               </div>
               <div className="form-group">
                 <label htmlFor="exampleInputPassword2">Confirm Password</label>
-                <input name='password2' type="password" minLength='6' className="form-control" value={password2} onChange={e => onChange(e)} required />
+                <input name='password2' type="password" minLength='6' className="form-control" value={password2} onChange={e => onChange(e)} />
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
             </form>
@@ -62,7 +67,13 @@ const RegisterPage = ({ setAlert }) => {
 }
 
 RegisterPage.propTypes = {
-  setAlert: PropTypes.func.isRequired
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool
 }
 
-export default connect(null, { setAlert })(RegisterPage);
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { setAlert, register })(RegisterPage);

@@ -1,30 +1,44 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import HomePage from './pages/Homepage/HomePage';
 import Alert from './components/Alert/Alert';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/auth';
+import setAuthToken from './utils/setAuthToken';
 
-const App = () => (
-	<Provider store={store}>
-		<Router>
-		<Fragment>
-			<Navbar />
-      		<section className='container'>
-				  <Alert />
-				<Switch>
-					<Route exact path='/register' component={RegisterPage} />
-					<Route exact path='/login' component={LoginPage} />
-				</Switch>
-			</section>
-    	</Fragment>
-  	    </Router>
-	</Provider>
-);
+if(localStorage.token) {
+	setAuthToken(localStorage.token);
+}
+
+const App = () => {
+	
+	useEffect(() => {
+		store.dispatch(loadUser());
+	}, []);
+
+	return (
+		<Provider store={store}>
+			<Router>
+			<Fragment>
+				<Navbar />
+    	  		<section className='container'>
+					<Alert />
+					<Switch>
+						<Route exact path='/home' component={HomePage} />
+						<Route exact path='/register' component={RegisterPage} />
+						<Route exact path='/login' component={LoginPage} />
+					</Switch>
+				</section>
+    		</Fragment>
+  		    </Router>
+		</Provider>
+)};
     
 
 export default App;
