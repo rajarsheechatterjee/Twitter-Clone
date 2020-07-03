@@ -1,10 +1,23 @@
 import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+
 
 const App = () => (
-  <Fragment>
-      <h1>App</h1>
-  </Fragment>
+	<Router>
+		<Fragment>
+			<Navbar />
+      		<section className='container'>
+				<Switch>
+					<Route exact path='/register' component={RegisterPage} />
+					<Route exact path='/login' component={LoginPage} />
+				</Switch>
+			</section>
+    	</Fragment>
+  </Router>
 );
     
 
