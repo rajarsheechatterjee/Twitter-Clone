@@ -4,20 +4,26 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-
+import Alert from './components/Alert/Alert';
+//Redux
+import { Provider } from 'react-redux';
+import store from './store';
 
 const App = () => (
-	<Router>
+	<Provider store={store}>
+		<Router>
 		<Fragment>
 			<Navbar />
       		<section className='container'>
+				  <Alert />
 				<Switch>
 					<Route exact path='/register' component={RegisterPage} />
 					<Route exact path='/login' component={LoginPage} />
 				</Switch>
 			</section>
     	</Fragment>
-  </Router>
+  	    </Router>
+	</Provider>
 );
     
 
