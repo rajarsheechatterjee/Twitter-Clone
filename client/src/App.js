@@ -4,8 +4,11 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import HomePage from './pages/Homepage/HomePage';
+import UserProfile from './pages/UserProfile/UserProfile';
+import HomePage from './pages/HomePage/HomePage';
 import Alert from './components/Alert/Alert';
+import PrivateRoute from './components/routing/PrivateRoute';
+import CreateProfile from './components/ProfileForm/CreateProfile';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -30,7 +33,9 @@ const App = () => {
     	  		<section className='container'>
 					<Alert />
 					<Switch>
-						<Route exact path='/home' component={HomePage} />
+						<PrivateRoute exact path='/profile' component={UserProfile} />
+						<PrivateRoute exact path='/createprofile' component={CreateProfile} />
+						<PrivateRoute exact path='/home' component={HomePage} />
 						<Route exact path='/register' component={RegisterPage} />
 						<Route exact path='/login' component={LoginPage} />
 					</Switch>

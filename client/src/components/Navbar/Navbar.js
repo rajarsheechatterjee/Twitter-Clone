@@ -9,7 +9,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
               <div className="collapse navbar-collapse" id="navbarText">
                 <span className="navbar-text">
-                    <a onClick={logout} href='#!'>Logout</a>
+                    <Link to='/home'>Home</Link>
+                </span>
+                <span className="navbar-text">
+                    <a onClick={logout} href=''>Logout</a>
+                </span>
+                <span className="navbar-text">
+                    <Link to='/profile'>Profile</Link>
                 </span>
               </div>          
   );
