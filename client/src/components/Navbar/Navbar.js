@@ -12,7 +12,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     <Link to='/home'>Home</Link>
                 </span>
                 <span className="navbar-text">
-                    <a onClick={logout} href=''>Logout</a>
+                    <Link to='/profiles'>Profiles</Link>
+                </span>
+                <span className="navbar-text">
+                    <Link onClick={logout} to=''>Logout</Link>
                 </span>
                 <span className="navbar-text">
                     <Link to='/profile'>Profile</Link>
@@ -23,6 +26,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
               <div className="collapse navbar-collapse" id="navbarText">
                 <span className="navbar-text">
+                  <span className="navbar-text">
+                      <Link to='/profiles'>Profiles</Link>
+                  </span>
                     <Link to="/login">Login </Link>
                     <Link to="/register">Sign up</Link>
                 </span>

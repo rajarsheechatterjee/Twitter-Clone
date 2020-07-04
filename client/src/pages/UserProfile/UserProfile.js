@@ -2,10 +2,12 @@ import React, { useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProfile } from '../../actions/profile';
+import { getCurrentProfile, deleteAccount } from '../../actions/profile';
+import UserProfileActions from './UserProfileActions';
 
 const UserProfile = ({ 
-    getCurrentProfile, 
+    getCurrentProfile,
+    deleteAccount,
     auth: {user}, 
     profile: { profile, loading} 
 
@@ -13,14 +15,17 @@ const UserProfile = ({
 
     useEffect(() => {
         getCurrentProfile();
-    }, []);
+    }, [getCurrentProfile]);
 
     return (
         <Fragment>
-            <h1 className='text-primary'>Profile</h1>
+            <h1 className='text-info'>Profile</h1>
             <p className="lead">Welcome { user && user.name }</p>
             { profile !== null ? (
-                <Fragment>has</Fragment>
+                <Fragment>
+                    <UserProfileActions />
+                    <button onClick={() => deleteAccount()} className="btn btn-danger">Delete My Account</button>
+                </Fragment>
             ) : (
                 <Fragment>
                     <p>Add a bio</p>
@@ -33,6 +38,7 @@ const UserProfile = ({
 
 UserProfile.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
+    deleteAccount: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired
 }
@@ -42,4 +48,4 @@ const mapStateToProps = state => ({
     profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(UserProfile);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(UserProfile);
