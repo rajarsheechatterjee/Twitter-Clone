@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import UserProfile from './pages/UserProfile/UserProfile';
+import Profile from './pages/Profile/Profile';
 import HomePage from './pages/HomePage/HomePage';
 import Alert from './components/Alert/Alert';
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -38,6 +39,7 @@ const App = () => {
 					<Switch>
 						<Route exact path='/profiles' component={Profiles} />
 						<PrivateRoute exact path='/profile' component={UserProfile} />
+						<Route exact path='/profile/:id' component={Profile} />
 						<PrivateRoute exact path='/createprofile' component={CreateProfile} />
 						<PrivateRoute exact path='/editprofile' component={EditProfile} />
 						<PrivateRoute exact path='/home' component={HomePage} />

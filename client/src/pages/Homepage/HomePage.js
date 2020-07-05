@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Spinner from '../../components/Spinner/Spinner';
+import TweetItem from './TweetItem';
+import { getTweets } from '../../actions/tweet';
 
-const HomePage = () => {
+const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
+
+    useEffect(() => {
+        getTweets();
+    }, [getTweets]);
+
     return (
-        <div>
-            <h1>tweets</h1>   
-        </div>
+        loading ? <Spinner /> : <Fragment>
+            <h1>Tweets</h1>
+            <p className="lead">Timeline</p>
+            {tweets.map(tweet => (
+                <TweetItem key={tweet._id} tweet={tweet} />
+            ))}
+        </Fragment>
     )
 }
 
-export default HomePage;
+HomePage.propTypes = {
+    getTweets: PropTypes.func.isRequired,
+    tweet: PropTypes.object.isRequired
+}
+
+const mapStateToProps = state => ({
+    tweet: state.tweet
+});
+
+export default connect(mapStateToProps, { getTweets })(HomePage)
