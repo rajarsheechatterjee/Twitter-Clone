@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../../components/Spinner/Spinner';
 import TweetItem from './TweetItem';
+import TweetForm from '../TweetForm/TweetForm';
 import { getTweets } from '../../actions/tweet';
 
 const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
@@ -15,6 +16,7 @@ const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
         loading ? <Spinner /> : <Fragment>
             <h1>Tweets</h1>
             <p className="lead">Timeline</p>
+            <TweetForm />
             {tweets.map(tweet => (
                 <TweetItem key={tweet._id} tweet={tweet} />
             ))}
