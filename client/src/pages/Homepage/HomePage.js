@@ -14,12 +14,22 @@ const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
 
     return (
         loading ? <Spinner /> : <Fragment>
-            <h1>Tweets</h1>
-            <p className="lead">Timeline</p>
-            <TweetForm />
-            {tweets.map(tweet => (
-                <TweetItem key={tweet._id} tweet={tweet} />
-            ))}
+            <div className="row">
+                <div className="col-md-3">
+
+                </div>
+                <div className="col-md-6">
+                    <TweetForm />
+                    <h1>Tweets</h1>
+                    <p className="lead">Timeline</p>
+                    {tweets.map(tweet => (
+                        <TweetItem key={tweet._id} tweet={tweet} />
+                    ))}
+                </div>
+                <div className="col-md-3">
+
+                </div>
+            </div>
         </Fragment>
     )
 }

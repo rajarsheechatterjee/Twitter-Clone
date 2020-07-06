@@ -8,7 +8,7 @@ import UserProfileActions from './UserProfileActions';
 const UserProfile = ({ 
     getCurrentProfile,
     deleteAccount,
-    auth: {user}, 
+    auth, 
     profile: { profile, loading} 
 
 }) => {
@@ -19,17 +19,21 @@ const UserProfile = ({
 
     return (
         <Fragment>
-            <h1 className='text-info'>Profile</h1>
-            <p className="lead">Welcome { user && user.name }</p>
+            <h1>Your Profile</h1>
+            <p className="lead">Welcome { auth.user && auth.user.name } @{auth.user.username}</p>
             { profile !== null ? (
                 <Fragment>
                     <UserProfileActions />
-                    <button onClick={() => deleteAccount()} className="btn btn-danger">Delete My Account</button>
+                    {profile.bio}
+                    <p>
+                    {profile.location}
+                    </p>
+                    <button onClick={() => deleteAccount()} className="btn btn-danger btn-sm">Delete My Account</button>
                 </Fragment>
             ) : (
                 <Fragment>
                     <p>Add a bio</p>
-                    <Link to='/createprofile' className='btn btn-primary'>Create Profile</Link>
+                    <Link to='/createprofile' className='btn btn-primary btn-sm'>Create Profile</Link>
                 </Fragment>
             )}
         </Fragment>

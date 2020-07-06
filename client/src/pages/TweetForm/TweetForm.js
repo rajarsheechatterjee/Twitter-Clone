@@ -3,38 +3,49 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/tweet';
 
-const TweetForm = ({ addPost }) => {
+const TweetForm = ({ addPost, auth }) => {
 
     const [text, setText] = useState('');
 
     return (
         <Fragment>
             <h1>tweet form</h1>
+            <div className='border p-1'>
             <form className='my-1' onSubmit={e => {
                 e.preventDefault();
                 addPost({ text });
                 setText('');
             }} >
+                <div className='d-flex flex-row' >
+                <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={auth.user.avatar} alt='avatar'/>
                 <textarea
                     name='text'
-                    cols='30'
-                    rows='5'
-                    placeholder='Create A Post'
+                    rows='3'
+                    style={{ width: '100%' }}
+                    placeholder='Whats Happening'
                     required
                     value={text}
                     onChange={e => setText(e.target.value)}
                 >
                 </textarea>
-                <input type="submit" className='btn btn-dark my-1' value='Submit'/>
+                </div>
+                <br/>
+                <input type="submit" className='btn btn-sm mr-0 btn-dark my-1' value='Submit'/>
 
             </form>
+            </div>
             
         </Fragment>
     )
 }
 
 TweetForm.propTypes = {
-    addPost: PropTypes.func.isRequired
+    addPost: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
 }
 
-export default connect(null, { addPost })(TweetForm)
+const mapStateToProps = state => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, { addPost })(TweetForm)

@@ -14,6 +14,9 @@ const TweetSchema = new Schema({
     name: {
         type: String
     },
+    username: {
+        type: String
+    },
     avatar: {
         type: String
     },

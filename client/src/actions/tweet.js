@@ -8,7 +8,7 @@ import {
     ADD_POST
 } from './types';
 
-// Get Posts
+// Get Tweets
 export const getTweets = () => async dispatch => {
     try {
         const res = await axios.get('/api/tweets');
