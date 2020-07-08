@@ -42,6 +42,11 @@ const TweetItem = ({
                                 Dislike
                             </span>
                         </button>
+                        <Link to={`/tweets/${_id}`} type='button' className="btn btn-sm mx-1 btn-info">
+                            <span>
+                                View tweet
+                            </span>
+                        </Link>
                         {!auth.loading && user == auth.user._id && (
                             <button type='button' onClick={e => deleteTweet(_id)} className='btn btn-sm mx-1 btn-danger'>Delete Tweet</button>
                         )}
