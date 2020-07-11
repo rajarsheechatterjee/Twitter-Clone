@@ -9,8 +9,7 @@ const TweetForm = ({ addPost, auth }) => {
 
     return (
         <Fragment>
-            <h1>tweet form</h1>
-            <div className='border p-1'>
+            <div className='border p-1' style={{ backgroundColor: 'rgb(21, 32, 43)', paddingLeft: '15px', paddingRight: '15px' }}>
             <form className='my-1' onSubmit={e => {
                 e.preventDefault();
                 addPost({ text });
@@ -21,7 +20,7 @@ const TweetForm = ({ addPost, auth }) => {
                 <textarea
                     name='text'
                     rows='3'
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', border: 'none' }}
                     placeholder='Whats Happening'
                     required
                     value={text}
@@ -30,8 +29,7 @@ const TweetForm = ({ addPost, auth }) => {
                 </textarea>
                 </div>
                 <br/>
-                <input type="submit" className='btn btn-sm mr-0 btn-dark my-1' value='Submit'/>
-
+                <input type="submit" style={{ backgroundColor: 'rgb(29, 161, 242)', outlineStyle: 'none', transitionProperty: 'background-color, boxShadow', minWidth: 'calc(62.79px)' }} className='btn btn-sm mr-0 btn-dark my-1' value='Submit'/>
             </form>
             </div>
             

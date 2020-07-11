@@ -19,9 +19,11 @@ const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
 
                 </div>
                 <div className="col-md-6">
+                    <div style={{ height: '53px', backgroundColor: 'rgb(21, 32, 43)', paddingLeft: '15px', paddingRight: '15px' }} >
+                        <h2 style={{ alignItems: 'flex-start', fontWeight: '800', fontSize: '19px', color: 'rgb(255, 255, 255)', justifyContent: 'center', verticalAlign: 'middle' }}>Home</h2>
+                    </div>
                     <TweetForm />
-                    <h1>Tweets</h1>
-                    <p className="lead">Timeline</p>
+                    <div style={{ height: '10px' }} ></div>
                     {tweets.map(tweet => (
                         <TweetItem key={tweet._id} tweet={tweet} />
                     ))}
