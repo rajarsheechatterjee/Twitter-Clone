@@ -41,7 +41,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
     return (
 		<Fragment>
-			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+			<nav className="navbar navbar-expand-lg navbar-dark r-qklmqi r-rull8r r-1ila09b" style={{ backgroundColor: 'rgb(21, 32, 43)' }} >
 			  <a className="navbar-brand" href="#">
 				<span>
 					{/* <span className="logo">

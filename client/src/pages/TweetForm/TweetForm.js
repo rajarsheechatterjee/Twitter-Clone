@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/tweet';
+import './TweetFormStyles.css';
 
 const TweetForm = ({ addPost, auth }) => {
 
@@ -9,7 +10,7 @@ const TweetForm = ({ addPost, auth }) => {
 
     return (
         <Fragment>
-            <div className='border p-1' style={{ backgroundColor: 'rgb(21, 32, 43)', paddingLeft: '15px', paddingRight: '15px' }}>
+            <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll r-1j3t67a r-atwnbb' style={{ backgroundColor: 'rgb(21, 32, 43)'}}>
             <form className='my-1' onSubmit={e => {
                 e.preventDefault();
                 addPost({ text });
@@ -20,7 +21,7 @@ const TweetForm = ({ addPost, auth }) => {
                 <textarea
                     name='text'
                     rows='3'
-                    style={{ width: '100%', border: 'none' }}
+                    style={{ width: '100%', backgroundColor: 'rgb(21, 32, 43)', border: 'none', color: 'white' }}
                     placeholder='Whats Happening'
                     required
                     value={text}
@@ -28,8 +29,13 @@ const TweetForm = ({ addPost, auth }) => {
                 >
                 </textarea>
                 </div>
-                <br/>
-                <input type="submit" style={{ backgroundColor: 'rgb(29, 161, 242)', outlineStyle: 'none', transitionProperty: 'background-color, boxShadow', minWidth: 'calc(62.79px)' }} className='btn btn-sm mr-0 btn-dark my-1' value='Submit'/>
+                <div className="css-1dbjc4n">
+                    <div className='css-1dbjc4n r-1awozwy r-yfoy6g r-18u37iz r-1w6e6rj r-1wtj0ep r-id7aif r-184en5c'>
+                        <div className='r-156q2ks r-1awozwy r-18u37iz'>
+                            <input type="submit" className='btn btn-sm mr-0 my-1 r-sdzlij tweetbutton' value='Submit'/>
+                        </div>
+                    </div>
+                </div>
             </form>
             </div>
             
