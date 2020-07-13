@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
 import { addLike, removeLike, deleteTweet } from '../../actions/tweet';
+import { getProfiles } from '../../actions/profile';
 import './TweetItemStyles.css';
 
 const TweetItem = ({ 
@@ -11,22 +12,28 @@ const TweetItem = ({
     addLike,
     removeLike,
     deleteTweet,
-    tweet: { _id, text, name, username, avatar, user, likes, replies, date} 
+    tweet: { _id, text, name, username, avatar, user, likes, replies, date}
 }) => {
+    useEffect(() => {
+        getProfiles();
+    }, []);
+
     return (
         <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll' style={{backgroundColor: 'rgb(21, 32, 43)' }}>
             <div className="my-1" style={{ backgroundColor: 'rgb(21, 32, 43)'}} style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px', paddingBottom: '5px' }} >
                 <div className='d-flex flex-row' style={{ verticalAlign: 'center' }} >
                     <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={avatar} alt="avatar"/>
+                    <Link to={`/profile/${user}`} style={{ textDecoration: 'none' }}>
                     <h6>
                         <span style={{ color: 'white' }} >{name}</span>
                         <br/>
                             <span style={{ color: '#8899A6', fontSize: '0.8rem' }} >@{username}</span>
                     </h6> 
+                    </Link>
                 </div>
                 <div>
                     <Link to={`/tweets/${_id}`} style={{ textDecoration: 'none', color: 'white' }}>
-                    <p className="my-1">
+                    <p className="my-1" style={{ marginLeft: '59px' }}>
                         {text}
                     </p>
                     </Link>
@@ -37,14 +44,14 @@ const TweetItem = ({
                                 {likes.length > 0 && <span>{likes.length}</span>}
                             </span>
                         </button>
-                        <button type='button' className="btn btn-sm mx-1 btn-dark" onClick={e => removeLike(_id)}>
+                        <button type='button' className="btn btn-sm mx-1" style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#8899a6' }} onClick={e => removeLike(_id)}>
                             <span>
-                                Dislike
+                                <i class="fas fa-heart-broken"></i>
                             </span>
                         </button>
                         
                         {!auth.loading && user == auth.user._id && (
-                            <button type='button' onClick={e => deleteTweet(_id)} className='btn btn-sm mx-1 btn-danger'>Delete Tweet</button>
+                            <button type='button' onClick={e => deleteTweet(_id)} className='btn btn-sm mx-1' style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#d9534f' }}><i class="fas fa-trash-alt"></i></button>
                         )}
                     </p>
                 </div>
@@ -58,11 +65,11 @@ TweetItem.propTypes = {
     auth: PropTypes.object.isRequired,
     addLike: PropTypes.func.isRequired,
     removeLike: PropTypes.func.isRequired,
-    deleteTweet: PropTypes.func.isRequired
+    deleteTweet: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
 })
 
 export default connect(mapStateToProps, { addLike, deleteTweet, removeLike })(TweetItem);

@@ -19,6 +19,7 @@ const UserProfile = ({
 
     return (
         <Fragment>
+            <div className="text-light">
             <h1>Your Profile</h1>
             <p className="lead">Welcome { auth.user && auth.user.name } @{auth.user.username}</p>
             { profile !== null ? (
@@ -36,6 +37,7 @@ const UserProfile = ({
                     <Link to='/createprofile' className='btn btn-primary btn-sm'>Create Profile</Link>
                 </Fragment>
             )}
+            </div>
         </Fragment>
     )
 }

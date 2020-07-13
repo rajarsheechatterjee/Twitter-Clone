@@ -560,7 +560,7 @@
 }
 
 .wght {
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .hght2 {
@@ -638,4 +638,10 @@
     border-bottom-right-radius: 9999px;
     border-top-left-radius: 9999px;
     border-top-right-radius: 9999px;
+}
+
+svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: #fff;
 }
