@@ -8,7 +8,7 @@ import { getProfileById } from '../../actions/profile';
 import auth from '../../reducers/auth';
 import './ProfileStyles.css';
 import Moment from 'react-moment';
-import { getTweets, getTweet } from '../../actions/tweet';
+import { getTweets } from '../../actions/tweet';
 
 const Profile = ({ 
     getProfileById, 
@@ -45,7 +45,12 @@ const Profile = ({
                             <div className='css-1dbjc4n r-1awozwy r-18u37iz r-1h3ijdo r-1777fci r-1jgb5lz r-sb58tz r-13qz1uu' >
                             <div className="css-1dbjc4n r-16y2uox r-1wbh5a2 r-1pi2tsx r-1777fci" >
                                 <div className='r-1habvwh' >
-                                    <h2 style={{ alignItems: 'flex-start', fontWeight: '800', fontSize: '19px', color: 'rgb(255, 255, 255)', justifyContent: 'center', verticalAlign: 'middle' }}>Profile</h2>
+                                    <h2 style={{ alignItems: 'flex-start', fontWeight: '800', fontSize: '19px', color: 'rgb(255, 255, 255)', justifyContent: 'center', verticalAlign: 'middle' }}>
+                                    <Link to='/home'>
+                                    <i class="fas fa-long-arrow-alt-left mr-3" style={{ color: 'rgba(29,161,242,1.00)' }}></i>
+                                    </Link>
+                                        Profile
+                                    </h2>
                                 </div>
                             </div>
                             </div>
@@ -53,22 +58,24 @@ const Profile = ({
                     </div>
                     <div className="text-light" style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px' }}>
                     <img alt="" draggable="true" src={profile.user.avatar} style={{ height: '100px', width:'100px', borderRadius: '50%' }}></img>
-                    <p className="text-light">
+                    <p className="text-light mb-1">
                         <span style={{ fontWeight: '800', fontSize: '19px' }}>{ profile.user && profile.user.name }</span>
                         <br/>
-                        <span style={{ fontSize: '0.9rem', color: '#8899a6' }} >@{profile.user.username}</span><br/>
-                        <span style={{ color: '#8899a6' }} ><i className="fas fa-calendar-week mr-1"></i>Joined
+                        <span style={{ fontSize: '0.95rem', color: '#8899a6' }} >@{profile.user.username}</span><br/>
+                        <span style={{ color: '#8899a6', fontSize: '0.9rem' }} ><i className="fas fa-calendar-week mr-1"></i>Joined
                             <Moment format='MMMM, YYYY' className='ml-2'>
                              {profile.date}
                             </Moment>
+                        </span><br/>
+                        <span className='mt-1'>
+                            {profile.bio}
                         </span>
 
                     </p>
                     <p>
                     { profile !== null ? (
                         <Fragment>
-                            {profile.bio} <br/>
-                            <span style={{ color: '#8899a6' }}><i className="fas fa-map-marked-alt mr-2"></i>Location: 
+                            <span className='pb-2' style={{ color: '#8899a6' }}><i className="fas fa-map-marked-alt mr-2"></i>Location: 
                             {profile.location}
                             </span><br/>
                         </Fragment>
@@ -86,15 +93,6 @@ const Profile = ({
                     ))}
                     <div className="css-1dbjc4n r-18u37iz r-16y2uox r-1h3ijdo r-58zi21" >
                         <div className='css-1dbjc4n r-1awozwy r-1pz39u2 r-18u37iz r-16y2uox' >
-						<div className="css-1dbjc4n r-16y2uox" >
-							<Link to='/home' className='deco nav-link r-aj3cln r-1vsu8ta r-1ny4l3l r-6416eg  r-1niwhzg r-1w2pmg  r-1loqt21 r-o7ynqc  r-lrvibr  r-1fneopy r-p1n3y5  r-rs99b7  r-1phboty r-sdzlij ' >
-								<div className='r-eljoum hght r-vw2c0b r-a023e6 r-1qd0xha r-qvutc0 r-bcqeeo  r-1awozwy r-1777fci r-16y2uox r-18u37iz r-q4m81j  r-13gxpu9  r-6koalj ' >
-									<span className='r-1qd0xha r-qvutc0 r-bcqeeo  r-ad9z0x'>
-									<span className='deco mx-0 my-0 p-0 r-qvutc0 r-bcqeeo r-ad9z0x css-16my406 css-901oao'>Back To Home</span>
-									</span>
-								</div>
-							</Link>
-						</div>
                         { auth.isAuthenticated && 
                         auth.loading === false && 
                         auth.user._id === profile.user._id && (
