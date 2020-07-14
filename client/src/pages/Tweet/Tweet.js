@@ -8,6 +8,7 @@ import { getTweet } from '../../actions/tweet';
 import { addLike, removeLike, deleteTweet } from '../../actions/tweet';
 import ReplyForm from './ReplyForm';
 import ReplyItem from './ReplyItem';
+import Header from '../../components/Header/Header';
 
 const Tweet = ({ auth, getTweet, match, addLike, removeLike, deleteTweet, tweet: { tweet, loading }}) => {
     
@@ -17,10 +18,9 @@ const Tweet = ({ auth, getTweet, match, addLike, removeLike, deleteTweet, tweet:
 
     return (
         (loading) ? <Spinner /> : <Fragment>
+        <div className="container">
         <div className="row">
-            <div className="r-o96wvk">
-
-            </div>
+            <Header />
             <div className="r-1ye8kvj css-1dbjc4n r-yfoy6g r-18bvks7 r-1ljd8xs r-13l2t4g r-1phboty r-1jgb5lz r-11wrixw r-61z16t r-1ye8kvj r-13qz1uu r-184en5c mx-0">
                     <div className="css-1dbjc4n r-aqfbo4 r-yfoy6g r-1ila09b r-rull8r r-qklmqi r-gtdqiz r-ipm5af r-1g40b8q r-1h3ijdo r-1j3t67a r-qklmqi r-rull8r r-1ila09b" >
                         <div className='css-1dbjc4n r-1loqt21 r-136ojw6' >
@@ -93,6 +93,7 @@ const Tweet = ({ auth, getTweet, match, addLike, removeLike, deleteTweet, tweet:
                     </div>
                 </div>
             </div>
+        </div>
         </Fragment>
     )
 }

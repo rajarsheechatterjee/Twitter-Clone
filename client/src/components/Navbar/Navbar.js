@@ -10,7 +10,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 				<Fragment>
 					<ul className="navbar-nav mr-auto">
 				        <li className="nav-item active">
-					    	<Link className='nav-link' to="/home">Home</Link>
+					    	<Link className='nav-link' to="/home"><i style={{ color: 'rgb(29, 161, 242)' }} class="fas fa-home"></i></Link>
 				        </li>
 				        
 				        <li className="nav-item">

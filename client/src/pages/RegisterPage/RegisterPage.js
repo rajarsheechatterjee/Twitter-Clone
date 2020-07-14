@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
+import Navbar from '../../components/Navbar/Navbar';
+
 
 import './RegisterPageStyles.css';
 
@@ -35,6 +37,7 @@ const RegisterPage = ({ setAlert, register, isAuthenticated }) => {
 
     return (
         <Fragment>
+          <Navbar />
             <div className='r-1x0uki6 r-1ye8kvj r-13qz1uu r-1j3t67a r-1jgb5lz'>
             <h1 className='r-6ity3w r-15d164r r-1blvdjr r-jwli3a r-vw2c0b'>Create your account</h1>
             <form onSubmit={e => onSubmit(e)} >

@@ -34,8 +34,7 @@ const App = () => {
 		<Provider store={store}>
 			<Router>
 			<Fragment>
-				<Navbar />
-    	  		<section className='container'>
+    	  		<section>
 					<Alert />
 					<Switch>
 						<Route exact path='/profiles' component={Profiles} />
