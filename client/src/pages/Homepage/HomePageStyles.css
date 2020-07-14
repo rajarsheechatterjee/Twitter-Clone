@@ -183,3 +183,9 @@
 .r-1ye8kvj {
     max-width: 600px;
 }
+
+.topborder {
+    border-top-color: rgb(56, 68, 77);
+    border-top-style: solid;
+    border-top-width: 1px;
+}

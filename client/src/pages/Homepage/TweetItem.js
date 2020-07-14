@@ -51,6 +51,11 @@ const TweetItem = ({
                                 <i className="fas fa-heart-broken"></i>
                             </span>
                         </button>
+                        <Link to={`/tweets/${_id}`} type='button' className="btn btn-sm mx-1" style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#8899a6' }} >
+                            <span>
+                            <i class="far fa-comment-alt"></i>
+                            </span>
+                        </Link>
                         
                         {!auth.loading && user == auth.user._id && (
                             <button type='button' onClick={e => deleteTweet(_id)} className='btn btn-sm mx-1' style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#d9534f' }}><i className="fas fa-trash-alt"></i></button>

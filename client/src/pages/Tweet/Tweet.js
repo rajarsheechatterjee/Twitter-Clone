@@ -14,9 +14,9 @@ const Tweet = ({ auth, getTweet, match, addLike, removeLike, deleteTweet, tweet:
     useEffect(() => {
         getTweet(match.params.id);
     }, [getTweet]);
-    
+
     return (
-        (tweet === null || loading) ? <Spinner /> : <Fragment>
+        (loading) ? <Spinner /> : <Fragment>
         <div className="row">
             <div className="r-o96wvk">
 
@@ -45,7 +45,7 @@ const Tweet = ({ auth, getTweet, match, addLike, removeLike, deleteTweet, tweet:
                             <div className="my-1" style={{ backgroundColor: 'rgb(21, 32, 43)'}} style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px', paddingBottom: '5px' }} >
                                 <div className='d-flex flex-row' style={{ verticalAlign: 'center' }} >
                                     <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={tweet.avatar} alt="avatar"/>
-                                    <Link to={(auth.user._id === tweet.user._id) ? (`/profile`) : (`/profile/${tweet.user}`)} style={{ textDecoration: 'none' }}>
+                                    <Link to={(auth.user._id === tweet.user) ? (`/profile`) : (`/profile/${tweet.user}`)} style={{ textDecoration: 'none' }}>
                                     <h6>
                                         <span style={{ color: 'white', fontWeight: '700' }} >{tweet.name}</span>
                                         <span className='ml-1' style={{ color: '#8899A6', fontSize: '0.9rem' }} >@{tweet.username} · </span>
