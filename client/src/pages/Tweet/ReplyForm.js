@@ -1,11 +1,10 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addPost } from '../../actions/tweet';
-import './TweetFormStyles.css';
+import { addReply } from '../../actions/tweet';
 import Spinner from '../../components/Spinner/Spinner';
 
-const TweetForm = ({ addPost, auth }) => {
+const ReplyForm = ({ auth, tweetId, addReply }) => {
 
     const [text, setText] = useState('');
 
@@ -17,7 +16,7 @@ const TweetForm = ({ addPost, auth }) => {
             <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll r-1j3t67a r-atwnbb' style={{ backgroundColor: 'rgb(21, 32, 43)'}}>
             <form className='my-1' onSubmit={e => {
                 e.preventDefault();
-                addPost({ text });
+                addReply(tweetId,{ text });
                 setText('');
             }} >
                 <div className='d-flex flex-row' >
@@ -36,7 +35,7 @@ const TweetForm = ({ addPost, auth }) => {
                 <div className="css-1dbjc4n">
                     <div className='css-1dbjc4n r-1awozwy r-yfoy6g r-18u37iz r-1w6e6rj r-1wtj0ep r-id7aif r-184en5c'>
                         <div className='r-156q2ks r-1awozwy r-18u37iz'>
-                            <input type="submit" className='btn btn-sm mr-0 my-1 r-sdzlij tweetbutton' value='Submit'/>
+                            <input type="submit" style={{ height: '20px' }} className='btn btn-sm mr-0 my-1 r-sdzlij tweetbutton' value='Leave A Reply'/>
                         </div>
                     </div>
                 </div>
@@ -48,13 +47,12 @@ const TweetForm = ({ addPost, auth }) => {
     )
 }
 
-TweetForm.propTypes = {
-    addPost: PropTypes.func.isRequired,
+ReplyForm.propTypes = {
+    addReply: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
     auth: state.auth
 })
-
-export default connect(mapStateToProps, { addPost })(TweetForm)
+export default connect(mapStateToProps, { addReply })(ReplyForm)

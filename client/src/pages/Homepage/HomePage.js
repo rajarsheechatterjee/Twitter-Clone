@@ -14,7 +14,7 @@ const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
     }, [getTweets]);
 
     return (
-        loading ? <Spinner /> : <Fragment>
+        (tweets === null && loading) ? <Spinner /> : <Fragment>
             <div className="row">
                 <div className="r-o96wvk">
 

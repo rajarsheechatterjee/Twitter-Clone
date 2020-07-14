@@ -4,7 +4,9 @@ import {
     UPDATE_LIKES,
     DELETE_POST,
     ADD_POST,
-    GET_POST
+    GET_POST,
+    ADD_COMMENT,
+    REMOVE_COMMENT
 } from '../actions/types';
 
 const initialState = {
@@ -52,6 +54,21 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 tweets: state.tweets.map(tweet => tweet._id === payload.id ? { ...tweet, likes : payload.likes } : tweet ),
+                loading: false
+            };
+        case ADD_COMMENT:
+            return {
+                ...state,
+                tweet: { ...state.tweet, replies: payload},
+                loading: false
+            };
+        case REMOVE_COMMENT:
+            return {
+                ...state,
+                post: {
+                    ...state.tweet,
+                    replies: state.tweet.replies.filter(reply => reply._id !== payload)
+                },
                 loading: false
             };
         default:

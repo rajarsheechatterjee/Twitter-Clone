@@ -232,6 +232,7 @@ router.post(
             const newReply = new Tweet({
                 text: req.body.text,
                 name: user.name,
+                username: user.username,
                 avatar: user.avatar,
                 user: req.user.id
             });

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
 import { addLike, removeLike, deleteTweet } from '../../actions/tweet';
-import { getProfiles } from '../../actions/profile';
 import './TweetItemStyles.css';
 
 const TweetItem = ({ 
@@ -14,9 +13,7 @@ const TweetItem = ({
     deleteTweet,
     tweet: { _id, text, name, username, avatar, user, likes, replies, date}
 }) => {
-    useEffect(() => {
-        getProfiles();
-    }, []);
+    
 
     return (
         <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll' style={{backgroundColor: 'rgb(21, 32, 43)' }}>
