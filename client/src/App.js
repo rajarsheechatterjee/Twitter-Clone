@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import UserProfile from './pages/UserProfile/UserProfile';
@@ -37,6 +36,7 @@ const App = () => {
     	  		<section>
 					<Alert />
 					<Switch>
+						<Redirect exact from='/' to='home' />
 						<Route exact path='/profiles' component={Profiles} />
 						<PrivateRoute exact path='/profile' component={UserProfile} />
 						<Route exact path='/profile/:id' component={Profile} />

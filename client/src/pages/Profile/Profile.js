@@ -88,7 +88,7 @@ const Profile = ({
                     </div>
                     <div style={{ height: '10px', backgroundColor: 'rgb(37, 51, 65)' }} ></div>
                     {tweets.map(tweet => (
-                        (tweet.user == profile.user._id) && <TweetItem key={tweet._id} tweet={tweet} />
+                        (tweet.user === profile.user._id) && <TweetItem key={tweet._id} tweet={tweet} />
                     ))}
                     <div className="css-1dbjc4n r-18u37iz r-16y2uox r-1h3ijdo r-58zi21" >
                         <div className='css-1dbjc4n r-1awozwy r-1pz39u2 r-18u37iz r-16y2uox' >

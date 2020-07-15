@@ -27,7 +27,7 @@ const TweetItem = ({
                             <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={avatar} alt="avatar"/>
                             <Link to={(auth.user._id === user) ? (`/profile`) : (`/profile/${user}`)} style={{ textDecoration: 'none' }}>
                             <h6>
-                                <span style={{ color: 'white' }} >{name}</span>
+                                <span style={{ color: 'white', fontWeight: 'bold' }} >{name}</span>
                                 <span className='ml-1' style={{ color: '#8899A6', fontSize: '0.9rem' }} >@{username} · </span>
                                 <span style={{ color: '#8899a6', fontSize: '0.8rem' }}>
                                     <span className="mr-1">At</span>
