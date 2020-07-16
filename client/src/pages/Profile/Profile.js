@@ -57,25 +57,23 @@ const Profile = ({
                     </div>
                     <div className="text-light" style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px' }}>
                     <img alt="" draggable="true" src={profile.user.avatar} style={{ height: '100px', width:'100px', borderRadius: '50%' }}></img>
-                    <p className="text-light mb-1">
-                        <span style={{ fontWeight: '800', fontSize: '19px' }}>{ profile.user && profile.user.name }</span>
-                        <br/>
-                        <span style={{ fontSize: '0.95rem', color: '#8899a6' }} >@{profile.user.username}</span><br/>
-                        <span style={{ color: '#8899a6', fontSize: '0.9rem' }} ><i className="fas fa-calendar-week mr-1"></i>Joined
-                            <Moment format='MMMM, YYYY' className='ml-2'>
-                             {profile.date}
-                            </Moment>
-                        </span><br/>
-                        <span className='mt-1'>
+                    <p className="text-light mb-0">
+                        <div className='mb-0' ><span style={{ fontWeight: '800', fontSize: '19px' }}>{ profile.user && profile.user.name }</span></div>
+                        <div><span style={{ fontSize: '0.95rem', color: '#8899a6' }} >@{profile.user.username}</span></div>
+                        <span className='my-3'>
                             {profile.bio}
                         </span>
-
                     </p>
                     <p>
                     { profile !== null ? (
                         <Fragment>
+                            <span style={{ color: '#8899a6', fontSize: '0.9rem' }} ><i className="fas fa-calendar-week mr-2"></i>Joined
+                            <Moment format='MMMM, YYYY' className='ml-2'>
+                             {profile.date}
+                            </Moment>
+                        </span><br/>
                             <span className='pb-2' style={{ color: '#8899a6' }}><i className="fas fa-map-marked-alt mr-2"></i>Location: 
-                            {profile.location}
+                            <span className="ml-2">{profile.location}</span>
                             </span><br/>
                         </Fragment>
                     ) : (

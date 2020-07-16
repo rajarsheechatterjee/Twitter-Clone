@@ -47,14 +47,9 @@ const Tweet = ({ auth, getTweet, match, addLike, removeLike, deleteTweet, tweet:
                                     <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={tweet.avatar} alt="avatar"/>
                                     <Link to={(auth.user._id === tweet.user) ? (`/profile`) : (`/profile/${tweet.user}`)} style={{ textDecoration: 'none' }}>
                                     <h6>
-                                        <span style={{ color: 'white', fontWeight: '700' }} >{tweet.name}</span>
-                                        <span className='ml-1' style={{ color: '#8899A6', fontSize: '0.9rem' }} >@{tweet.username} · </span>
-                                        <span style={{ color: '#8899a6', fontSize: '0.8rem' }}>
-                                            <span className="mr-1">At</span>
-                                            <Moment format='HH:mm A on DD MMMM YYYY'>
-                                                {tweet.date}
-                                            </Moment>
-                                        </span>
+                                        <span style={{ color: 'white', fontWeight: '700' }} >{tweet.name}</span> 
+                                        <br/>
+                                        <span style={{ color: '#8899A6', fontSize: '0.9rem' }} >@{tweet.username}</span>
                                     </h6> 
                                     <Link to={`/tweets/${tweet._id}`} style={{ textDecoration: 'none', color: 'white' }}>
                                     <p>
@@ -80,6 +75,13 @@ const Tweet = ({ auth, getTweet, match, addLike, removeLike, deleteTweet, tweet:
                                         {!auth.loading && tweet.user == auth.user._id && (
                                             <button type='button' onClick={e => deleteTweet(tweet._id)} className='btn btn-sm mx-1' style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#d9534f' }}><i className="fas fa-trash-alt"></i></button>
                                         )}
+                                    </p>
+                                    <p>
+                                    <span style={{ color: '#8899a6'}}>
+                                            <Moment format='HH:mm A · MMMM DD, YYYY'>
+                                                {tweet.date}
+                                            </Moment>
+                                    </span>
                                     </p>
                                 </div>
                             </div>
