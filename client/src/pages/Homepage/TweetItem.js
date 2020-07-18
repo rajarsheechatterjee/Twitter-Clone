@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
-import { addLike, removeLike, deleteTweet } from '../../actions/tweet';
+import { addLike, deleteTweet } from '../../actions/tweet';
 import './TweetItemStyles.css';
 import Spinner from '../../components/Spinner/Spinner';
 
 const TweetItem = ({ 
     auth,
     addLike,
-    removeLike,
     deleteTweet,
     tweet: { _id, text, name, username, avatar, user, likes, replies, date}
 }) => {
@@ -51,19 +50,14 @@ const TweetItem = ({
                                         {likes.length > 0 && <span>{likes.length}</span>}
                                     </span>
                                 </button>
-                                <button type='button' className="btn btn-sm mx-1" style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#8899a6' }} onClick={e => removeLike(_id)}>
-                                    <span>
-                                        <i className="fas fa-heart-broken"></i>
-                                    </span>
-                                </button>
                                 <Link to={`/tweets/${_id}`} type='button' className="btn btn-sm mx-1" style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#8899a6' }} >
                                     <span>
-                                    <i class="far fa-comment-alt"></i>
+                                    <svg viewBox="0 0 24 24" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"><g><path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path></g></svg>
                                     </span>
                                 </Link>
                                 
                                 {!auth.loading && user == auth.user._id && (
-                                    <button type='button' onClick={e => deleteTweet(_id)} className='btn btn-sm mx-1' style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#d9534f' }}><i className="fas fa-trash-alt"></i></button>
+                                    <button type='button' onClick={e => deleteTweet(_id)} className='btn btn-sm mx-1' style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#d9534f' }}><svg viewBox="0 0 24 24" class="r-daml9f r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-zso239 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M20.746 5.236h-3.75V4.25c0-1.24-1.01-2.25-2.25-2.25h-5.5c-1.24 0-2.25 1.01-2.25 2.25v.986h-3.75c-.414 0-.75.336-.75.75s.336.75.75.75h.368l1.583 13.262c.216 1.193 1.31 2.027 2.658 2.027h8.282c1.35 0 2.442-.834 2.664-2.072l1.577-13.217h.368c.414 0 .75-.336.75-.75s-.335-.75-.75-.75zM8.496 4.25c0-.413.337-.75.75-.75h5.5c.413 0 .75.337.75.75v.986h-7V4.25zm8.822 15.48c-.1.55-.664.795-1.18.795H7.854c-.517 0-1.083-.246-1.175-.75L5.126 6.735h13.74L17.32 19.732z"></path><path d="M10 17.75c.414 0 .75-.336.75-.75v-7c0-.414-.336-.75-.75-.75s-.75.336-.75.75v7c0 .414.336.75.75.75zm4 0c.414 0 .75-.336.75-.75v-7c0-.414-.336-.75-.75-.75s-.75.336-.75.75v7c0 .414.336.75.75.75z"></path></g></svg></button>
                                 )}
                             </p>
                         </div>
@@ -78,7 +72,6 @@ TweetItem.propTypes = {
     tweet: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     addLike: PropTypes.func.isRequired,
-    removeLike: PropTypes.func.isRequired,
     deleteTweet: PropTypes.func.isRequired,
 }
 
@@ -86,4 +79,4 @@ const mapStateToProps = state => ({
     auth: state.auth,
 })
 
-export default connect(mapStateToProps, { addLike, deleteTweet, removeLike })(TweetItem);
+export default connect(mapStateToProps, { addLike, deleteTweet })(TweetItem);

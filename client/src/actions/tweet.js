@@ -46,21 +46,21 @@ export const addLike = (id) => async dispatch => {
 };
 
 // Remove Like
-export const removeLike = (id) => async dispatch => {
-    try {
-        const res = await axios.put(`/api/tweets/unlike/${id}`);
+// export const removeLike = (id) => async dispatch => {
+//     try {
+//         const res = await axios.put(`/api/tweets/unlike/${id}`);
 
-        dispatch({
-            type: UPDATE_LIKES,
-            payload: { id, likes: res.data}
-        });
-    } catch(err) {
-        dispatch({
-            type: POST_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
-        });
-    }
-};
+//         dispatch({
+//             type: UPDATE_LIKES,
+//             payload: { id, likes: res.data}
+//         });
+//     } catch(err) {
+//         dispatch({
+//             type: POST_ERROR,
+//             payload: { msg: err.response.statusText, status: err.response.status }
+//         });
+//     }
+// };
 
 // Delete Like
 export const deleteTweet = (id) => async dispatch => {

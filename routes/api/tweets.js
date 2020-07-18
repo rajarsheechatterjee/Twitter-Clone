@@ -153,18 +153,25 @@ router.put('/like/:id', auth, async (req, res) => {
         const tweet = await Tweet.findById(req.params.id);
 
         if (tweet.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
-            return res.status(400).json({
-                msg: 'Tweet already liked'
+            
+            const removeIndex = tweet.likes.map(like => like.user.toString()).indexOf(req.user.id);
+
+            tweet.likes.splice(removeIndex, 1);
+    
+            await tweet.save();
+    
+            res.json(tweet.likes);
+    
+        } else {
+            
+            tweet.likes.unshift({
+                user: req.user.id
             });
+    
+            await tweet.save();
+    
+            res.json(tweet.likes);
         }
-
-        tweet.likes.unshift({
-            user: req.user.id
-        });
-
-        await tweet.save();
-
-        res.json(tweet.likes);
 
     } catch (err) {
         console.error(err.message);
@@ -176,30 +183,30 @@ router.put('/like/:id', auth, async (req, res) => {
 // @desc unlike a tweet
 // @access Private
 
-router.put('/unlike/:id', auth, async (req, res) => {
-    try {
+// router.put('/unlike/:id', auth, async (req, res) => {
+//     try {
 
-        const tweet = await Tweet.findById(req.params.id);
+//         const tweet = await Tweet.findById(req.params.id);
 
-        if (tweet.likes.filter(like => like.user.toString() === req.user.id).length === 0) {
-            return res.status(400).json({
-                msg: 'Tweet has not yet been liked'
-            });
-        }
+//         if (tweet.likes.filter(like => like.user.toString() === req.user.id).length === 0) {
+//             return res.status(400).json({
+//                 msg: 'Tweet has not yet been liked'
+//             });
+//         }
 
-        const removeIndex = tweet.likes.map(like => like.user.toString()).indexOf(req.user.id);
+//         const removeIndex = tweet.likes.map(like => like.user.toString()).indexOf(req.user.id);
 
-        tweet.likes.splice(removeIndex, 1);
+//         tweet.likes.splice(removeIndex, 1);
 
-        await tweet.save();
+//         await tweet.save();
 
-        res.json(tweet.likes);
+//         res.json(tweet.likes);
 
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
-});
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send('Server Error');
+//     }
+// });
 
 
 // @route POST api/tweets/reply
