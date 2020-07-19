@@ -9,7 +9,7 @@ import { getTweets } from '../../actions/tweet';
 import './HomePageStyles.css';
 import Header from '../../components/Header/Header';
 
-const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
+const HomePage = ({ auth, getTweets, tweet: { tweets, loading } }) => {
 
     useEffect(() => {
         getTweets();
@@ -46,11 +46,13 @@ const HomePage = ({ getTweets, tweet: { tweets, loading } }) => {
 
 HomePage.propTypes = {
     getTweets: PropTypes.func.isRequired,
-    tweet: PropTypes.object.isRequired
+    tweet: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    tweet: state.tweet
+    tweet: state.tweet,
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { getTweets })(HomePage)

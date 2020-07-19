@@ -156,4 +156,41 @@ router.delete('/', auth, async (req, res) => {
     }
 });
 
+// @route PUT api/profile/follow/:user_id
+// @desc Follow a profile
+// @access Private
+
+router.put('/follow/:user_id', auth, async (req, res) => {
+    try {
+
+        const user = await User.findById(req.user.id);
+
+        if (user.following.filter(follow => follow.user.toString() === req.params.user_id).length > 0) {
+            
+            const removeIndex = user.following.map(like => like.user.toString()).indexOf(req.params.user_id);
+
+            user.following.splice(removeIndex, 1);
+    
+            await user.save();
+    
+            res.json(user.following);
+    
+        } else {
+            
+            user.following.unshift({
+                user: req.params.user_id
+            });
+    
+            await user.save();
+    
+            res.json(user.following);
+        }
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+
 module.exports = router;

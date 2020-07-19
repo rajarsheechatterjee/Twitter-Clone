@@ -8,7 +8,8 @@ import {
     PROFILE_ERROR,
     CLEAR_PROFILE,
     ACCOUNT_DELETED,
-    GET_PROFILES
+    GET_PROFILES,
+    UPDATE_FOLLOWING
 } from './types';
 
 // Get Current User Profile
@@ -128,5 +129,22 @@ export const deleteAccount = () => async dispatch => {
                 payload: { msg: err.response.statusText, status: err.response.status }
             });
         }
+    }
+};
+
+// Add Like
+export const followProfile = (id) => async dispatch => {
+    try {
+        const res = await axios.put(`/api/profile/follow/${id}`);
+
+        dispatch({
+            type: UPDATE_FOLLOWING,
+            payload: { id, following: res.data}
+        });
+    } catch(err) {
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        });
     }
 };

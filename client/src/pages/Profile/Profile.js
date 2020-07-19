@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TweetItem from '../HomePage/TweetItem';
 import Spinner from '../../components/Spinner/Spinner';
-import { getProfileById } from '../../actions/profile';
+import { getProfileById, followProfile } from '../../actions/profile';
 import './ProfileStyles.css';
 import Moment from 'react-moment';
 import { getTweets } from '../../actions/tweet';
 import Header from '../../components/Header/Header';
 
 const Profile = ({ 
-    getProfileById, 
+    getProfileById,
+    followProfile,
     profile: {
         profile,
         loading 
@@ -83,6 +84,7 @@ const Profile = ({
                         </Fragment>
                     )}
                     </p>
+                    <button className='btn btn-primary' onClick={e => followProfile(profile._id)}>Follow Profile</button>
                     </div>
                     <div style={{ height: '10px', backgroundColor: 'rgb(37, 51, 65)' }} ></div>
                     {tweets.map(tweet => (
@@ -118,6 +120,7 @@ const Profile = ({
 
 Profile.propTypes = {
     getProfileById: PropTypes.func.isRequired,
+    followProfile: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     tweet: PropTypes.object.isRequired
@@ -129,4 +132,4 @@ const mapStateToProps = state => ({
     tweet: state.tweet
 })
 
-export default connect(mapStateToProps, { getProfileById, getTweets })(Profile)
+export default connect(mapStateToProps, { getProfileById, getTweets, followProfile })(Profile)

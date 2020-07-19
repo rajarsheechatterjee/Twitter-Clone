@@ -1,4 +1,4 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, GET_PROFILES } from "../actions/types";
+import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, GET_PROFILES, UPDATE_FOLLOWING } from "../actions/types";
 
 const initialState = {
     profile: null,
@@ -27,6 +27,12 @@ export default function( state = initialState, action ) {
             return {
                 ...state,
                 error: payload,
+                loading: false
+            };
+        case UPDATE_FOLLOWING:
+            return {
+                ...state,
+                profiles: state.profiles.map(profile => profile._id === payload.id ? { ...profile, following : payload.following } : profile ),
                 loading: false
             };
         case CLEAR_PROFILE:
