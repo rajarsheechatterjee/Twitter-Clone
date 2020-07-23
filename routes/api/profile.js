@@ -163,27 +163,27 @@ router.delete('/', auth, async (req, res) => {
 router.put('/follow/:user_id', auth, async (req, res) => {
     try {
 
-        const user = await User.findById(req.user.id);
-
-        if (user.following.filter(follow => follow.user.toString() === req.params.user_id).length > 0) {
+        const currentUser = await Profile.findById(req.user.id);
+        
+        if (currentUser.following.filter(follow => follow.user.toString() === req.params.user_id).length > 0) {
             
-            const removeIndex = user.following.map(like => like.user.toString()).indexOf(req.params.user_id);
+            const removeIndex = currentUser.following.map(follow => follow.user.toString()).indexOf(req.params.user_id);
 
-            user.following.splice(removeIndex, 1);
+            currentUser.following.splice(removeIndex, 1);
     
-            await user.save();
+            await currentUser.save();
     
-            res.json(user.following);
+            res.json(currentUser.following);
     
         } else {
             
-            user.following.unshift({
+            currentUser.following.unshift({
                 user: req.params.user_id
             });
     
-            await user.save();
+            await currentUser.save();
     
-            res.json(user.following);
+            res.json(currentUser.following);
         }
 
     } catch (err) {

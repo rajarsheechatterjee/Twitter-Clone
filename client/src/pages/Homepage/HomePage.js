@@ -6,12 +6,14 @@ import Spinner from '../../components/Spinner/Spinner';
 import TweetItem from './TweetItem';
 import TweetForm from '../TweetForm/TweetForm';
 import { getTweets } from '../../actions/tweet';
+import { getCurrentProfile } from '../../actions/profile';
 import './HomePageStyles.css';
 import Header from '../../components/Header/Header';
 
-const HomePage = ({ auth, getTweets, tweet: { tweets, loading } }) => {
+const HomePage = ({ getCurrentProfile, getTweets, tweet: { tweets, loading } }) => {
 
     useEffect(() => {
+        getCurrentProfile();
         getTweets();
     }, [getTweets]);
 
@@ -47,12 +49,11 @@ const HomePage = ({ auth, getTweets, tweet: { tweets, loading } }) => {
 HomePage.propTypes = {
     getTweets: PropTypes.func.isRequired,
     tweet: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
+    getCurrentProfile: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     tweet: state.tweet,
-    auth: state.auth
 });
 
-export default connect(mapStateToProps, { getTweets })(HomePage)
+export default connect(mapStateToProps, { getTweets, getCurrentProfile })(HomePage)

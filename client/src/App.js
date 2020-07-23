@@ -38,7 +38,7 @@ const App = () => {
 					<Switch>
 						<Redirect exact from='/' to='home' />
 						<Route exact path='/profiles' component={Profiles} />
-						<PrivateRoute exact path='/profile' component={UserProfile} />
+						<PrivateRoute exact path='/profile/me' component={UserProfile} />
 						<Route exact path='/profile/:id' component={Profile} />
 						<PrivateRoute exact path='/tweets/:id' component={Tweet} />
 						<PrivateRoute exact path='/createprofile' component={CreateProfile} />

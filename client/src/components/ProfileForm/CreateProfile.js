@@ -35,7 +35,7 @@ const CreateProfile = ({ createProfile, history }) => {
                     <input name='location' type="text" className="form-control" value={location} onChange={e => onChange(e)} />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <Link to='/profile' type="submit" className="btn btn-info">Go Back</Link>
+                <Link to='/profile/me' type="submit" className="btn btn-info">Go Back</Link>
             </form>
         </Fragment>
     )
