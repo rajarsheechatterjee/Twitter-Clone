@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../actions/profile';
+import Header from '../Header/Header';
 
 const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState({
@@ -24,20 +25,47 @@ const CreateProfile = ({ createProfile, history }) => {
 
     return (
         <Fragment>
-            <h1>Create your profile</h1>
-            <form onSubmit={e => onSubmit(e)} >
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Bio</label>
-                    <input name='bio' type="text" className="form-control" value={bio} onChange={e => onChange(e)} />
+            <div className="container">
+                <div className="row">
+                <Header />
+                <div className="r-1ye8kvj bdr-btm css-1dbjc4n r-yfoy6g r-18bvks7 r-1ljd8xs r-13l2t4g r-1phboty r-1jgb5lz r-11wrixw r-61z16t r-1ye8kvj r-13qz1uu r-184en5c mx-0">
+                <div className="css-1dbjc4n r-aqfbo4 r-yfoy6g r-1ila09b r-rull8r r-qklmqi r-gtdqiz r-ipm5af r-1g40b8q r-1h3ijdo r-1j3t67a r-qklmqi r-rull8r r-1ila09b" >
+                        <div className='css-1dbjc4n r-1loqt21 r-136ojw6' >
+                            <div className='css-1dbjc4n r-1awozwy r-18u37iz r-1h3ijdo r-1777fci r-1jgb5lz r-sb58tz r-13qz1uu' >
+                            <div className="css-1dbjc4n r-16y2uox r-1wbh5a2 r-1pi2tsx r-1777fci" >
+                                <div className='r-1habvwh' >
+                                    <h2 style={{ alignItems: 'flex-start', fontWeight: '800', fontSize: '19px', color: 'rgb(255, 255, 255)', justifyContent: 'center', verticalAlign: 'middle' }}>
+                                    <Link to='/home'>
+                                    <i class="fas fa-long-arrow-alt-left mr-3" style={{ color: 'rgba(29,161,242,1.00)' }}></i>
+                                    </Link>
+                                        Create Profile</h2>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                <div className='r-1x0uki6 r-1ye8kvj r-13qz1uu r-1j3t67a r-1jgb5lz'>
+                        <form onSubmit={e => onSubmit(e)} >
+                          <div className="form-group my-2">
+                            <label className=' r-wgabs5  r-1uaug3w r-18u37iz r-rull8r  r-1778zho r-1jkafct css-1dbjc4n' htmlFor="exampleInputEmail1">
+                              <span className='r-glunga r-utggzx r-k200y r-16dba41 r-111h2gw r-a023e6'>Bio</span>
+                            </label>
+                            <input name='bio' type="text" className="form-control" value={bio} onChange={e => onChange(e)} required />
+                          </div>
+                          <div className="form-group my-2">
+                            <label className=' r-wgabs5  r-1uaug3w r-18u37iz r-rull8r  r-1778zho r-1jkafct css-1dbjc4n' htmlFor="exampleInputEmail1">
+                              <span className='r-glunga r-utggzx r-k200y r-16dba41 r-111h2gw r-a023e6'>Location</span>
+                            </label>
+                            <input name='location' type="text" minLength='6' className="form-control" value={location} onChange={e => onChange(e)} required />
+                          </div>
+                          <button type="submit" style={{ width: '100%', cursor:'pointer' }}  className="mx-0 my-4 r-17bavie r-1jayybb r-urgr8i  r-1ny4l3l r-6416eg  r-1w2pmg  r-o7ynqc  r-lrvibr  r-15bsvpr r-vlx1xi  r-zg41ew  r-42olwf  r-rs99b7  r-1phboty r-sdzlij r-jwli3a  r-eljoum  r-vw2c0b  r-a023e6  r-1qd0xha r-qvutc0  r-bcqeeo  r-1awozwy r-1777fci r-16y2uox r-18u37iz r-q4m81j  r-dnmrzs  r-6koalj" >Save Profile</button>
+                        </form>
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Location</label>
-                    <input name='location' type="text" className="form-control" value={location} onChange={e => onChange(e)} />
+                    
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-                <Link to='/profile/me' type="submit" className="btn btn-info">Go Back</Link>
-            </form>
-        </Fragment>
+            </div>
+      </Fragment>
     )
 }
 

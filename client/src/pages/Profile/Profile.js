@@ -84,6 +84,9 @@ const Profile = ({
                         </Fragment>
                     )}
                     </p>
+                    <p>
+                        {profile.followers.length} Followers {profile.following.length} Following
+                    </p>
                     <button className='btn btn-primary' onClick={e => followProfile(profile.user._id)}>Follow Profile</button>
                     </div>
                     <div style={{ height: '10px', backgroundColor: 'rgb(37, 51, 65)' }} ></div>

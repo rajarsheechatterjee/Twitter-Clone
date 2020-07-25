@@ -34,7 +34,9 @@ export const getCurrentProfile = () => async dispatch => {
 
 // Get All Profiles
 export const getProfiles = () => async dispatch => {
-    dispatch({ type: CLEAR_PROFILE });
+    dispatch({
+        type: CLEAR_PROFILE
+    });
     try {
         const res = await axios.get('/api/profile/');
 
@@ -114,19 +116,26 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 
 // Delete Account & Profile
 export const deleteAccount = () => async dispatch => {
-    if(window.confirm('Are you sure? This can NOT be undone!')) {
+    if (window.confirm('Are you sure? This can NOT be undone!')) {
         try {
             await axios.delete(`api/profile/`);
 
-            dispatch({type: CLEAR_PROFILE});
-            dispatch({type: ACCOUNT_DELETED});
+            dispatch({
+                type: CLEAR_PROFILE
+            });
+            dispatch({
+                type: ACCOUNT_DELETED
+            });
 
             dispatch(setAlert('Your account has been permanently deleted', 'info'));
 
-        } catch(err) {
+        } catch (err) {
             dispatch({
                 type: PROFILE_ERROR,
-                payload: { msg: err.response.statusText, status: err.response.status }
+                payload: {
+                    msg: err.response.statusText,
+                    status: err.response.status
+                }
             });
         }
     }
@@ -139,12 +148,18 @@ export const followProfile = (id) => async dispatch => {
 
         dispatch({
             type: UPDATE_FOLLOWING,
-            payload: { id, following: res.data}
+            payload: {
+                id,
+                payload: res.data,
+            }
         });
-    } catch(err) {
+    } catch (err) {
         dispatch({
             type: PROFILE_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
+            payload: {
+                msg: err.response.statusText,
+                status: err.response.status
+            }
         });
     }
 };

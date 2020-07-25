@@ -73,6 +73,9 @@ const UserProfile = ({
 
                         </p>
                         <p>
+                            {profile.followers.length} Followers {profile.following.length} Following
+                        </p>
+                        <p>
                         { profile !== null ? (
                             <Fragment>
                                 <span className='pb-2' style={{ color: '#8899a6' }}><i className="fas fa-map-marked-alt mr-2"></i>Location: 

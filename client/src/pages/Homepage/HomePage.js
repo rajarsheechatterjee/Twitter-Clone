@@ -10,7 +10,7 @@ import { getCurrentProfile } from '../../actions/profile';
 import './HomePageStyles.css';
 import Header from '../../components/Header/Header';
 
-const HomePage = ({ getCurrentProfile, getTweets, tweet: { tweets, loading } }) => {
+const HomePage = ({ getCurrentProfile, getTweets, profile: { profile, profileLoading }, tweet: { tweets, loading } }) => {
 
     useEffect(() => {
         getCurrentProfile();
@@ -18,7 +18,7 @@ const HomePage = ({ getCurrentProfile, getTweets, tweet: { tweets, loading } }) 
     }, [getTweets]);
 
     return (
-        (loading) ? <Spinner /> : <Fragment>
+        (profileLoading && loading) ? <Spinner /> : <Fragment>
             <div className="container">
             <div className="row">
                 <Header />
@@ -36,9 +36,7 @@ const HomePage = ({ getCurrentProfile, getTweets, tweet: { tweets, loading } }) 
                     </div>
                     <TweetForm />
                     <div style={{ height: '10px', backgroundColor: 'rgb(37, 51, 65)' }} ></div>
-                    {tweets.map(tweet => (
-                        <TweetItem key={tweet._id} tweet={tweet} />
-                    ))}
+                    {profile.following.length > 0 && profile.following.map(follow => tweets.map(tweet => (follow.user === tweet.user) && <TweetItem key={tweet._id} tweet={tweet} /> ))}
                 </div>
             </div>
             </div>
@@ -50,10 +48,12 @@ HomePage.propTypes = {
     getTweets: PropTypes.func.isRequired,
     tweet: PropTypes.object.isRequired,
     getCurrentProfile: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
     tweet: state.tweet,
+    profile: state.profile
 });
 
 export default connect(mapStateToProps, { getTweets, getCurrentProfile })(HomePage)

@@ -153,23 +153,23 @@ router.put('/like/:id', auth, async (req, res) => {
         const tweet = await Tweet.findById(req.params.id);
 
         if (tweet.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
-            
+
             const removeIndex = tweet.likes.map(like => like.user.toString()).indexOf(req.user.id);
 
             tweet.likes.splice(removeIndex, 1);
-    
+
             await tweet.save();
-    
+
             res.json(tweet.likes);
-    
+
         } else {
-            
+
             tweet.likes.unshift({
                 user: req.user.id
             });
-    
+
             await tweet.save();
-    
+
             res.json(tweet.likes);
         }
 

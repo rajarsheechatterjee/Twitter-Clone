@@ -22,6 +22,12 @@ const ProfileSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'users'
         }
+    }],
+    followers: [{
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: 'users'
+        }
     }]
 });
 

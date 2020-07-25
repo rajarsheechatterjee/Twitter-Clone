@@ -1,45 +1,57 @@
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE, GET_PROFILES, UPDATE_FOLLOWING } from "../actions/types";
+import {
+    GET_PROFILE,
+    PROFILE_ERROR,
+    CLEAR_PROFILE,
+    GET_PROFILES,
+    UPDATE_FOLLOWING
+} from "../actions/types";
 
 const initialState = {
     profile: null,
     profiles: [],
-    loading: true,
+    profileLoading: true,
     error: {}
 };
 
-export default function( state = initialState, action ) {
-    const { type, payload } = action;
+export default function (state = initialState, action) {
+    const {
+        type,
+        payload
+    } = action;
 
-    switch(type) {
+    switch (type) {
         case GET_PROFILE:
             return {
                 ...state,
                 profile: payload,
-                loading: false
+                    profileLoading: false
             };
         case GET_PROFILES:
             return {
                 ...state,
                 profiles: payload,
-                loading: false
+                    profileLoading: false
             };
         case PROFILE_ERROR:
             return {
                 ...state,
                 error: payload,
-                loading: false
+                    profileLoading: false
             };
         case UPDATE_FOLLOWING:
             return {
                 ...state,
-                profile: { ...state.profile, following: payload.following },
-                loading: false
+                profiles: state.profiles.map(profile => profile._id === payload.id ? {
+                        ...profile,
+                        following: payload.following
+                    } : profile),
+                    profileLoading: false
             };
         case CLEAR_PROFILE:
             return {
                 ...state,
                 profile: null,
-                loading: false
+                    profileLoading: false
             };
         default:
             return state;
