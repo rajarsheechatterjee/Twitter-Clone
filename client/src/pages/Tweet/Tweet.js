@@ -17,7 +17,7 @@ const Tweet = ({ auth, getTweet, match, addLike, deleteTweet, tweet: { tweet, lo
     }, [getTweet]);
 
     return (
-        (auth.loading || loading) ? <Spinner /> : <Fragment>
+        (auth.loading && loading) ? <Spinner /> : <Fragment>
         <div className="container">
         <div className="row">
             <Header />

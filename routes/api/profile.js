@@ -35,10 +35,11 @@ router.get("/me", auth, async (req, res) => {
     }
 });
 
-// @route GET api/profile/me
-// @desc GCreate or update profile
-// @access private
-
+/**
+ * @route POST api/profile/me
+ * @desc Create or update your profile
+ * @access private
+ */
 router.post(
     "/",
     [auth, check("bio", "Bio is required").not().isEmpty()],
@@ -52,17 +53,22 @@ router.post(
 
         const {
             bio,
-            location
+            location,
         } = req.body;
 
         const profileFields = {};
         profileFields.user = req.user.id;
+        profileFields.following = [];
 
         if (bio) profileFields.bio = bio;
         if (location) profileFields.location = location;
 
         try {
             let profile = await Profile.findOne({
+                user: req.user.id,
+            });
+
+            profileFields.following.unshift({
                 user: req.user.id,
             });
 
@@ -187,9 +193,11 @@ router.put("/follow/:user_id", auth, async (req, res) => {
 
             await currentUser.save();
 
-            followingUser.followers.unshift({
-                user: req.user.id,
-            });
+            const removeIndex2 = followingUser.followers
+                .map((follow) => follow.user.toString())
+                .indexOf(req.params.user_id);
+
+            followingUser.followers.splice(removeIndex2, 1);
 
             await followingUser.save();
 
@@ -202,11 +210,9 @@ router.put("/follow/:user_id", auth, async (req, res) => {
 
             await currentUser.save();
 
-            const removeIndex = followingUser.followers
-                .map((follow) => follow.user.toString())
-                .indexOf(req.params.user_id);
-
-            followingUser.followers.splice(removeIndex, 1);
+            followingUser.followers.unshift({
+                user: req.user.id,
+            });
 
             await followingUser.save();
 

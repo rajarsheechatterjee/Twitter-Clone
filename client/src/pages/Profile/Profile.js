@@ -85,7 +85,13 @@ const Profile = ({
                     )}
                     </p>
                     <p>
-                        {profile.followers.length} Followers {profile.following.length} Following
+                        <span style={{fontWeight: 'bold'}}>
+                            {profile.followers.length}
+                        </span><span style={{fontSize: '0.9rem', color: '#8899a6'}}> Followers </span>
+                        <span style={{fontWeight: 'bold'}}>
+                            {profile.following.length}
+                        </span><span style={{fontSize: '0.9rem', color: '#8899a6'}}> Following</span>
+
                     </p>
                     <button className='btn btn-primary' onClick={e => followProfile(profile.user._id)}>Follow Profile</button>
                     </div>
