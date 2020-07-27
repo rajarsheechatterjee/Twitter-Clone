@@ -15,7 +15,7 @@ const Profile = ({
     followProfile,
     profile: {
         profile,
-        loading 
+        profileLoading 
     },
     auth,
     match,
@@ -32,7 +32,7 @@ const Profile = ({
 
     return (
         <Fragment>
-            {profile === null || loading ? (
+            {profile === null || profileLoading ? (
                 <Spinner />
             ) : (
             <Fragment>

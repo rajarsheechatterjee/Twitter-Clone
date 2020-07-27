@@ -10,11 +10,20 @@ import ReplyForm from './ReplyForm';
 import ReplyItem from './ReplyItem';
 import Header from '../../components/Header/Header';
 
-const Tweet = ({ auth, getTweet, match, addLike, deleteTweet, tweet: { tweet, loading }}) => {
+const Tweet = ({
+    auth, 
+    getTweet, 
+    tweet: { 
+        tweet, 
+        loading 
+    },
+    match, 
+    addLike, 
+    deleteTweet}) => {
     
     useEffect(() => {
         getTweet(match.params.id);
-    }, [getTweet]);
+    }, [getTweet], match.params.id);
 
     return (
         (auth.loading && loading) ? <Spinner /> : <Fragment>
