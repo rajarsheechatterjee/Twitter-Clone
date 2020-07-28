@@ -26,7 +26,7 @@ const Tweet = ({
     }, [getTweet], match.params.id);
 
     return (
-        (auth.loading && loading) ? <Spinner /> : <Fragment>
+        (!tweet) ? <Spinner /> : <Fragment>
         <div className="container">
         <div className="row">
             <Header />

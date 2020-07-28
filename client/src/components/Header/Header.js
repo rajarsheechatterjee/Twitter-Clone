@@ -56,8 +56,7 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
     return (
         <Fragment>
-
-                <div className="r-o96wvk">
+                <div className="css-1dbjc4n r-o96wvk">
                     <div className='css-1dbjc4n r-aqfbo4 r-1pi2tsx r-1xcajam r-ipm5af' >
                         <div className='css-1dbjc4n r-1pi2tsx r-1wtj0ep r-1rnoaur r-utggzx r-o96wvk'>
                             <div className='css-1dbjc4n r-1habvwh' >
@@ -88,19 +87,6 @@ const Header = ({ auth: { isAuthenticated, loading, user }, logout }) => {
                                 </div>
                                 { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>) }
                             </div>   
-                            {/* <div className='css-1dbjc4n r-15d164r r-1x0uki6'>
-                                <div className="css-1dbjc4n">
-                                    <div role='button' className='css-18t94o4 css-1dbjc4n r-1awozwy r-sdzlij r-6koalj r-18u37iz r-1ny4l3l r-1sp51qo r-o7ynqc r-6416eg'>
-                                        <div role='presentation' className='css-1dbjc4n r-sdzlij r-j66t93 r-1ny4l3l r-1udh08x r-eu2yb4'>
-                                            <div className='css-1dbjc4n r-1adg3ll r-1udh08x' >
-                                                <div className="r-1adg3ll r-13qz1uu" style="padding-bottom: 100%;"></div>
-                                                <div class="r-1p0dtai r-1pi2tsx r-1d2f490 r-u8s1d r-ipm5af r-13qz1uu"><div aria-label="" class="css-1dbjc4n r-sdzlij r-1p0dtai r-1mlwlqe r-1d2f490 r-1udh08x r-u8s1d r-zchlnj r-ipm5af r-417010"><div class="css-1dbjc4n r-1niwhzg r-vvn4in r-u6sd8q r-4gszlv r-1p0dtai r-1pi2tsx r-1d2f490 r-u8s1d r-zchlnj r-ipm5af r-13qz1uu r-1wyyakw" style="backgroundImage: url(&quot;https://pbs.twimg.com/profile_images/1276874521505484802/TxbaaNkm_bigger.jpg&quot;);"></div><img alt="" draggable="true" src={user.avatar} class="css-9pa8cd"></img></div></div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

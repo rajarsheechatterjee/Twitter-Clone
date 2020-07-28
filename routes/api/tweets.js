@@ -77,6 +77,27 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
+// /**
+//  * @route GET api/tweets/user_id
+//  * @desc get all tweets
+//  * @access Private
+//  */
+// router.get('/', auth, async (req, res) => {
+//     try {
+
+//         const tweets = await Tweet.find().sort({
+//             date: -1
+//         });
+
+//         res.json(tweets);
+
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send('Server Error');
+//     }
+// });
+
+
 // @route GET api/tweets/:id
 // @desc get tweets by id
 // @access Private

@@ -37,6 +37,10 @@
     cursor: pointer;
 }
 
+.css-18t94o4 {
+    cursor: pointer;
+}
+
 .r-1h3ijdo {
     height: 53px;
 }
@@ -1428,4 +1432,51 @@
     top: 0px;
     width: 100%;
     z-index: -1;
+}
+
+.r-16y2uox {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.r-obd0qt {
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.r-1g40b8q {
+    z-index: 3;
+}
+
+.r-1w6e6rj {
+    flex-wrap: wrap;
+}
+
+.r-184en5c {
+    z-index: 1;
+}
+
+.r-yfoy6g {
+    background-color: rgb(21, 32, 43);
+}
+
+.r-1wtj0ep {
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.r-1awozwy {
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.r-18u37iz {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+}
+
+.r-id7aif {
+    margin-left: 2px;
+    margin-right: 2px;
 }
