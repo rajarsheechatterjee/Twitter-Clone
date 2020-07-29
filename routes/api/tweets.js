@@ -85,9 +85,18 @@ router.get('/', auth, async (req, res) => {
 // router.get('/', auth, async (req, res) => {
 //     try {
 
-//         const tweets = await Tweet.find().sort({
-//             date: -1
-//         });
+//         const profile = await Profile.findOne({user: req.user.id});
+
+//         const tweets = {};
+        
+//         profile.following.forEach(follow => (
+//             tweets.push(Tweet.find({user: follow.user}))
+
+//         ));
+
+//         // const tweets = await Tweet.find().sort({
+//         //     date: -1
+//         // });
 
 //         res.json(tweets);
 

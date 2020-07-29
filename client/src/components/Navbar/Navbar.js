@@ -38,10 +38,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 				<Fragment>
 					<div className='css-1dbjc4n r-1awozwy r-1pz39u2 r-18u37iz r-16y2uox' >
 						<div className="css-1dbjc4n r-16y2uox" >
-							<Link to='/login' className='deco nav-link r-aj3cln r-1vsu8ta r-1ny4l3l r-6416eg  r-1niwhzg r-1w2pmg  r-1loqt21 r-o7ynqc  r-lrvibr  r-1fneopy r-p1n3y5  r-rs99b7  r-1phboty r-sdzlij ' >
+							<Link to='/login' className='followbutton2 deco nav-link r-aj3cln r-1vsu8ta r-1ny4l3l r-6416eg  r-1niwhzg r-1w2pmg  r-1loqt21 r-o7ynqc  r-lrvibr  r-1fneopy r-p1n3y5  r-rs99b7  r-1phboty r-sdzlij ' >
 								<div className='r-eljoum hght r-vw2c0b r-a023e6 r-1qd0xha r-qvutc0 r-bcqeeo  r-1awozwy r-1777fci r-16y2uox r-18u37iz r-q4m81j  r-13gxpu9 r-dnmrzs  r-6koalj ' >
 									<span className='r-1qd0xha r-qvutc0  r-bcqeeo  r-ad9z0x ' >
-									<span className='deco mx-0 my-0 p-0  r-qvutc0 r-bcqeeo r-ad9z0x css-16my406 css-901oao ' >Login</span>
+									<span className='deco mx-0 my-0 p-0  r-qvutc0 r-bcqeeo r-ad9z0x css-16my406 css-901oao' >Login</span>
 
 									</span>
 
@@ -49,11 +49,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 							</Link>
 						</div>
 						<div className=" r-16y2uox mgnlft" style={{ color: 'white' }} >
-							<Link to='/register' className='deco nav-link r-urgr8i  r-aj3cln  r-1vsu8ta r-1ny4l3l r-6416eg  r-1w2pmg  r-1loqt21 r-o7ynqc  r-lrvibr  r-1fneopy r-42olwf  r-rs99b7  r-1phboty r-sdzlij ' >
+							<Link to='/register' className='signupbutton deco nav-link r-urgr8i  r-aj3cln  r-1vsu8ta r-1ny4l3l r-6416eg  r-1w2pmg  r-1loqt21 r-o7ynqc  r-lrvibr  r-1fneopy r-42olwf  r-rs99b7  r-1phboty r-sdzlij ' >
 								<div className='r-eljoum hght r-vw2c0b r-a023e6 r-1qd0xha r-qvutc0 r-bcqeeo  r-1awozwy r-1777fci r-16y2uox r-18u37iz r-q4m81j r-dnmrzs  r-6koalj ' >
 									<span className='r-1qd0xha r-qvutc0  r-bcqeeo  r-ad9z0x ' >
-									<span className='deco mx-0 my-0 p-0  r-qvutc0 r-bcqeeo r-ad9z0x css-16my406 css-901oao ' >Sign Up</span>
-
+										<span className='deco mx-0 my-0 p-0  r-qvutc0 r-bcqeeo r-ad9z0x css-16my406 css-901oao ' >Sign Up</span>
 									</span>
 
 								</div>

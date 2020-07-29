@@ -216,10 +216,10 @@
 }
 
 .r-1twgtwe {
-    border-bottom-color: rgba(0, 0, 0, 0.04);
-    border-left-color: rgba(0, 0, 0, 0.04);
-    border-right-color: rgba(0, 0, 0, 0.04);
-    border-top-color: rgba(0, 0, 0, 0.04);
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
 }
 
 .r-rs99b7 {
@@ -317,4 +317,103 @@
 
 p {
     margin-bottom: 0.7rem;
+}
+
+.followbutton {
+    border-bottom-color: rgb(29, 161, 242);
+    border-left-color: rgb(29, 161, 242);
+    border-right-color: rgb(29, 161, 242);
+    border-top-color: rgb(29, 161, 242);
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    float: right;
+    height: 39px;
+    color: rgb(29, 161, 242);
+
+}
+
+.backarrow {
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    
+}
+.backarrow:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+    transition-duration: 0.2s;
+}
+
+.followbutton:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+    transition-duration: 0.2s;
+}
+
+button:focus {
+    border: none;
+    outline: none;
+}
+
+.r-7o8qx1 {
+    margin-right: 5px;
+}
+
+.r-111h2gw {
+    color: rgb(136, 153, 166);
+}
+.r-lrvibr {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.r-1plcrui {
+    vertical-align: text-bottom;
+}
+.r-bnwqim {
+    position: relative;
+}
+.r-dnmrzs {
+    max-width: 100%;
+}
+.r-1xvli5t {
+    height: 1.25em;
+}
+.r-yyyyoo {
+    fill: currentcolor;
+}
+.r-4qtqp9 {
+    display: inline-block;
+}
+
+svg:not(:root) {
+    overflow: hidden;
 }

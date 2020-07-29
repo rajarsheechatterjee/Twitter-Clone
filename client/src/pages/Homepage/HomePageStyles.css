@@ -6,6 +6,14 @@
     border-bottom-width: 1px;
 }
 
+.cardhover:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    
+}
+.followbutton2:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+    
+}
 .r-rull8r {
     border-bottom-style: solid;
 }

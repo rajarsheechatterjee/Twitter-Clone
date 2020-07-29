@@ -171,3 +171,23 @@
     margin-left: 2px;
     margin-right: 2px;
 }
+
+textarea:hover {
+    border: none;
+    outline: none;
+}
+textarea:focus {
+    border: none;
+    outline: none;
+}
+
+.tweetbutton {
+    min-width: calc(62.79px);
+    min-height: 39px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.tweetbutton:hover {
+    background-color: rgb(26, 145, 218);
+}

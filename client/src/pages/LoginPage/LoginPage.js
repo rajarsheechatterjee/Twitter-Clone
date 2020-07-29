@@ -44,7 +44,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
                 </label>
                 <input name='password' type="password" minLength='6' className="form-control" value={password} onChange={e => onChange(e)} required />
               </div>
-              <button type="submit" style={{ width: '100%', cursor:'pointer' }}  className="mx-0 my-4 r-17bavie r-1jayybb r-urgr8i  r-1ny4l3l r-6416eg  r-1w2pmg  r-o7ynqc  r-lrvibr  r-15bsvpr r-vlx1xi  r-zg41ew  r-42olwf  r-rs99b7  r-1phboty r-sdzlij r-jwli3a  r-eljoum  r-vw2c0b  r-a023e6  r-1qd0xha r-qvutc0  r-bcqeeo  r-1awozwy r-1777fci r-16y2uox r-18u37iz r-q4m81j  r-dnmrzs  r-6koalj "  >Submit</button>
+              <button type="submit" style={{ width: '100%', cursor:'pointer' }}  className="submitbutton mx-0 my-4 r-17bavie r-1jayybb r-urgr8i  r-1ny4l3l r-6416eg  r-1w2pmg  r-o7ynqc  r-lrvibr  r-15bsvpr r-vlx1xi  r-zg41ew  r-42olwf  r-rs99b7  r-1phboty r-sdzlij r-jwli3a  r-eljoum  r-vw2c0b  r-a023e6  r-1qd0xha r-qvutc0  r-bcqeeo  r-1awozwy r-1777fci r-16y2uox r-18u37iz r-q4m81j  r-dnmrzs  r-6koalj "  >Submit</button>
             </form>
             <p className="my-1 text-light" style={{ textAlign: 'center' }} >
                 Dont have an account? <Link to='/register'>Sign up</Link>

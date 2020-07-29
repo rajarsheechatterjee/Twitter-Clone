@@ -273,3 +273,12 @@
 .r-6koalj {
     display: flex;
 }
+
+.submitbutton:hover {
+    background-color: rgb(26, 145, 218);
+}
+
+.signupbutton:hover {
+    background-color: rgb(26, 145, 218);
+    color: white;
+}

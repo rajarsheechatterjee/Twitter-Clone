@@ -35,7 +35,7 @@ const ReplyForm = ({ auth, tweetId, addReply }) => {
                 <div className="css-1dbjc4n">
                     <div className='css-1dbjc4n r-1awozwy r-yfoy6g r-18u37iz r-1w6e6rj r-1wtj0ep r-id7aif r-184en5c'>
                         <div className='r-156q2ks r-1awozwy r-18u37iz'>
-                            <input type="submit" style={{ height: '20px' }} className='btn btn-sm mr-0 my-1 r-sdzlij tweetbutton' value='Leave A Reply'/>
+                            <input type="submit" style={{ height: '20px' }} className='tweetbutton btn btn-sm mr-0 my-1 r-sdzlij' value='Leave A Reply'/>
                         </div>
                     </div>
                 </div>

@@ -24,9 +24,9 @@ const TweetForm = ({ addPost, auth }) => {
                 <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={auth.user.avatar} alt='avatar'/>
                 <textarea
                     name='text'
-                    rows='3'
+                    rows='2'
                     style={{ width: '100%', backgroundColor: 'rgb(21, 32, 43)', border: 'none', color: 'white' }}
-                    placeholder='Whats Happening'
+                    placeholder="What's Happening?"
                     required
                     value={text}
                     onChange={e => setText(e.target.value)}
@@ -36,7 +36,7 @@ const TweetForm = ({ addPost, auth }) => {
                 <div className="css-1dbjc4n">
                     <div className='css-1dbjc4n r-1awozwy r-yfoy6g r-18u37iz r-1w6e6rj r-1wtj0ep r-id7aif r-184en5c'>
                         <div className='r-156q2ks r-1awozwy r-18u37iz'>
-                            <input type="submit" className='btn btn-sm mr-0 my-1 r-sdzlij tweetbutton' value='Tweet'/>
+                            <input type="submit" className='tweetbutton btn btn-sm mr-0 my-1 r-sdzlij' value='Tweet'/>
                         </div>
                     </div>
                 </div>

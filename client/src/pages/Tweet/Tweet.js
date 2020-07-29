@@ -38,7 +38,7 @@ const Tweet = ({
                                 <div className='r-1habvwh' >
                                     <h2 style={{ alignItems: 'flex-start', fontWeight: '800', fontSize: '19px', color: 'rgb(255, 255, 255)', justifyContent: 'center', verticalAlign: 'middle' }}>
                                     <Link to='/home'>
-                                    <svg viewBox="0 0 24 24" class="mr-4 r-13gxpu9 r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M20 11H7.414l4.293-4.293c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414 0l-6 6c-.39.39-.39 1.023 0 1.414l6 6c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L7.414 13H20c.553 0 1-.447 1-1s-.447-1-1-1z"></path></g></svg>
+                                    <svg viewBox="0 0 24 24" class="backarrow mr-4 r-13gxpu9 r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M20 11H7.414l4.293-4.293c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414 0l-6 6c-.39.39-.39 1.023 0 1.414l6 6c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L7.414 13H20c.553 0 1-.447 1-1s-.447-1-1-1z"></path></g></svg>
                                     </Link>
                                         Tweet
                                     </h2>
@@ -54,9 +54,9 @@ const Tweet = ({
                             <div className="my-1" style={{ backgroundColor: 'rgb(21, 32, 43)'}} style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px', paddingBottom: '5px' }} >
                                 <div className='d-flex flex-row' style={{ verticalAlign: 'center' }} >
                                     <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={tweet.avatar} alt="avatar"/>
-                                    <Link to={(auth.user._id === tweet.user) ? (`/profile`) : (`/profile/${tweet.user}`)} style={{ textDecoration: 'none' }}>
+                                    <Link to={(auth.user._id === tweet.user) ? (`/profile/me`) : (`/profile/${tweet.user}`)} style={{ textDecoration: 'none' }}>
                                     <h6>
-                                        <span style={{ color: 'white', fontWeight: '700' }} >{tweet.name}</span> 
+                                        <span style={{ color: 'white', fontWeight: '700' }} className='name' >{tweet.name}</span> 
                                         <br/>
                                         <span style={{ color: '#8899A6', fontSize: '0.9rem' }} >@{tweet.username}</span>
                                     </h6> 
@@ -69,7 +69,7 @@ const Tweet = ({
                                     </p>
                                     </Link>
                                     <p>
-                                        <button type='button' className="btn btn-sm mr-1" style={{ backgroundColor: 'rgb(21, 32, 43)', color: '#8899a6' }} onClick={e => addLike(tweet._id)}>
+                                        <button type='button' className="btn btn-sm mr-1 like" onClick={e => addLike(tweet._id)}>
                                         <svg viewBox="0 0 24 24" className="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"><g><path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path></g></svg>
                                             <span>
                                                 {tweet.likes.length > 0 && <span>{tweet.likes.length}</span>}
