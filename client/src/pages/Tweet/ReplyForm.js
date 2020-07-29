@@ -23,9 +23,9 @@ const ReplyForm = ({ auth, tweetId, addReply }) => {
                 <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%' }} src={auth.user.avatar} alt='avatar'/>
                 <textarea
                     name='text'
-                    rows='3'
+                    rows='2'
                     style={{ width: '100%', backgroundColor: 'rgb(21, 32, 43)', border: 'none', color: 'white' }}
-                    placeholder='Whats Happening'
+                    placeholder="Tweet your reply"
                     required
                     value={text}
                     onChange={e => setText(e.target.value)}

@@ -63,7 +63,7 @@ const Profile = ({
                             {(auth.user._id !== profile.user._id) ? <button className='ml-2 followbutton' onClick={e => followProfile(profile.user._id)}>Follow</button> : <Link to='/editprofile'><button className='ml-2 followbutton'>Edit Profile</button></Link>}
                         </div>
                         <div style={{marginBottom: '10px'}}><span style={{ fontSize: '0.95rem', color: '#8899a6' }} >@{profile.user.username}</span></div>
-                        <span className>
+                        <span>
                             {profile.bio}
                         </span>
                     </p>

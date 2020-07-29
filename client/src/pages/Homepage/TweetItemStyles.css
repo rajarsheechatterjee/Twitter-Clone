@@ -180,6 +180,10 @@ button {
     color: rgb(29, 161, 242);
 }
 
+.replylink {
+    color: rgb(29, 161, 242);
+}
+
 /* .topborder {
     border-top-color: rgb(56, 68, 77);
     border-top-style: solid;

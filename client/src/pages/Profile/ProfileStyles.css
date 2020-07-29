@@ -348,6 +348,39 @@ p {
 
 }
 
+.deletebutton {
+    background-color: rgb(202, 32, 85);
+    border-bottom-color: rgb(202, 32, 85);
+    border-left-color: rgb(202, 32, 85);
+    border-right-color: rgb(202, 32, 85);
+    border-top-color: rgb(202, 32, 85);
+    border-bottom-left-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    float: right;
+    height: 39px;
+    
+}
+.deletebutton:hover {
+    background-color: rgba(202, 32, 85, 0.9);
+    transition-duration: 0.2s;
+}
+
 .backarrow {
     border-bottom-left-radius: 9999px;
     border-bottom-right-radius: 9999px;
