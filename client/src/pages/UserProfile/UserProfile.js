@@ -59,7 +59,7 @@ const UserProfile = ({
                         <div className="text-light" style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px' }}>
                         <img alt="" draggable="true" src={profile.user.avatar} style={{ height: '100px', width:'100px', borderRadius: '50%',  marginBottom: '7px', marginTop: '5px'  }}></img>
                         <p style={{marginBottom: '10px'}}>
-                            <div className='mb-0' ><span style={{ fontWeight: '800', fontSize: '19px' }}>{ profile.user && profile.user.name }</span><button className='ml-2 deletebutton' onClick={e => deleteAccount()}>Delete Profile</button><Link to='/editprofile'><button className='ml-2 followbutton'>Edit Profile</button></Link></div>
+                            <div className='mb-0' ><span style={{ fontWeight: '800', fontSize: '19px' }}>{ profile.user && profile.user.name }</span><button className='ml-2 deletebutton' onClick={() => deleteAccount()}>Delete Profile</button><Link to='/editprofile'><button className='ml-2 followbutton'>Edit Profile</button></Link></div>
                             <div style={{marginBottom: '10px'}}><span style={{ fontSize: '0.95rem', color: '#8899a6' }} >@{profile.user.username}</span></div>
                             <span className='my-3'>
                                 {profile.bio}
