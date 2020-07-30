@@ -48,4 +48,9 @@ A simple Twitter clone built with the MERN stack
     ```
 
   
-#### IMAGES
+#### Screenshots
+
+<img src="/screenshots/homepage.png" width=340px /><img src="/screenshots/profile.png" width=340px />
+<img src="/screenshots/tweet.png" width=340px /><img src="/screenshots/edit.png" width=340px />
+<img src="/screenshots/login.png" width=340px /><img src="/screenshots/register.png" width=340px />
+
