@@ -4,7 +4,6 @@ const auth = require('../../middleware/auth');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-
 const {
     check,
     validationResult
@@ -13,9 +12,11 @@ const {
 
 const User = require('../../models/User');
 
-// @route FET api/auth
-// @desc Test Route
-// @access Public
+/**
+ * @route GET api/auth
+ * @desc Test route
+ * @access Public
+ */
 
 router.get('/', auth, async (req, res) => {
     try {
@@ -29,9 +30,11 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-// @route POST api/auth
-// @desc Authenticate User & Get Token
-// @access Public
+/**
+ * @route POST api/auth
+ * @desc Authenticate user & get token
+ * @access Public
+ */
 
 router.post('/', [
         check('email', 'Please include a valid email').isEmail(),

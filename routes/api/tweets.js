@@ -13,10 +13,11 @@ const {
     prependOnceListener
 } = require('../../models/User');
 
-
-// @route POST api/tweets
-// @desc create tweets
-// @access Private
+/**
+ * @route POST api/tweets
+ * @desc Post a tweet
+ * @access Private
+ */
 
 router.post(
     '/',
@@ -59,13 +60,23 @@ router.post(
     }
 );
 
-// @route GET api/tweets
-// @desc get all tweets
-// @access Private
+
+/**
+ * @route GET api/tweets
+ * @desc Gets tweets of the accounts the current user follows
+ * @access Private
+ */
+
 router.get('/', auth, async (req, res) => {
     try {
 
-        const tweets = await Tweet.find().sort({
+        const profile = await Profile.findOne({
+            user: req.user.id
+        });
+
+        const tweets = await Tweet.find({
+            user: profile.following.map(following => following.user)
+        }).sort({
             date: -1
         });
 
@@ -77,39 +88,12 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-// /**
-//  * @route GET api/tweets/user_id
-//  * @desc get all tweets
-//  * @access Private
-//  */
-// router.get('/', auth, async (req, res) => {
-//     try {
+/**
+ * @route GET api/tweets/:id
+ * @desc Get a tweet by it's id
+ * @access Private
+ */
 
-//         const profile = await Profile.findOne({user: req.user.id});
-
-//         const tweets = {};
-        
-//         profile.following.forEach(follow => (
-//             tweets.push(Tweet.find({user: follow.user}))
-
-//         ));
-
-//         // const tweets = await Tweet.find().sort({
-//         //     date: -1
-//         // });
-
-//         res.json(tweets);
-
-//     } catch (err) {
-//         console.error(err.message);
-//         res.status(500).send('Server Error');
-//     }
-// });
-
-
-// @route GET api/tweets/:id
-// @desc get tweets by id
-// @access Private
 router.get('/:id', auth, async (req, res) => {
     try {
 
@@ -135,9 +119,11 @@ router.get('/:id', auth, async (req, res) => {
     }
 });
 
-// @route DELETE api/tweets/:id
-// @desc delete a tweet
-// @access Private
+/**
+ * @route DELETE api/tweets/:id
+ * @desc Delete a tweet
+ * @access Private
+ */
 
 router.delete('/:id', auth, async (req, res) => {
     try {
@@ -173,17 +159,21 @@ router.delete('/:id', auth, async (req, res) => {
     }
 });
 
-// @route PUT api/tweets/like/:id
-// @desc like a tweet
-// @access Private
+/**
+ * @route PUT api/like/:id
+ * @desc Like a tweet
+ * @access Private
+ */
 
 router.put('/like/:id', auth, async (req, res) => {
     try {
 
         const tweet = await Tweet.findById(req.params.id);
 
+        // Checks if the currentUser has already liked the tweet or not
         if (tweet.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
 
+            // If yes then it unlikes by removing the user from the likes array
             const removeIndex = tweet.likes.map(like => like.user.toString()).indexOf(req.user.id);
 
             tweet.likes.splice(removeIndex, 1);
@@ -194,6 +184,7 @@ router.put('/like/:id', auth, async (req, res) => {
 
         } else {
 
+            // If no then it likes by pushing the user from the likes array
             tweet.likes.unshift({
                 user: req.user.id
             });
@@ -209,9 +200,11 @@ router.put('/like/:id', auth, async (req, res) => {
     }
 });
 
-// @route PUT api/tweets/unlike/:id
-// @desc unlike a tweet
-// @access Private
+/**
+ * @route PUT api/unlike/:id
+ * @desc Unlike a tweet
+ * @access Private
+ */
 
 // router.put('/unlike/:id', auth, async (req, res) => {
 //     try {
@@ -238,10 +231,11 @@ router.put('/like/:id', auth, async (req, res) => {
 //     }
 // });
 
-
-// @route POST api/tweets/reply
-// @desc comment on a tweet
-// @access Private
+/**
+ * @route POST api/tweet/reply
+ * @desc Reply on a tweet
+ * @access Private
+ */
 
 router.post(
     '/reply/:id',
@@ -254,6 +248,7 @@ router.post(
         ]
     ],
     async (req, res) => {
+
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             res.status(400).json({
@@ -287,9 +282,11 @@ router.post(
     }
 );
 
-// @route POST api/tweets/reply/:id/:reply_id
-// @desc comment a reply
-// @access Private
+/**
+ * @route DELETE api/tweets/reply/:id/:reply_id
+ * @desc Delete a reply
+ * @access Private
+ */
 
 router.delete('/reply/:id/:reply_id', auth, async (req, res) => {
     try {

@@ -40,7 +40,7 @@ const HomePage = ({ getTweets, getProfiles, profile: {  profiles, profile, profi
                     </div>
                     <TweetForm />
                     <div style={{ height: '10px', backgroundColor: 'rgb(37, 51, 65)' }} ></div>
-                    {profile && profile.following.length > 0 && profile.following.map(follow => tweets.map(tweet => (follow.user === tweet.user) && <TweetItem key={tweet._id} tweet={tweet} /> ))}
+                    {profile && tweets.map(tweet => <TweetItem key={tweet._id} tweet={tweet} /> )}
                 </div>
                 </div>
                 <div className="col-md-3">

@@ -4,7 +4,6 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-
 const {
     check,
     validationResult
@@ -12,9 +11,11 @@ const {
 
 const User = require('../../models/User');
 
-// @route POST api/users
-// @desc Register Route
-// @access Public
+/**
+ * @route POST api/users
+ * @desc Register route
+ * @access Public
+ */
 
 router.post('/', [
         check('name', 'Name is required').not().isEmpty(),

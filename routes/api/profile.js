@@ -37,9 +37,10 @@ router.get("/me", auth, async (req, res) => {
 
 /**
  * @route POST api/profile/me
- * @desc Create or update your profile
- * @access private
+ * @desc Create or update current user's profile
+ * @access Private
  */
+
 router.post(
     "/",
     [auth, check("bio", "Bio is required").not().isEmpty()],
@@ -95,11 +96,13 @@ router.post(
     }
 );
 
-// @route GET api/profiles
-// @desc get all profile
-// @access public
+/**
+ * @route Get api/profiles
+ * @desc Get all profiles
+ * @access Private
+ */
 
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
     try {
         const profiles = await Profile.find().populate("user", [
             "name",
@@ -113,14 +116,16 @@ router.get("/", async (req, res) => {
     }
 });
 
-// @route GET api/profile/user/:user_id
-// @desc get profile by user_id
-// @access public
+/**
+ * @route GET api/profile/user/:userId
+ * @desc Get a user's profile by userId
+ * @access Public
+ */
 
-router.get("/user/:user_id", async (req, res) => {
+router.get("/user/:userId", async (req, res) => {
     try {
         const profile = await Profile.findOne({
-            user: req.params.user_id,
+            user: req.params.userId,
         }).populate("user", ["name", "avatar", "username"]);
 
         if (!profile)
@@ -139,9 +144,11 @@ router.get("/user/:user_id", async (req, res) => {
     }
 });
 
-// @route DELETE api/profile
-// @desc Delete all profile, user, tweets
-// @access private
+/**
+ * @route DELETE api/profile
+ * @desc Delete a user's tweets, profile and account
+ * @access Private
+ */
 
 router.delete("/", auth, async (req, res) => {
     try {
@@ -166,28 +173,36 @@ router.delete("/", auth, async (req, res) => {
     }
 });
 
-// @route PUT api/profile/follow/:user_id
-// @desc Follow a profile
-// @access Private
+/**
+ * @route  PUTapi/profile/follow/:userId
+ * @desc Follow a profile
+ * @access Private
+ */
 
-router.put("/follow/:user_id", auth, async (req, res) => {
+router.put("/follow/:userId", auth, async (req, res) => {
     try {
+
+        // Profile of the current user
         const currentUser = await Profile.findOne({
             user: req.user.id
         });
+
+        // Profile of the user to be followed
         const followingUser = await Profile.findOne({
-            user: req.params.user_id
+            user: req.params.userId
         });
 
+        // Checks if the current user already follows the profile
         if (
             currentUser.following.filter(
-                (follow) => follow.user.toString() === req.params.user_id
+                (follow) => follow.user.toString() === req.params.userId
             ).length > 0
         ) {
 
+            // If yes then unfollows the profile
             const removeIndex = currentUser.following
                 .map((follow) => follow.user.toString())
-                .indexOf(req.params.user_id);
+                .indexOf(req.params.userId);
 
             currentUser.following.splice(removeIndex, 1);
 
@@ -195,7 +210,7 @@ router.put("/follow/:user_id", auth, async (req, res) => {
 
             const removeIndex2 = followingUser.followers
                 .map((follow) => follow.user.toString())
-                .indexOf(req.params.user_id);
+                .indexOf(req.params.userId);
 
             followingUser.followers.splice(removeIndex2, 1);
 
@@ -204,8 +219,10 @@ router.put("/follow/:user_id", auth, async (req, res) => {
             res.json(currentUser.following);
 
         } else {
+
+            // If no then follows the profile
             currentUser.following.unshift({
-                user: req.params.user_id,
+                user: req.params.userId,
             });
 
             await currentUser.save();
