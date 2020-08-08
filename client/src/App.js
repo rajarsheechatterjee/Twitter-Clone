@@ -36,7 +36,7 @@ const App = () => {
     	  		<section>
 					<Alert />
 					<Switch>
-						<Redirect exact from='/' to='home' />
+						<Redirect exact from='/' to='login' />
 						<Route exact path='/profiles' component={Profiles} />
 						<PrivateRoute exact path='/profile/me' component={UserProfile} />
 						<Route exact path='/profile/:id' component={Profile} />

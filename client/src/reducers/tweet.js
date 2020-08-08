@@ -12,64 +12,74 @@ import {
 const initialState = {
     tweets: [],
     tweet: null,
-    loading:true,
+    loading: true,
     error: {}
 };
 
-export default function(state = initialState, action) {
-    const { type, payload } = action;
+export default function (state = initialState, action) {
 
-    switch(type) {
+    const {
+        type,
+        payload
+    } = action;
+
+    switch (type) {
         case GET_POSTS:
             return {
                 ...state,
                 tweets: payload,
-                loading: false
+                    loading: false
             };
         case GET_POST:
             return {
                 ...state,
                 tweet: payload,
-                loading: false
+                    loading: false
             };
         case ADD_POST:
             return {
                 ...state,
                 tweets: [payload, ...state.tweets],
-                loading: false
+                    loading: false
             };
         case DELETE_POST:
             return {
                 ...state,
                 tweets: state.tweets.filter(tweet => tweet._id !== payload),
-                loading: false
+                    loading: false
             };
         case POST_ERROR:
             return {
                 ...state,
                 error: payload,
-                loading: false
+                    loading: false
             };
         case UPDATE_LIKES:
             return {
                 ...state,
-                tweets: state.tweets.map(tweet => tweet._id === payload.id ? { ...tweet, likes : payload.likes } : tweet ),
-                loading: false
+                tweets: state.tweets.map(tweet => tweet._id === payload.id ? {
+                        ...tweet,
+                        likes: payload.likes
+                    } : tweet),
+                    loading: false
             };
         case ADD_COMMENT:
             return {
                 ...state,
-                tweet: { ...state.tweet, replies: payload},
-                loading: false
+                tweet: {
+                        ...state.tweet,
+                        replies: payload
+                    },
+                    loading: false
             };
         case REMOVE_COMMENT:
             return {
                 ...state,
                 post: {
-                    ...state.tweet,
-                    replies: state.tweet.replies.filter(reply => reply._id !== payload)
-                },
-                loading: false
+                        ...state.tweet,
+                        replies: state.tweet.replies.filter(reply => reply._id !== payload)
+                    },
+                    loading: false
             };
         default:
             return state;

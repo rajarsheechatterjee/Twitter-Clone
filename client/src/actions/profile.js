@@ -12,7 +12,7 @@ import {
     UPDATE_FOLLOWING
 } from './types';
 
-// Get Current User Profile
+// Get current user's profile
 export const getCurrentProfile = () => async dispatch => {
     try {
         const res = await axios.get('/api/profile/me');
@@ -32,7 +32,7 @@ export const getCurrentProfile = () => async dispatch => {
     }
 };
 
-// Get All Profiles
+// Get all profiles
 export const getProfiles = () => async dispatch => {
     dispatch({
         type: CLEAR_PROFILE
@@ -55,7 +55,30 @@ export const getProfiles = () => async dispatch => {
     }
 };
 
-// Get Profile By Id
+// Get follow suggestions
+export const getFollowSuggestions = () => async dispatch => {
+    dispatch({
+        type: CLEAR_PROFILE
+    });
+    try {
+        const res = await axios.get('/api/profile/suggestions');
+
+        dispatch({
+            type: GET_PROFILES,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: {
+                msg: err.response.statusText,
+                status: err.response.status
+            }
+        });
+    }
+};
+
+// Get profile by id
 export const getProfileById = (userId) => async dispatch => {
 
     try {
@@ -76,7 +99,7 @@ export const getProfileById = (userId) => async dispatch => {
     }
 };
 
-// Create Or Update Profile
+// Create or update a profile
 export const createProfile = (formData, history, edit = false) => async dispatch => {
     try {
         const config = {
@@ -95,7 +118,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
         dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
 
         if (!edit) {
-            history.push('/profile');
+            history.push('/profile/me');
         }
 
     } catch (err) {
@@ -114,7 +137,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
     }
 };
 
-// Delete Account & Profile
+// Delete a user's account, profile and tweets
 export const deleteAccount = () => async dispatch => {
     if (window.confirm('Are you sure? This can NOT be undone!')) {
         try {
@@ -141,7 +164,7 @@ export const deleteAccount = () => async dispatch => {
     }
 };
 
-// Add Like
+// Follow a profile
 export const followProfile = (id) => async dispatch => {
     try {
         const res = await axios.put(`/api/profile/follow/${id}`);

@@ -1,15 +1,15 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { getProfiles } from '../../actions/profile';
+import { getFollowSuggestions } from '../../actions/profile';
 import { connect } from 'react-redux';
 
 
-const FollowItem = ({getProfiles, profile: {profiles, loading}}) => {
+const FollowItem = ({getFollowSuggestions, profile: {profiles, loading}}) => {
     
     useEffect(() => {
-        getProfiles();
-    }, [getProfiles]);
+        getFollowSuggestions();
+    }, [getFollowSuggestions]);
 
     return (
         <div>
@@ -67,11 +67,11 @@ const FollowItem = ({getProfiles, profile: {profiles, loading}}) => {
 }
 
 FollowItem.propTypes = {
-    getProfiles: PropTypes.func.isRequired,
+    getFollowSuggestions: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired}
 
 const mapStateToProps = state => ({
     profile: state.profile
 });
 
-export default connect(mapStateToProps, { getProfiles })(FollowItem)
+export default connect(mapStateToProps, { getFollowSuggestions })(FollowItem)

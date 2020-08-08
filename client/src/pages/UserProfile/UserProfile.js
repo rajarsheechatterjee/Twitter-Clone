@@ -36,7 +36,7 @@ const UserProfile = ({
                 <div className="container">
                     <div className="row">
                     <Header />
-                    <div className="r-1ye8kvj css-1dbjc4n r-yfoy6g r-18bvks7 r-1ljd8xs r-13l2t4g r-1phboty r-1jgb5lz r-11wrixw r-61z16t r-1ye8kvj r-13qz1uu r-184en5c mx-0">
+                    <div className="r-1ye8kvj css-1dbjc4n r-yfoy6g r-18bvks7 r-1ljd8xs r-13l2t4g r-1phboty r-1jgb5lz r-11wrixw r-61z16t r-1ye8kvj r-13qz1uu r-184en5c mx-0" style={{borderBottomWidth: '1px'}}>
                         <div className="css-1dbjc4n r-aqfbo4 r-yfoy6g r-1ila09b r-rull8r r-qklmqi r-gtdqiz r-ipm5af r-1g40b8q r-1h3ijdo r-1j3t67a r-qklmqi r-rull8r r-1ila09b" >
                             <div className='css-1dbjc4n r-1loqt21 r-136ojw6' >
                                 <div className='css-1dbjc4n r-1awozwy r-18u37iz r-1h3ijdo r-1777fci r-1jgb5lz r-sb58tz r-13qz1uu' >
@@ -95,9 +95,8 @@ const UserProfile = ({
 
                         </Fragment>
                         ) : (
-                            <div className='text-light'  style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px' }}>
-                                <p>Add a bio</p>
-                                <Link to='/createprofile' className='followbutton'>Create Profile</Link>
+                            <div className='text-light'  style={{ padding: '15px' }}>
+                                <div className='mb-0' ><span style={{ fontWeight: '600', fontSize: '19px' }}>Create your profile</span><Link to='/createprofile'><button className='ml-2 followbutton'>Edit Profile</button></Link></div>
                             </div>
                         )}
                     </div>
