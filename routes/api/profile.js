@@ -145,7 +145,7 @@ router.get("/user/:user_id", async (req, res) => {
 
 router.delete("/", auth, async (req, res) => {
     try {
-        await Post.deleteMany({
+        await Tweet.deleteMany({
             user: req.user.id,
         });
 

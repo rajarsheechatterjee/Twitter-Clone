@@ -285,3 +285,8 @@
     font: inherit;
     white-space: inherit;
 }
+
+.tweetbtn {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+}

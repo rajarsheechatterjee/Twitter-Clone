@@ -13,7 +13,6 @@ import Header from '../../components/Header/Header';
 const UserProfile = ({ 
     getCurrentProfile,
     deleteAccount,
-    auth, 
     profile: { profile, loading},
     getTweets,
     tweet: { tweets }
@@ -91,7 +90,7 @@ const UserProfile = ({
                         </div>
                         <div style={{ height: '10px', backgroundColor: 'rgb(37, 51, 65)' }} ></div>
                         {tweets.map(tweet => (
-                            (tweet.user == profile.user._id) && <TweetItem key={tweet._id} tweet={tweet} />
+                            (tweet.user === profile.user._id) && <TweetItem key={tweet._id} tweet={tweet} />
                         ))}
 
                         </Fragment>
@@ -113,14 +112,12 @@ const UserProfile = ({
 UserProfile.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
     deleteAccount: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     tweet: PropTypes.object.isRequired
 
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth,
     profile: state.profile,
     tweet: state.tweet
 });

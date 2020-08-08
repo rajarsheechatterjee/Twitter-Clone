@@ -65,7 +65,8 @@ export const addLike = (id) => async (dispatch) => {
 // Delete Like
 export const deleteTweet = (id) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/tweets/${id}`);
+    
+    await axios.delete(`/api/tweets/${id}`);
 
     dispatch({
       type: DELETE_POST,
@@ -155,7 +156,8 @@ export const addReply = (tweetId, formData) => async (dispatch) => {
 // Delete Reply
 export const deleteReply = (tweetId, replyId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/tweets/reply/${tweetId}/${replyId}`);
+
+    await axios.delete(`/api/tweets/reply/${tweetId}/${replyId}`);
 
     dispatch({
       type: REMOVE_COMMENT,

@@ -33,7 +33,7 @@ const TweetForm = ({ addPost, auth }) => {
                 >
                 </textarea>
                 </div>
-                <div className="css-1dbjc4n">
+                <div className="tweetbtn css-1dbjc4n">
                     <div className='css-1dbjc4n r-1awozwy r-yfoy6g r-18u37iz r-1w6e6rj r-1wtj0ep r-id7aif r-184en5c'>
                         <div className='r-156q2ks r-1awozwy r-18u37iz'>
                             <input type="submit" className='tweetbutton btn btn-sm mr-0 my-1 r-sdzlij' value='Tweet'/>
