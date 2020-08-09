@@ -50,7 +50,7 @@ const ProfileCard = ({ auth, prof, followProfile }) => {
                         </Link>
                      </div>
                      <div class="css-1dbjc4n r-1n0xq6e" style={{minWidth: '79px'}}>
-                        <button onClick={e => followProfile(prof.user._id)} role="button" data-focusable="true" tabindex="0" class=" followbutton2 css-18t94o4 css-1dbjc4n r-1niwhzg r-p1n3y5 r-sdzlij r-1phboty r-rs99b7 r-1w2pmg r-1vsu8ta r-aj3cln r-1ny4l3l r-1fneopy r-o7ynqc r-6416eg r-lrvibr" data-testid="723035335496626176-follow">
+                        <button onClick={e => followProfile(prof.user._id)} data-focusable="true" tabindex="0" class=" followbutton2 css-18t94o4 css-1dbjc4n r-1niwhzg r-p1n3y5 r-sdzlij r-1phboty r-rs99b7 r-1w2pmg r-1vsu8ta r-aj3cln r-1ny4l3l r-1fneopy r-o7ynqc r-6416eg r-lrvibr" data-testid="723035335496626176-follow">
                            <div dir="auto" class="css-901oao r-1awozwy r-13gxpu9 r-6koalj r-18u37iz r-16y2uox r-1qd0xha r-a023e6 r-vw2c0b r-1777fci r-eljoum r-dnmrzs r-bcqeeo r-q4m81j r-qvutc0"><span class="css-901oao css-16my406 css-bfa6kz r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0"><span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0">Follow</span></span></div>
                         </button>
                      </div>

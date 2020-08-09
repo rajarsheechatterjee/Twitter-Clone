@@ -7,7 +7,7 @@ import Spinner from '../../components/Spinner/Spinner';
 import { getProfileById, followProfile } from '../../actions/profile';
 import './ProfileStyles.css';
 import Moment from 'react-moment';
-import { getTweets } from '../../actions/tweet';
+import { getUserTweets } from '../../actions/tweet';
 import Header from '../../components/Header/Header';
 
 const Profile = ({ 
@@ -19,7 +19,7 @@ const Profile = ({
     },
     auth,
     match,
-    getTweets,
+    getUserTweets,
     tweet: { tweets }
 }) => {
     useEffect(() => {
@@ -27,8 +27,8 @@ const Profile = ({
     }, [getProfileById, match.params.id]);
 
     useEffect(() => {
-        getTweets();
-    }, [getTweets]);
+        getUserTweets(match.params.id);
+    }, [getUserTweets]);
 
     return (
         <Fragment>
@@ -98,7 +98,7 @@ const Profile = ({
                     </div>
                     <div style={{ height: '10px', backgroundColor: 'rgb(37, 51, 65)' }} ></div>
                     {tweets.map(tweet => (
-                        (tweet.user === profile.user._id) && <TweetItem key={tweet._id} tweet={tweet} />
+                        <TweetItem key={tweet._id} tweet={tweet} />
                     ))}                    
                 </div>
             </div>
@@ -124,4 +124,4 @@ const mapStateToProps = state => ({
     tweet: state.tweet
 })
 
-export default connect(mapStateToProps, { getProfileById, getTweets, followProfile })(Profile)
+export default connect(mapStateToProps, { getProfileById, getUserTweets, followProfile })(Profile)

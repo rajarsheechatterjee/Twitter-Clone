@@ -89,6 +89,29 @@ router.get('/', auth, async (req, res) => {
 });
 
 /**
+ * @route GET api/tweets/user/userId
+ * @desc Gets tweets of a user
+ * @access Private
+ */
+
+router.get('/user/:userId', auth, async (req, res) => {
+    try {
+
+        const tweets = await Tweet.find({
+            user: req.params.userId
+        }).sort({
+            date: -1
+        });
+
+        res.json(tweets);
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+/**
  * @route GET api/tweets/:id
  * @desc Get a tweet by it's id
  * @access Private
