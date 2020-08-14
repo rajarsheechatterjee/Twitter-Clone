@@ -14,7 +14,7 @@ const TweetForm = ({ addPost, auth }) => {
             <Spinner />
         ) : (
             <Fragment>
-            <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll r-1j3t67a r-atwnbb' style={{ backgroundColor: 'rgb(21, 32, 43)'}}>
+            <div className='css-1dbjc4n r-1ila09b r-1adg3ll r-1j3t67a r-atwnbb' style={{ backgroundColor: 'rgb(21, 32, 43)'}}>
             <form className='my-1' onSubmit={e => {
                 e.preventDefault();
                 addPost({ text });

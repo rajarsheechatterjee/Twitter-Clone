@@ -13,7 +13,7 @@ const ReplyForm = ({ auth, tweetId, addReply }) => {
             <Spinner />
         ) : (
             <Fragment>
-            <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll r-1j3t67a r-atwnbb' style={{ backgroundColor: 'rgb(21, 32, 43)'}}>
+            <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll r-1j3t67a r-atwnbb' style={{ backgroundColor: 'rgb(21, 32, 43)', padding: '15px 15px 5px 15px'}}>
             <form className='my-1' onSubmit={e => {
                 e.preventDefault();
                 addReply(tweetId,{ text });

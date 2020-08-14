@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
@@ -14,6 +14,13 @@ const TweetItem = ({
     tweet: { _id, text, name, username, avatar, user, likes, replies, date}
 }) => {
     
+    const[likeColor, setlikeColor] = useState({
+        color: '#8899a6'
+    });
+
+    const onChange = e => {
+        setlikeColor({ color: '#d9534f'});
+    };
 
     return (
         auth.loading ? (
@@ -21,7 +28,7 @@ const TweetItem = ({
         ) : (
             <Fragment>
                 <div className='css-1dbjc4n r-1ila09b r-qklmqi r-1adg3ll tweetitem'>
-                    <div className="my-1" style={{ backgroundColor: 'rgb(21, 32, 43)', paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px', paddingBottom: '5px' }} >
+                    <div className="my-1" style={{ paddingLeft: '15px', paddingRight: '15px', paddingTop: '5px', paddingBottom: '5px' }} >
                         <div className='d-flex flex-row' style={{ verticalAlign: 'center' }} >
                             <img className='mr-2' style={{ width: '49px', height: '49px', borderRadius: '50%', boxShadow: 'rgba(0, 0, 0, 0.02) 0px 0px 2px inset' }} src={avatar} alt="avatar"/>
                             <Link to={(auth.user._id === user) ? (`/profile/me`) : (`/profile/${user}`)} style={{ textDecoration: 'none' }}>
@@ -45,7 +52,7 @@ const TweetItem = ({
                         <div>
                             <p>
                                 <span className="mx-1">
-                                    <button type='button' className="backarrow btn btn-sm like" onClick={e => addLike(_id)}>
+                                    <button type='button' style={{color: likeColor.color}} className="backarrow btn btn-sm like" onClick={e => {addLike(_id); onChange(e);}}>
                                     <svg viewBox="0 0 24 24" className="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"><g><path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path></g></svg>
                                         <span style={{marginLeft: '10px'}}>
                                             {likes.length > 0 && <span>{likes.length}</span>}

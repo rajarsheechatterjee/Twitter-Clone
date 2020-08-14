@@ -24,11 +24,8 @@ const Profile = ({
 }) => {
     useEffect(() => {
         getProfileById(match.params.id);
-    }, [getProfileById, match.params.id]);
-
-    useEffect(() => {
         getUserTweets(match.params.id);
-    }, [getUserTweets]);
+    }, [getProfileById, match.params.id, getUserTweets]);
 
     return (
         <Fragment>

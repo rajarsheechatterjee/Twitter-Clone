@@ -6,7 +6,7 @@ import { logout } from '../../actions/auth';
 import { getCurrentProfile } from '../../actions/profile';
 import './HeaderStyles.css';
 import Spinner from '../Spinner/Spinner';
-const Header = ({ getCurrentProfile, auth: { isAuthenticated, loading }, currentProfile, logout }) => {
+const Header = ({ getCurrentProfile, auth: { isAuthenticated, loading }, logout }) => {
 
     useEffect(() => {
         getCurrentProfile();

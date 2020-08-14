@@ -96,7 +96,7 @@ const UserProfile = ({
                         </Fragment>
                         ) : (
                             <div className='text-light'  style={{ padding: '15px' }}>
-                                <div className='mb-0' ><span style={{ fontWeight: '600', fontSize: '19px' }}>Create your profile</span><Link to='/createprofile'><button className='ml-2 followbutton'>Edit Profile</button></Link></div>
+                                <div className='mb-0' ><span style={{ fontWeight: '600', fontSize: '19px' }}>Create your profile</span><Link to='/createprofile'><button className='ml-2 followbutton'>Create Profile</button></Link></div>
                             </div>
                         )}
                     </div>

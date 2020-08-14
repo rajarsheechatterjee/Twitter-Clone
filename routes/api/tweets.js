@@ -89,9 +89,9 @@ router.get('/', auth, async (req, res) => {
 });
 
 /**
- * @route GET api/tweets/user/userId
- * @desc Gets tweets of a user
- * @access Private
+ * @route   GET api/tweets/user/userId
+ * @desc    Gets tweets of a user
+ * @access  Private
  */
 
 router.get('/user/:userId', auth, async (req, res) => {
@@ -112,9 +112,9 @@ router.get('/user/:userId', auth, async (req, res) => {
 });
 
 /**
- * @route GET api/tweets/:id
- * @desc Get a tweet by it's id
- * @access Private
+ * @route   GET api/tweets/:id
+ * @desc    Get a tweet by it's id
+ * @access  Private
  */
 
 router.get('/:id', auth, async (req, res) => {

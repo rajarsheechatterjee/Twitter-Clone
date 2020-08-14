@@ -290,3 +290,7 @@
     display: flex !important;
     flex-direction: row-reverse !important;
 }
+
+img:hover {
+    filter: brightness(95%);
+}

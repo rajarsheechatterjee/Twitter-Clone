@@ -139,28 +139,28 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 
 // Delete a user's account, profile and tweets
 export const deleteAccount = () => async dispatch => {
-    if (window.confirm('Are you sure? This can NOT be undone!')) {
-        try {
-            await axios.delete(`api/profile/`);
+    try {
+        await axios.delete(`api/profile/`);
 
-            dispatch({
-                type: CLEAR_PROFILE
-            });
-            dispatch({
-                type: ACCOUNT_DELETED
-            });
+        dispatch({
+            type: CLEAR_PROFILE
+        });
 
-            dispatch(setAlert('Your account has been permanently deleted', 'info'));
+        dispatch({
+            type: ACCOUNT_DELETED
+        });
 
-        } catch (err) {
-            dispatch({
-                type: PROFILE_ERROR,
-                payload: {
-                    msg: err.response.statusText,
-                    status: err.response.status
-                }
-            });
-        }
+        dispatch(setAlert('Your account has been permanently deleted', 'info'));
+
+    } catch (err) {
+
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: {
+                msg: err.response.statusText,
+                status: err.response.status
+            }
+        });
     }
 };
 
