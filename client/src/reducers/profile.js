@@ -3,55 +3,56 @@ import {
     PROFILE_ERROR,
     CLEAR_PROFILE,
     GET_PROFILES,
-    UPDATE_FOLLOWING
+    UPDATE_FOLLOWING,
 } from "../actions/types";
 
 const initialState = {
     profile: null,
     profiles: [],
-    profileLoading: true,
-    error: {}
+    loading: true,
+    error: {},
 };
 
 export default function (state = initialState, action) {
-    const {
-        type,
-        payload
-    } = action;
+    const { type, payload } = action;
 
     switch (type) {
         case GET_PROFILE:
             return {
                 ...state,
                 profile: payload,
-                    profileLoading: false
+                loading: false,
             };
         case GET_PROFILES:
             return {
                 ...state,
                 profiles: payload,
-                    profileLoading: false
+                loading: false,
             };
         case PROFILE_ERROR:
             return {
                 ...state,
                 error: payload,
-                    profileLoading: false
+                loading: false,
             };
         case UPDATE_FOLLOWING:
             return {
                 ...state,
-                profiles: state.profiles.map(profile => profile._id === payload.id ? {
-                        ...profile,
-                        following: payload.following
-                    } : profile),
-                    profileLoading: false
+                profiles: state.profiles.map((profile) =>
+                    profile._id === payload.id
+                        ? {
+                              ...profile,
+                              following: payload.following,
+                          }
+                        : profile
+                ),
+                loading: false,
             };
         case CLEAR_PROFILE:
             return {
                 ...state,
                 profile: null,
-                    profileLoading: false
+                loading: false,
             };
         default:
             return state;

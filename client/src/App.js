@@ -1,59 +1,95 @@
-import React, { Fragment, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import React, { Fragment, useEffect } from "react";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect,
+} from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 
-import LoginPage from './pages/LoginPage/LoginPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
-import UserProfile from './pages/UserProfile/UserProfile';
-import Profile from './pages/Profile/Profile';
-import HomePage from './pages/HomePage/HomePage';
-import Alert from './components/Alert/Alert';
-import PrivateRoute from './components/routing/PrivateRoute';
-import CreateProfile from './components/ProfileForm/CreateProfile';
-import EditProfile from './components/ProfileForm/EditProfile';
-import Profiles from './pages/Profiles/Profiles';
-import Tweet from './pages/Tweet/Tweet';
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import UserProfile from "./pages/UserProfile/UserProfile";
+import Profile from "./pages/Profile/Profile";
+import HomePage from "./pages/HomePage/HomePage";
+import Alert from "./components/Alert/Alert";
+import PrivateRoute from "./components/routing/PrivateRoute";
+import CreateProfile from "./components/ProfileForm/CreateProfile";
+import EditProfile from "./components/ProfileForm/EditProfile";
+import Profiles from "./pages/Profiles/Profiles";
+import Tweet from "./pages/Tweet/Tweet";
 
 //Redux
-import { Provider } from 'react-redux';
-import store from './store';
-import { loadUser } from './actions/auth';
-import setAuthToken from './utils/setAuthToken';
+import { Provider } from "react-redux";
+import store from "./store";
+import { loadUser } from "./actions/auth";
+import setAuthToken from "./utils/setAuthToken";
 
-if(localStorage.token) {
-	setAuthToken(localStorage.token);
+if (localStorage.token) {
+    setAuthToken(localStorage.token);
 }
 
 const App = () => {
-	
-	useEffect(() => {
-		store.dispatch(loadUser());
-	}, []);
+    useEffect(() => {
+        store.dispatch(loadUser());
+    }, []);
 
-	return (
-		<Provider store={store}>
-			<Router>
-			<Fragment>
-    	  		<section>
-					<Alert />
-					<Switch>
-						<Redirect exact from='/' to='login' />
-						<Route exact path='/profiles' component={Profiles} />
-						<PrivateRoute exact path='/profile/me' component={UserProfile} />
-						<Route exact path='/profile/:id' component={Profile} />
-						<PrivateRoute exact path='/tweets/:id' component={Tweet} />
-						<PrivateRoute exact path='/createprofile' component={CreateProfile} />
-						<PrivateRoute exact path='/editprofile' component={EditProfile} />
-						<PrivateRoute exact path='/home' component={HomePage} />
-						<Route exact path='/register' component={RegisterPage} />
-						<Route exact path='/login' component={LoginPage} />
-					</Switch>
-				</section>
-    		</Fragment>
-  		    </Router>
-		</Provider>
-)};
-    
+    return (
+        <Provider store={store}>
+            <Router>
+                <Fragment>
+                    <section>
+                        <Alert />
+                        <Switch>
+                            <Redirect exact from="/" to="login" />
+                            <Route
+                                exact
+                                path="/profiles"
+                                component={Profiles}
+                            />
+                            {/* <PrivateRoute
+                                exact
+                                path="/profile/me"
+                                component={UserProfile}
+                            /> */}
+                            <Route
+                                exact
+                                path="/profile/:id"
+                                component={Profile}
+                            />
+                            <PrivateRoute
+                                exact
+                                path="/tweets/:id"
+                                component={Tweet}
+                            />
+                            <PrivateRoute
+                                exact
+                                path="/createprofile"
+                                component={CreateProfile}
+                            />
+                            <PrivateRoute
+                                exact
+                                path="/editprofile"
+                                component={EditProfile}
+                            />
+                            <PrivateRoute
+                                exact
+                                path="/home"
+                                component={HomePage}
+                            />
+                            <Route
+                                exact
+                                path="/register"
+                                component={RegisterPage}
+                            />
+                            <Route exact path="/login" component={LoginPage} />
+                        </Switch>
+                    </section>
+                </Fragment>
+            </Router>
+        </Provider>
+    );
+};
 
 export default App;

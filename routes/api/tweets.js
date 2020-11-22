@@ -1,17 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const auth = require('../../middleware/auth');
-const {
-    check,
-    validationResult
-} = require('express-validator');
+const auth = require("../../middleware/auth");
+const { check, validationResult } = require("express-validator");
 
-const Profile = require('../../models/Profile');
-const User = require('../../models/User');
-const Tweet = require('../../models/Tweet');
-const {
-    prependOnceListener
-} = require('../../models/User');
+const Profile = require("../../models/Profile");
+const User = require("../../models/User");
+const Tweet = require("../../models/Tweet");
+const { prependOnceListener } = require("../../models/User");
 
 /**
  * @route POST api/tweets
@@ -20,46 +15,36 @@ const {
  */
 
 router.post(
-    '/',
-    [
-        auth,
-        [
-            check('text', 'Text Is Required')
-            .not()
-            .isEmpty()
-        ]
-    ],
+    "/",
+    [auth, [check("text", "Text Is Required").not().isEmpty()]],
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             res.status(400).json({
-                errors: errors.array()
+                errors: errors.array(),
             });
         }
 
         try {
-
-            const user = await User.findById(req.user.id).select('-password');
+            const user = await User.findById(req.user.id).select("-password");
 
             const newTweet = new Tweet({
                 text: req.body.text,
                 name: user.name,
                 username: user.username,
                 avatar: user.avatar,
-                user: req.user.id
+                user: req.user.id,
             });
 
             const tweet = await newTweet.save();
 
             res.json(tweet);
-
         } catch (err) {
             console.error(err.message);
-            res.status(500).send('Server Error');
+            res.status(500).send("Server Error");
         }
     }
 );
-
 
 /**
  * @route GET api/tweets
@@ -67,24 +52,22 @@ router.post(
  * @access Private
  */
 
-router.get('/', auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
     try {
-
         const profile = await Profile.findOne({
-            user: req.user.id
+            user: req.user.id,
         });
 
         const tweets = await Tweet.find({
-            user: profile.following.map(following => following.user)
+            user: profile.following.map((following) => following.user),
         }).sort({
-            date: -1
+            date: -1,
         });
 
         res.json(tweets);
-
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send("Server Error");
     }
 });
 
@@ -94,20 +77,18 @@ router.get('/', auth, async (req, res) => {
  * @access  Private
  */
 
-router.get('/user/:userId', auth, async (req, res) => {
+router.get("/user/:userId", auth, async (req, res) => {
     try {
-
         const tweets = await Tweet.find({
-            user: req.params.userId
+            user: req.params.userId,
         }).sort({
-            date: -1
+            date: -1,
         });
 
         res.json(tweets);
-
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send("Server Error");
     }
 });
 
@@ -117,28 +98,26 @@ router.get('/user/:userId', auth, async (req, res) => {
  * @access  Private
  */
 
-router.get('/:id', auth, async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
     try {
-
         const tweet = await Tweet.findById(req.params.id);
 
         if (!tweet) {
             return res.status(404).json({
-                msg: 'Tweet not found'
+                msg: "Tweet not found",
             });
         }
 
         res.json(tweet);
-
     } catch (err) {
         console.error(err.message);
-        if (err.kind === 'ObjectId') {
+        if (err.kind === "ObjectId") {
             return res.status(404).json({
-                msg: 'Tweet not found'
+                msg: "Tweet not found",
             });
         }
 
-        res.status(500).send('Server Error');
+        res.status(500).send("Server Error");
     }
 });
 
@@ -148,37 +127,35 @@ router.get('/:id', auth, async (req, res) => {
  * @access Private
  */
 
-router.delete('/:id', auth, async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
     try {
-
         const tweet = await Tweet.findById(req.params.id);
 
         if (!tweet) {
             return res.status(404).json({
-                msg: 'Tweet not found'
+                msg: "Tweet not found",
             });
         }
 
         if (tweet.user.toString() !== req.user.id) {
             return res.status(401).json({
-                msg: 'User not authorized'
+                msg: "User not authorized",
             });
         }
 
         await tweet.remove();
 
         res.json({
-            msg: 'Tweet Deleted'
+            msg: "Tweet Deleted",
         });
-
     } catch (err) {
         console.error(err.message);
-        if (err.kind === 'ObjectId') {
+        if (err.kind === "ObjectId") {
             return res.status(404).json({
-                msg: 'Tweet not found'
+                msg: "Tweet not found",
             });
         }
-        res.status(500).send('Server Error');
+        res.status(500).send("Server Error");
     }
 });
 
@@ -188,38 +165,38 @@ router.delete('/:id', auth, async (req, res) => {
  * @access Private
  */
 
-router.put('/like/:id', auth, async (req, res) => {
+router.put("/like/:id", auth, async (req, res) => {
     try {
-
         const tweet = await Tweet.findById(req.params.id);
 
         // Checks if the currentUser has already liked the tweet or not
-        if (tweet.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
-
+        if (
+            tweet.likes.filter((like) => like.user.toString() === req.user.id)
+                .length > 0
+        ) {
             // If yes then it unlikes by removing the user from the likes array
-            const removeIndex = tweet.likes.map(like => like.user.toString()).indexOf(req.user.id);
+            const removeIndex = tweet.likes
+                .map((like) => like.user.toString())
+                .indexOf(req.user.id);
 
             tweet.likes.splice(removeIndex, 1);
 
             await tweet.save();
 
             res.json(tweet.likes);
-
         } else {
-
             // If no then it likes by pushing the user from the likes array
             tweet.likes.unshift({
-                user: req.user.id
+                user: req.user.id,
             });
 
             await tweet.save();
 
             res.json(tweet.likes);
         }
-
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send("Server Error");
     }
 });
 
@@ -261,27 +238,18 @@ router.put('/like/:id', auth, async (req, res) => {
  */
 
 router.post(
-    '/reply/:id',
-    [
-        auth,
-        [
-            check('text', 'Text Is Required')
-            .not()
-            .isEmpty()
-        ]
-    ],
+    "/reply/:id",
+    [auth, [check("text", "Text Is Required").not().isEmpty()]],
     async (req, res) => {
-
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             res.status(400).json({
-                errors: errors.array()
+                errors: errors.array(),
             });
         }
 
         try {
-
-            const user = await User.findById(req.user.id).select('-password');
+            const user = await User.findById(req.user.id).select("-password");
             const tweet = await Tweet.findById(req.params.id);
 
             const newReply = new Tweet({
@@ -289,7 +257,7 @@ router.post(
                 name: user.name,
                 username: user.username,
                 avatar: user.avatar,
-                user: req.user.id
+                user: req.user.id,
             });
 
             tweet.replies.unshift(newReply);
@@ -297,10 +265,9 @@ router.post(
             tweet.save();
 
             res.json(tweet.replies);
-
         } catch (err) {
             console.error(err.message);
-            res.status(500).send('Server Error');
+            res.status(500).send("Server Error");
         }
     }
 );
@@ -311,26 +278,28 @@ router.post(
  * @access Private
  */
 
-router.delete('/reply/:id/:reply_id', auth, async (req, res) => {
+router.delete("/reply/:id/:reply_id", auth, async (req, res) => {
     try {
         const tweet = await Tweet.findById(req.params.id);
 
-        const reply = tweet.replies.find(reply => reply.id === req.params.reply_id);
+        const reply = tweet.replies.find(
+            (reply) => reply.id === req.params.reply_id
+        );
 
         if (!reply) {
             return res.status(404).json({
-                msg: 'Reply does not exist'
+                msg: "Reply does not exist",
             });
         }
 
         if (reply.user.toString() !== req.user.id) {
             return res.status(401).json({
-                msg: 'User not authorized'
+                msg: "User not authorized",
             });
         }
 
         const removeIndex = tweet.likes
-            .map(reply => reply.user.toString())
+            .map((reply) => reply.user.toString())
             .indexOf(req.user.id);
 
         tweet.replies.splice(removeIndex, 1);
@@ -338,12 +307,10 @@ router.delete('/reply/:id/:reply_id', auth, async (req, res) => {
         await tweet.save();
 
         res.json(tweet.replies);
-
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).send("Server Error");
     }
 });
-
 
 module.exports = router;
