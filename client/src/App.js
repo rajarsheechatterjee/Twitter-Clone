@@ -48,11 +48,11 @@ const App = () => {
                                 path="/profiles"
                                 component={Profiles}
                             />
-                            {/* <PrivateRoute
+                            <PrivateRoute
                                 exact
                                 path="/profile/me"
                                 component={UserProfile}
-                            /> */}
+                            />
                             <Route
                                 exact
                                 path="/profile/:id"
