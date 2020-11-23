@@ -64,7 +64,6 @@
     align-items: flex-start;
 }
 
-
 .r-sb58tz {
     max-width: 1000px;
 }
@@ -111,7 +110,6 @@
     padding-right: 15px;
 }
 
-
 .r-gtdqiz {
     position: sticky;
 }
@@ -127,7 +125,6 @@
 .r-1ila09b {
     border-bottom-color: rgb(56, 68, 77);
 }
-
 
 .r-61z16t {
     margin-right: 0px;
@@ -345,7 +342,6 @@ p {
     float: right;
     height: 39px;
     color: rgb(29, 161, 242);
-
 }
 
 .deletebutton {
@@ -374,7 +370,6 @@ p {
     cursor: pointer;
     float: right;
     height: 39px;
-    
 }
 .deletebutton:hover {
     background-color: rgba(202, 32, 85, 0.9);
@@ -398,7 +393,6 @@ p {
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
-    
 }
 .backarrow:hover {
     background-color: rgba(29, 161, 242, 0.1);
