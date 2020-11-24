@@ -1,5 +1,5 @@
 const express = require("express");
-const connectDB = require('./config/db');
+const connectDB = require("./config/db");
 
 const app = express();
 
@@ -7,17 +7,19 @@ const app = express();
 connectDB();
 
 // Init Middleware
-app.use(express.json({
-    extended: false
-}));
+app.use(
+    express.json({
+        extended: false,
+    })
+);
 
 app.get("/", (req, res) => res.send("API Running"));
 
 // Define Routes
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/profile', require('./routes/api/profile'));
-app.use('/api/tweets', require('./routes/api/tweets'));
+app.use("/api/users", require("./server/routes/users"));
+app.use("/api/auth", require("./server/routes/auth"));
+app.use("/api/profile", require("./server/routes/profile"));
+app.use("/api/tweets", require("./server/routes/tweets"));
 
 const PORT = process.env.PORT || 5000;
 

@@ -165,9 +165,13 @@ const Profile = ({
                                     backgroundColor: "rgb(37, 51, 65)",
                                 }}
                             ></div>
-                            {tweets.map((tweet) => (
-                                <TweetItem key={tweet._id} tweet={tweet} />
-                            ))}
+                            {tweets === null ? (
+                                <Spinner />
+                            ) : (
+                                tweets.map((tweet) => (
+                                    <TweetItem key={tweet._id} tweet={tweet} />
+                                ))
+                            )}
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,5 @@
 node_modules/
-config/production.json
-config/default.json
-/.vscode
-TwitterClone.txt
-/client/node_modules
 
-package-lock.json
-/client/package-lock.json
+config/default.json
+
+/client/node_modules

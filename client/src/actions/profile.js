@@ -140,7 +140,7 @@ export const createProfile = (formData, history, edit = false) => async (
 // Delete a user's account, profile and tweets
 export const deleteAccount = () => async (dispatch) => {
     try {
-        await axios.delete(`api/profile/`);
+        await axios.delete(`/api/profile/`);
 
         dispatch({
             type: CLEAR_PROFILE,

@@ -17,6 +17,7 @@ const Tweet = ({
     match,
     addLike,
     deleteTweet,
+    history,
 }) => {
     useEffect(() => {
         getTweet(match.params.id);
@@ -195,11 +196,14 @@ const Tweet = ({
                                                             auth.user._id && (
                                                             <button
                                                                 type="button"
-                                                                onClick={(e) =>
+                                                                onClick={(
+                                                                    e
+                                                                ) => {
                                                                     deleteTweet(
                                                                         tweet._id
-                                                                    )
-                                                                }
+                                                                    );
+                                                                    history.goBack();
+                                                                }}
                                                                 className="backarrow btn btn-sm mx-1"
                                                                 style={{
                                                                     color:
