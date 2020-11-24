@@ -11,7 +11,7 @@ import Header from "../../components/Header/Header";
 import ProfileCard from "./ProfileCard";
 
 const HomePage = ({
-    auth: { user },
+    auth,
     getTweets,
     getFollowSuggestions,
     profile: { profiles },

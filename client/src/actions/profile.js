@@ -55,6 +55,9 @@ export const getProfiles = () => async (dispatch) => {
 
 // Get follow suggestions
 export const getFollowSuggestions = () => async (dispatch) => {
+    dispatch({
+        type: CLEAR_PROFILE,
+    });
     try {
         const res = await axios.get("/api/profile/suggestions");
 

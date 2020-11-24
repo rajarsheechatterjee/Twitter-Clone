@@ -199,7 +199,9 @@ const getSuggestions = async (req, res) => {
         });
 
         const profiles = await Profile.find({
-            user: currentProfile.following.map((follow) => follow.user),
+            user: {
+                $nin: currentProfile.following.map((follow) => follow.user),
+            },
         }).populate("user", ["name", "avatar", "username"]);
 
         res.json(profiles);
