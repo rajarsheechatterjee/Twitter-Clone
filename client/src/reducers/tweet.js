@@ -61,6 +61,10 @@ export default function (state = initialState, action) {
                           }
                         : tweet
                 ),
+                tweet: {
+                    ...state.tweet,
+                    likes: payload.likes,
+                },
                 loading: false,
             };
         case ADD_COMMENT:
@@ -75,7 +79,7 @@ export default function (state = initialState, action) {
         case REMOVE_COMMENT:
             return {
                 ...state,
-                post: {
+                tweet: {
                     ...state.tweet,
                     replies: state.tweet.replies.filter(
                         (reply) => reply._id !== payload
