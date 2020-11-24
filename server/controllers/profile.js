@@ -169,7 +169,7 @@ const followProfile = async (req, res) => {
 
             await followingUser.save();
 
-            res.json(currentUser.following);
+            res.json(followingUser.followers);
         } else {
             // If no then follows the profile
             currentUser.following.unshift({
@@ -184,7 +184,7 @@ const followProfile = async (req, res) => {
 
             await followingUser.save();
 
-            res.json(currentUser.following);
+            res.json(followingUser.followers);
         }
     } catch (err) {
         console.error(err.message);

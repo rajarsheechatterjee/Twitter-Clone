@@ -171,7 +171,7 @@ export const followProfile = (id) => async (dispatch) => {
             type: UPDATE_FOLLOWING,
             payload: {
                 id,
-                payload: res.data,
+                followers: res.data,
             },
         });
     } catch (err) {

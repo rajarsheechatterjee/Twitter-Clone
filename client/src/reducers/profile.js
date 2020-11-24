@@ -38,14 +38,10 @@ export default function (state = initialState, action) {
         case UPDATE_FOLLOWING:
             return {
                 ...state,
-                profiles: state.profiles.map((profile) =>
-                    profile._id === payload.id
-                        ? {
-                              ...profile,
-                              following: payload.following,
-                          }
-                        : profile
-                ),
+                profile: {
+                    ...state.profile,
+                    followers: payload.followers,
+                },
                 loading: false,
             };
         case CLEAR_PROFILE:
