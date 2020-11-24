@@ -39,53 +39,39 @@ const App = () => {
         <Provider store={store}>
             <Router>
                 <Fragment>
-                    <section>
-                        <Alert />
-                        <Switch>
-                            <Redirect exact from="/" to="login" />
-                            <Route
-                                exact
-                                path="/profiles"
-                                component={Profiles}
-                            />
-                            <PrivateRoute
-                                exact
-                                path="/profile/me"
-                                component={UserProfile}
-                            />
-                            <Route
-                                exact
-                                path="/profile/:id"
-                                component={Profile}
-                            />
-                            <PrivateRoute
-                                exact
-                                path="/tweets/:id"
-                                component={Tweet}
-                            />
-                            <PrivateRoute
-                                exact
-                                path="/createprofile"
-                                component={CreateProfile}
-                            />
-                            <PrivateRoute
-                                exact
-                                path="/editprofile"
-                                component={EditProfile}
-                            />
-                            <PrivateRoute
-                                exact
-                                path="/home"
-                                component={HomePage}
-                            />
-                            <Route
-                                exact
-                                path="/register"
-                                component={RegisterPage}
-                            />
-                            <Route exact path="/login" component={LoginPage} />
-                        </Switch>
-                    </section>
+                    <Alert />
+                    <Switch>
+                        <Redirect exact from="/" to="login" />
+                        <Route exact path="/profiles" component={Profiles} />
+                        <PrivateRoute
+                            exact
+                            path="/profile/me"
+                            component={UserProfile}
+                        />
+                        <Route exact path="/profile/:id" component={Profile} />
+                        <PrivateRoute
+                            exact
+                            path="/tweets/:id"
+                            component={Tweet}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/createprofile"
+                            component={CreateProfile}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/editprofile"
+                            component={EditProfile}
+                        />
+                        <PrivateRoute exact path="/home" component={HomePage} />
+                        <Route
+                            exact
+                            path="/register"
+                            component={RegisterPage}
+                        />
+                        <Route exact path="/login" component={LoginPage} />
+                    </Switch>
                 </Fragment>
             </Router>
         </Provider>

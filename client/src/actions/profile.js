@@ -55,9 +55,6 @@ export const getProfiles = () => async (dispatch) => {
 
 // Get follow suggestions
 export const getFollowSuggestions = () => async (dispatch) => {
-    dispatch({
-        type: CLEAR_PROFILE,
-    });
     try {
         const res = await axios.get("/api/profile/suggestions");
 
@@ -139,26 +136,30 @@ export const createProfile = (formData, history, edit = false) => async (
 
 // Delete a user's account, profile and tweets
 export const deleteAccount = () => async (dispatch) => {
-    try {
-        await axios.delete(`/api/profile/`);
+    if (window.confirm("Are you sure? This can NOT be undone!")) {
+        try {
+            await axios.delete(`/api/profile/`);
 
-        dispatch({
-            type: CLEAR_PROFILE,
-        });
+            dispatch({
+                type: CLEAR_PROFILE,
+            });
 
-        dispatch({
-            type: ACCOUNT_DELETED,
-        });
+            dispatch({
+                type: ACCOUNT_DELETED,
+            });
 
-        dispatch(setAlert("Your account has been permanently deleted", "info"));
-    } catch (err) {
-        dispatch({
-            type: PROFILE_ERROR,
-            payload: {
-                msg: err.response.statusText,
-                status: err.response.status,
-            },
-        });
+            dispatch(
+                setAlert("Your account has been permanently deleted", "info")
+            );
+        } catch (err) {
+            dispatch({
+                type: PROFILE_ERROR,
+                payload: {
+                    msg: err.response.statusText,
+                    status: err.response.status,
+                },
+            });
+        }
     }
 };
 

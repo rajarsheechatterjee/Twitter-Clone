@@ -5,7 +5,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import TweetItem from "./TweetItem";
 import TweetForm from "../TweetForm/TweetForm";
 import { getTweets } from "../../actions/tweet";
-import { getProfiles } from "../../actions/profile";
+import { getFollowSuggestions } from "../../actions/profile";
 import "./HomePageStyles.css";
 import Header from "../../components/Header/Header";
 import ProfileCard from "./ProfileCard";
@@ -13,14 +13,14 @@ import ProfileCard from "./ProfileCard";
 const HomePage = ({
     auth: { user },
     getTweets,
-    getProfiles,
+    getFollowSuggestions,
     profile: { profiles },
     tweet: { tweets, loading },
 }) => {
     useEffect(() => {
         getTweets();
-        getProfiles();
-    }, [getTweets, getProfiles]);
+        getFollowSuggestions();
+    }, [getTweets, getFollowSuggestions]);
 
     return loading ? (
         <Spinner />
@@ -112,7 +112,7 @@ HomePage.propTypes = {
     getTweets: PropTypes.func.isRequired,
     tweet: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
-    getProfiles: PropTypes.func.isRequired,
+    getFollowSuggestions: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -121,4 +121,6 @@ const mapStateToProps = (state) => ({
     profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getTweets, getProfiles })(HomePage);
+export default connect(mapStateToProps, { getTweets, getFollowSuggestions })(
+    HomePage
+);

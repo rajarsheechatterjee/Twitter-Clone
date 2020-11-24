@@ -3,18 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
-import { getCurrentProfile } from "../../actions/profile";
 import "./HeaderStyles.css";
 import Spinner from "../Spinner/Spinner";
-const Header = ({
-    getCurrentProfile,
-    auth: { isAuthenticated, loading },
-    logout,
-}) => {
-    // useEffect(() => {
-    //     getCurrentProfile();
-    // }, [getCurrentProfile]);
-
+const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
     const authLinks = (
         <Fragment>
             <div className="css-1dbjc4n r-jw8lkh r-e7q0ms">
@@ -227,7 +218,6 @@ const Header = ({
 
 Header.propTypes = {
     auth: PropTypes.object.isRequired,
-    getCurrentProfile: PropTypes.func.isRequired,
     logout: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
 };
@@ -237,4 +227,4 @@ const mapStateToProps = (state) => ({
     profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, logout })(Header);
+export default connect(mapStateToProps, { logout })(Header);

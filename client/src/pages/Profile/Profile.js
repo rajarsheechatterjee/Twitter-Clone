@@ -18,6 +18,7 @@ const Profile = ({
     auth,
     tweet: { tweets },
     match,
+    history,
 }) => {
     const [follow, setFollow] = useState(false);
 
@@ -51,7 +52,12 @@ const Profile = ({
                                                         verticalAlign: "middle",
                                                     }}
                                                 >
-                                                    <Link to="/home">
+                                                    <Link
+                                                        to="#"
+                                                        onClick={() =>
+                                                            history.goBack()
+                                                        }
+                                                    >
                                                         <svg
                                                             viewBox="0 0 24 24"
                                                             class="backarrow mr-4 r-13gxpu9 r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
