@@ -1,193 +1,93 @@
-.r-sdzlij {
-    border-bottom-left-radius: 9999px;
-    border-bottom-right-radius: 9999px;
-    border-top-left-radius: 9999px;
-    border-top-right-radius: 9999px;
-}
-
-.tweetbutton {
-    color: rgb(255, 255, 255);
-    line-height: 1;
-    font-weight: bold;
-    font-size: 15px;
-    min-height: 30px;
-    min-width: calc(62.79px);
-    background-color: rgb(29, 161, 242);
-    border: none;
-}
-
-.r-156q2ks {
-    margin-top: 10px;
-}
-
-.r-1awozwy {
-    -webkit-box-align: center;
-    align-items: center;
-}
-
-.r-18u37iz {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    flex-direction: row;
-}
-
-.r-1w6e6rj {
-    flex-wrap: wrap;
-}
-
-.r-184en5c {
-    z-index: 1;
-}
-
-.r-yfoy6g {
-    background-color: rgb(21, 32, 43);
-}
-
-.r-1wtj0ep {
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-}
-
-.r-1awozwy {
-    -webkit-box-align: center;
-    align-items: center;
-}
-
-.r-18u37iz {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    flex-direction: row;
-}
-
-.r-id7aif {
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-.css-1dbjc4n {
-    -ms-flex-align: stretch;
-    -ms-flex-direction: column;
-    -ms-flex-negative: 0;
-    -ms-flex-preferred-size: auto;
-    -webkit-align-items: stretch;
-    -webkit-box-align: stretch;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -webkit-flex-basis: auto;
-    -webkit-flex-direction: column;
-    -webkit-flex-shrink: 0;
-    align-items: stretch;
-    border: 0 solid black;
-    box-sizing: border-box;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-basis: auto;
-    flex-direction: column;
-    flex-shrink: 0;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    min-height: 0px;
-    min-width: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    position: relative;
-    z-index: 0;
-}
-
-.r-1j3t67a {
+.add-tweet-form {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-.r-atwnbb {
-    padding-bottom: 5px;
+    display: flex;
+    padding-bottom: 10px;
     padding-top: 5px;
 }
 
-
-.r-qklmqi {
-    border-bottom-width: 1px;
+.avatar-container {
+    display: flex;
+    flex-basis: 49px;
+    padding-top: 5px;
+    margin-right: 10px;
 }
 
-.r-1ila09b {
-    border-bottom-color: rgb(56, 68, 77);
+.form-container {
+    width: 100%;
 }
-.r-1adg3ll {
-    display: block;
-}
-
-
-.r-156q2ks {
-    margin-top: 10px;
+.avatar {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
 }
 
-.r-1awozwy {
-    -webkit-box-align: center;
-    align-items: center;
+.input-container {
+    position: static;
+    justify-content: center;
+    padding-top: 5px;
+    display: flex;
+    width: 100%;
 }
 
-.r-18u37iz {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    flex-direction: row;
-}
-
-.r-1w6e6rj {
-    flex-wrap: wrap;
-}
-
-.r-184en5c {
-    z-index: 1;
-}
-
-.r-yfoy6g {
+textarea {
+    width: 100%;
     background-color: rgb(21, 32, 43);
-}
-
-.r-1wtj0ep {
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-}
-
-.r-1awozwy {
-    -webkit-box-align: center;
-    align-items: center;
-}
-
-.r-18u37iz {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    flex-direction: row;
-}
-
-.r-id7aif {
-    margin-left: 2px;
-    margin-right: 2px;
+    color: white;
+    resize: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 19px;
+    border-width: 2px;
+    border-radius: 4px;
+    border-color: rgba(0, 0, 0, 0);
 }
 
 textarea:hover {
-    border: none;
     outline: none;
 }
 textarea:focus {
-    border: none;
     outline: none;
 }
 
-.tweetbutton {
-    min-width: calc(62.79px);
-    min-height: 39px;
-    padding-left: 1em;
-    padding-right: 1em;
+textarea::placeholder {
+    color: #8899a6;
 }
 
-.tweetbutton:hover {
-    background-color: rgb(26, 145, 218);
+.submit-btn {
+    text-align: right;
+    margin-right: 2px;
+}
+
+.tweet-btn {
+    margin-top: 10px;
+    min-width: calc(62.79px);
+    background-color: rgb(29, 161, 242);
+    min-height: 39px;
+    outline-style: none;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+
+    border-width: 1px;
+    border-radius: 9999px;
+    border-color: rgba(0, 0, 0, 0);
+    padding-left: 1em;
+    padding-right: 1em;
+    border-style: solid;
+    line-height: 1;
+    font-weight: 700;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    overflow-wrap: break-word;
+    align-items: center;
+}
+
+.divider {
+    background-color: rgb(56, 68, 77);
+    height: 1px;
+    width: 100%;
+}
+
+.disabled {
+    opacity: 0.5;
 }
