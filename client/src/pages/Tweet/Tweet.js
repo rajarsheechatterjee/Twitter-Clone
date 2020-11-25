@@ -228,16 +228,18 @@ const Tweet = ({
                                 </div>
                             </div>
                             <ReplyForm tweetId={tweet._id} />
-                            <div className="replies">
-                                {tweet.replies.map((reply) => (
-                                    <ReplyItem
-                                        key={reply._id}
-                                        reply={reply}
-                                        tweetId={tweet._id}
-                                        tweet={tweet}
-                                    />
-                                ))}
-                            </div>
+                            {tweet.replies.length > 0 && (
+                                <div className="replies">
+                                    {tweet.replies.map((reply) => (
+                                        <ReplyItem
+                                            key={reply._id}
+                                            reply={reply}
+                                            tweetId={tweet._id}
+                                            tweet={tweet}
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </>
                     </div>
                 </div>

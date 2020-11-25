@@ -28,12 +28,7 @@ const HomePage = ({
         <Fragment>
             <div style={{ maxWidth: "1340px" }} className="container">
                 <div className="row">
-                    <header
-                        role="banner"
-                        className="css-1dbjc4n r-obd0qt r-16y2uox r-1g40b8q"
-                    >
-                        <Header />
-                    </header>
+                    <Header />
                     <div className="col-md-6">
                         <div className="r-1ye8kvj css-1dbjc4n r-yfoy6g r-18bvks7 r-1ljd8xs r-13l2t4g r-1phboty r-1jgb5lz r-11wrixw r-61z16t r-1ye8kvj r-13qz1uu r-184en5c mx-0">
                             <div className="css-1dbjc4n r-aqfbo4 r-yfoy6g r-1ila09b r-rull8r r-qklmqi r-gtdqiz r-ipm5af r-1g40b8q r-1h3ijdo r-1j3t67a r-qklmqi r-rull8r r-1ila09b">

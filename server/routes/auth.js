@@ -55,7 +55,8 @@ router.post(
                 return res.status(400).json({
                     errors: [
                         {
-                            msg: "Invalid Credentials",
+                            msg:
+                                "The email and password you entered did not match our records. Please double-check and try again.",
                         },
                     ],
                 });
@@ -67,7 +68,8 @@ router.post(
                 return res.status(400).json({
                     errors: [
                         {
-                            msg: "Invalid Credentials",
+                            msg:
+                                "The email and password you entered did not match our records. Please double-check and try again.",
                         },
                     ],
                 });

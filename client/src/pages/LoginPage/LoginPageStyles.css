@@ -9,7 +9,7 @@
     color: white;
     align-self: center;
     vertical-align: middle;
-    margin-top: 180px;
+    margin-top: 120px;
 }
 
 .loginHeader {
@@ -17,6 +17,7 @@
     font-size: 23px;
     font-weight: 700;
     text-align: center;
+    margin-top: 30px;
 }
 
 .emailLabel {
@@ -59,6 +60,10 @@
     margin-bottom: 1.5rem;
 }
 
+.form-group:focus-within label {
+    color: rgba(29, 161, 242, 1);
+}
+
 .form-group {
     margin-bottom: 0px !important;
     margin-top: 15px !important;
@@ -82,4 +87,13 @@ a:hover {
 
 .signupLink:hover {
     color: rgb(27, 149, 224);
+}
+
+.twitter-logo {
+    height: 39px;
+    color: rgb(255, 255, 255);
+    fill: rgb(255, 255, 255);
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }

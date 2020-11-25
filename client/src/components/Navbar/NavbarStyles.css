@@ -22,7 +22,6 @@
     z-index: 3;
 }
 
-
 .r-sb58tz {
     max-width: 1000px;
 }
@@ -86,8 +85,6 @@
     height: 53px;
 }
 
-
-
 .r-utggzx {
     padding-left: 10px;
     padding-right: 10px;
@@ -106,8 +103,6 @@
     height: 53px;
 }
 
-
-
 .r-1pz39u2 {
     align-self: stretch;
 }
@@ -121,8 +116,6 @@
     -webkit-box-flex: 1;
     flex-grow: 1;
 }
-
-
 
 .r-16y2uox {
     -webkit-box-flex: 1;
@@ -213,7 +206,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -239,12 +233,11 @@
     flex-grow: 1;
 }
 
-
 .r-q4m81j {
     text-align: center;
 }
 .r-13gxpu9 {
-    color: rgba(29,161,242,1.00);
+    color: rgba(29, 161, 242, 1);
 }
 .r-dnmrzs {
     max-width: 100%;
@@ -255,7 +248,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -283,9 +277,9 @@
     white-space: inherit;
 }
 
-
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -308,9 +302,10 @@
 .css-901oao {
     border: 0 solid black;
     box-sizing: border-box;
-    color: rgba(0,0,0,1.00);
+    color: rgba(0, 0, 0, 1);
     display: inline;
-    font: 14px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font: 14px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Ubuntu, "Helvetica Neue", sans-serif;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -360,7 +355,6 @@
     z-index: 0;
 }
 
-
 .r-aj3cln {
     min-width: calc(48.3px);
 }
@@ -445,7 +439,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -471,12 +466,11 @@
     flex-grow: 1;
 }
 
-
 .r-q4m81j {
     text-align: center;
 }
 .r-13gxpu9 {
-    color: rgba(29,161,242,1.00);
+    color: rgba(29, 161, 242, 1);
 }
 .r-dnmrzs {
     max-width: 100%;
@@ -487,7 +481,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -546,7 +541,6 @@
 .hght2 {
     height: 53px;
 }
-
 
 .r-urgr8i {
     background-color: rgb(29, 161, 242);

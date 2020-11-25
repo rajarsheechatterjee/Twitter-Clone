@@ -41,7 +41,7 @@ const App = () => {
                 <Fragment>
                     <Alert />
                     <Switch>
-                        <Redirect exact from="/" to="login" />
+                        <Redirect exact from="/" to="/home" />
                         <Route exact path="/profiles" component={Profiles} />
                         <PrivateRoute
                             exact
