@@ -8,11 +8,9 @@
 
 .cardhover:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    
 }
 .followbutton2:hover {
     background-color: rgba(29, 161, 242, 0.1);
-    
 }
 .r-rull8r {
     border-bottom-style: solid;
@@ -76,7 +74,6 @@
     align-items: flex-start;
 }
 
-
 .r-sb58tz {
     max-width: 1000px;
 }
@@ -123,7 +120,6 @@
     padding-right: 15px;
 }
 
-
 .r-gtdqiz {
     position: sticky;
 }
@@ -139,7 +135,6 @@
 .r-1ila09b {
     border-bottom-color: rgb(56, 68, 77);
 }
-
 
 .r-61z16t {
     margin-right: 0px;
@@ -340,7 +335,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -375,7 +371,7 @@
     text-align: center;
 }
 .r-13gxpu9 {
-    color: rgba(29,161,242,1.00);
+    color: rgba(29, 161, 242, 1);
 }
 .r-dnmrzs {
     max-width: 100%;
@@ -553,7 +549,7 @@
     height: 1.75rem;
 }
 .r-13gxpu9 {
-    color: rgba(29,161,242,1.00);
+    color: rgba(29, 161, 242, 1);
 }
 .r-lrvibr {
     -moz-user-select: none;
@@ -627,7 +623,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -651,7 +648,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -670,7 +668,6 @@
     font: inherit;
     white-space: inherit;
 }
-
 
 .r-e7q0ms {
     width: 90%;
@@ -773,7 +770,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -1200,7 +1198,6 @@
     max-width: 100%;
 }
 
-
 .r-1ny4l3l {
     outline-style: none;
 }
@@ -1300,7 +1297,8 @@
 }
 
 .r-1qd0xha {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, "Helvetica Neue", sans-serif;
 }
 
 .r-qvutc0 {
@@ -1335,7 +1333,7 @@
     text-align: center;
 }
 .r-13gxpu9 {
-    color: rgba(29,161,242,1.00);
+    color: rgba(29, 161, 242, 1);
 }
 .r-dnmrzs {
     max-width: 100%;
@@ -1487,4 +1485,14 @@
 .r-id7aif {
     margin-left: 2px;
     margin-right: 2px;
+}
+
+.timeline-container {
+    z-index: 1;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-color: rgb(56, 68, 77);
+    width: 100%;
+    border-left-style: solid;
+    border-right-style: solid;
 }

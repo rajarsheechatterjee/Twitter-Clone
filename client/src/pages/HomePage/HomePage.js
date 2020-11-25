@@ -1,14 +1,19 @@
 import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Spinner from "../../components/Spinner/Spinner";
+
+import ProfileCard from "./ProfileCard";
 import TweetItem from "./TweetItem";
 import TweetForm from "../TweetForm/TweetForm";
+
+import Header from "../../components/Header/Header";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import Spinner from "../../components/Spinner/Spinner";
+
 import { getTweets } from "../../actions/tweet";
 import { getFollowSuggestions } from "../../actions/profile";
+
 import "./HomePageStyles.css";
-import Header from "../../components/Header/Header";
-import ProfileCard from "./ProfileCard";
 
 const HomePage = ({
     auth,
@@ -26,36 +31,12 @@ const HomePage = ({
         <Spinner />
     ) : (
         <Fragment>
-            <div style={{ maxWidth: "1340px" }} className="container">
+            <div>
                 <div className="row">
                     <Header />
                     <div className="col-md-6">
-                        <div className="r-1ye8kvj css-1dbjc4n r-yfoy6g r-18bvks7 r-1ljd8xs r-13l2t4g r-1phboty r-1jgb5lz r-11wrixw r-61z16t r-1ye8kvj r-13qz1uu r-184en5c mx-0">
-                            <div className="css-1dbjc4n r-aqfbo4 r-yfoy6g r-1ila09b r-rull8r r-qklmqi r-gtdqiz r-ipm5af r-1g40b8q r-1h3ijdo r-1j3t67a r-qklmqi r-rull8r r-1ila09b">
-                                <div className="css-1dbjc4n r-1loqt21 r-136ojw6">
-                                    <div className="css-1dbjc4n r-1awozwy r-18u37iz r-1h3ijdo r-1777fci r-1jgb5lz r-sb58tz r-13qz1uu">
-                                        <div className="css-1dbjc4n r-16y2uox r-1wbh5a2 r-1pi2tsx r-1777fci">
-                                            <div className="r-1habvwh">
-                                                <h2
-                                                    style={{
-                                                        alignItems:
-                                                            "flex-start",
-                                                        fontWeight: "800",
-                                                        fontSize: "19px",
-                                                        color:
-                                                            "rgb(255, 255, 255)",
-                                                        justifyContent:
-                                                            "center",
-                                                        verticalAlign: "middle",
-                                                    }}
-                                                >
-                                                    Home
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="timeline-container">
+                            <PageHeader />
                             <TweetForm />
                             <div
                                 style={{

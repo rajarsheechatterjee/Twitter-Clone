@@ -1,0 +1,19 @@
+.page-header {
+    height: 53px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(56, 68, 77);
+    border-bottom-style: solid;
+}
+
+.page-header-text {
+    height: 100%;
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+    align-items: center;
+    font-weight: 800;
+    display: flex;
+    justify-content: flex-start;
+}
