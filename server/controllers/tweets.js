@@ -39,7 +39,10 @@ const getTweets = async (req, res) => {
         });
 
         const tweets = await Tweet.find({
-            user: profile.following.map((following) => following.user),
+            $or: [
+                { user: profile.following.map((following) => following.user) },
+                { user: req.user.id },
+            ],
         }).sort({
             date: -1,
         });

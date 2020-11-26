@@ -17,7 +17,7 @@ const Alert = ({ alerts }) =>
             <div
                 key={alert.id}
                 style={{ position: "absolute", width: "100%", top: 20 }}
-                className={`alert alert-danger`}
+                className={`alert alert-${alert.alertType}`}
             >
                 {alert.msg}
             </div>

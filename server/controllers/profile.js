@@ -45,10 +45,6 @@ const createProfile = async (req, res) => {
             user: req.user.id,
         });
 
-        profileFields.following.unshift({
-            user: req.user.id,
-        });
-
         if (profile) {
             profile = await Profile.findOneAndUpdate(
                 {

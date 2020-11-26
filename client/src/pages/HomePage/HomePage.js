@@ -36,17 +36,12 @@ const HomePage = ({
                     <div className="col-md-6">
                         <div className="timeline-container">
                             <PageHeader />
-                            {loading ? (
-                                <Spinner />
-                            ) : auth.loading ? (
-                                <Spinner />
-                            ) : (
-                                <TweetForm />
-                            )}
+                            {auth.loading ? <Spinner /> : <TweetForm />}
                             <Divider />
-                            {tweets.map((tweet) => (
-                                <TweetItem key={tweet._id} tweet={tweet} />
-                            ))}
+                            {!loading &&
+                                tweets.map((tweet) => (
+                                    <TweetItem key={tweet._id} tweet={tweet} />
+                                ))}
                         </div>
                     </div>
                     <div className="col-md-3">
