@@ -14,6 +14,7 @@ import { getTweets } from "../../actions/tweet";
 import { getFollowSuggestions } from "../../actions/profile";
 
 import "./HomePageStyles.css";
+import Divider from "../../components/Divider/Divider";
 
 const HomePage = ({
     auth,
@@ -32,30 +33,24 @@ const HomePage = ({
             <div>
                 <div className="row">
                     <Header />
-                    {loading ? (
-                        <Spinner />
-                    ) : (
-                        <>
-                            <div className="col-md-6">
-                                <div className="timeline-container">
-                                    <PageHeader />
-                                    {auth.loading ? <Spinner /> : <TweetForm />}
-                                    <div
-                                        style={{
-                                            height: "10px",
-                                            backgroundColor: "rgb(37, 51, 65)",
-                                        }}
-                                    ></div>
-                                    {tweets.map((tweet) => (
-                                        <TweetItem
-                                            key={tweet._id}
-                                            tweet={tweet}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="col-md-3">
-                                {/* <div className="mt-2 css-1dbjc4n r-1uaug3w r-1uhd6vh r-1ylenci r-1phboty r-rs99b7 r-ku1wi2 r-1bro5k0 r-1udh08x">
+                    <div className="col-md-6">
+                        <div className="timeline-container">
+                            <PageHeader />
+                            {loading ? (
+                                <Spinner />
+                            ) : auth.loading ? (
+                                <Spinner />
+                            ) : (
+                                <TweetForm />
+                            )}
+                            <Divider />
+                            {tweets.map((tweet) => (
+                                <TweetItem key={tweet._id} tweet={tweet} />
+                            ))}
+                        </div>
+                    </div>
+                    <div className="col-md-3">
+                        {/* <div className="mt-2 css-1dbjc4n r-1uaug3w r-1uhd6vh r-1ylenci r-1phboty r-rs99b7 r-ku1wi2 r-1bro5k0 r-1udh08x">
                                     <aside className="css-1dbjc4n">
                                         <div className="css-1dbjc4n r-1ila09b r-rull8r r-qklmqi r-1wtj0ep r-1j3t67a r-1w50u8q">
                                             <h2 class="css-4rbku5 css-1dbjc4n r-1awozwy r-18u37iz r-1wtj0ep">
@@ -83,9 +78,7 @@ const HomePage = ({
                                         </div>
                                     </aside>
                                 </div> */}
-                            </div>
-                        </>
-                    )}
+                    </div>
                 </div>
             </div>
         </>

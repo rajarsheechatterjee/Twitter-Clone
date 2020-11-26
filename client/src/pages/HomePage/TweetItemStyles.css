@@ -36,6 +36,9 @@
     font-size: 15px;
     color: rgb(255, 255, 255);
     line-height: 1.3125;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .tweet-username {
@@ -44,6 +47,9 @@
     line-height: 1.3125;
     font-size: 15px;
     margin-left: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .time-divider {
@@ -117,4 +123,95 @@
     padding-right: 10px;
     line-height: 1.3125;
     font-size: 13px;
+}
+
+.main-tweet-cont {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tweet-page-avatar {
+    width: 49px;
+    height: 49px;
+    border-radius: 9999px;
+    margin-right: 10px;
+}
+
+.tweet-user-cont {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.name-user-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    line-height: 1.3125;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    overflow-wrap: break-word;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.username {
+    color: rgb(136, 153, 166);
+    line-height: 1.3125;
+    overflow-wrap: break-word;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.text {
+    font-size: 23px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    line-height: 1.3125;
+    overflow-wrap: break-word;
+}
+
+.main-tweet-body {
+    margin-top: 10px;
+}
+
+.date-time-cont {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    line-height: 1.3125;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(136, 153, 166);
+}
+
+.like-cmmnt-cont {
+    border-top-color: rgb(56, 68, 77);
+    border-top-style: solid;
+    border-top-width: 1px;
+    flex-wrap: nowrap;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(56, 68, 77);
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: rgb(136, 153, 166);
+    fill: rgb(136, 153, 166);
+    display: flex;
+    flex-direction: row;
+}
+
+.like-btn {
+    transition-duration: 0.2s;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }

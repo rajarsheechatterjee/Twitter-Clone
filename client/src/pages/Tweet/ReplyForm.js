@@ -33,7 +33,7 @@ const ReplyForm = ({ auth, tweetId, addReply }) => {
                             <textarea
                                 name="text"
                                 rows="2"
-                                placeholder="What's Happening?"
+                                placeholder="Tweet your reply"
                                 required
                                 value={text}
                                 onChange={(e) => setText(e.target.value)}
@@ -46,7 +46,7 @@ const ReplyForm = ({ auth, tweetId, addReply }) => {
                                 className={`tweet-btn ${
                                     text === "" && "disabled"
                                 }`}
-                                value="Tweet you reply"
+                                value="Reply"
                             />
                         </div>
                     </form>
