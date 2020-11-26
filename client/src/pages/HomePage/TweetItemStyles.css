@@ -1,206 +1,120 @@
-.r-1hdv0qi {
-    width: 1.25em;
-}
-.r-lrvibr {
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-.r-1plcrui {
-    vertical-align: text-bottom;
-}
-.r-bnwqim {
-    position: relative;
-}
-.r-dnmrzs {
-    max-width: 100%;
-}
-.r-1xvli5t {
-    height: 1.25em;
-}
-.r-yyyyoo {
-    fill: currentcolor;
-}
-.r-4qtqp9 {
-    display: inline-block;
-}
-.r-qklmqi {
-    border-bottom-width: 1px;
-}
-.r-1ila09b {
-    border-bottom-color: rgb(56, 68, 77);
-}
-.r-1adg3ll {
-    display: block;
-}
-.css-1dbjc4n {
-    -ms-flex-align: stretch;
-    -ms-flex-direction: column;
-    -ms-flex-negative: 0;
-    -ms-flex-preferred-size: auto;
-    -webkit-align-items: stretch;
-    -webkit-box-align: stretch;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -webkit-flex-basis: auto;
-    -webkit-flex-direction: column;
-    -webkit-flex-shrink: 0;
-    align-items: stretch;
-    border: 0 solid black;
-    box-sizing: border-box;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+.tweet-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    transition-duration: 0.2s;
+    transition-property: background-color;
     display: flex;
-    flex-basis: auto;
-    flex-direction: column;
-    flex-shrink: 0;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    min-height: 0px;
-    min-width: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    position: relative;
-    z-index: 0;
-}
-
-.r-qklmqi {
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-color: rgb(56, 68, 77);
+    border-bottom-style: solid;
     border-bottom-width: 1px;
 }
 
-.r-1ila09b {
-    border-bottom-color: rgb(56, 68, 77);
-}
-.r-1adg3ll {
-    display: block;
+.tweet-container:hover {
+    background-color: rgba(255, 255, 255, 0.03);
 }
 
-
-.r-daml9f {
-    color: rgb(224, 36, 94);
+.tweet-redirect:hover {
+    text-decoration: none;
 }
 
-.r-zso239 {
-    margin-right: 10px;
-}
-
-.r-1q142lx {
-    flex-shrink: 0;
-}
-.r-lrvibr {
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-.r-1plcrui {
-    vertical-align: text-bottom;
-}
-.r-bnwqim {
-    position: relative;
-}
-.r-dnmrzs {
-    max-width: 100%;
-}
-.r-1xvli5t {
-    height: 1.25em;
-}
-.r-yyyyoo {
-    fill: currentcolor;
-}
-.r-4qtqp9 {
-    display: inline-block;
-}
-
-.r-1hdv0qi {
-    width: 1.25em;
-}
-.r-lrvibr {
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-.r-1plcrui {
-    vertical-align: text-bottom;
-}
-.r-bnwqim {
-    position: relative;
-}
-.r-dnmrzs {
-    max-width: 100%;
-}
-.r-1xvli5t {
-    height: 1.25em;
-}
-.r-yyyyoo {
-    fill: currentcolor;
-}
-.r-4qtqp9 {
-    display: inline-block;
-}
-
-.tweetitem {
+.tweet-avatar {
+    width: 49px;
+    height: 49px;
+    border-radius: 9999px;
     transition-duration: 0.2s;
 }
 
-.tweetitem:hover {
-    background-color: rgb(29, 39, 52);
+.tweet-avatar-cont {
+    margin-right: 10px;
 }
 
-button {
-    background-color: inherit;
+.tweet-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    line-height: 1.3125;
 }
 
-
-.name:hover {
-    text-decoration: underline;
+.tweet-username {
+    color: rgb(136, 153, 166);
+    font-weight: 400;
+    line-height: 1.3125;
+    font-size: 15px;
+    margin-left: 5px;
 }
 
-.like {
-    color: #8899a6
-}
-
-.like:hover {
-    color: #d9534f;
-}
-
-.comment {
-    color: #8899a6
-}
-
-.comment:hover {
-    color: rgb(29, 161, 242);
-}
-
-.replylink {
-    color: rgb(29, 161, 242);
-}
-
-/* .topborder {
-    border-top-color: rgb(56, 68, 77);
-    border-top-style: solid;
-    height: 49px;
-    -webkit-box-pack: justify;
-    justify-content: space-around;
-}
-
-.spacebtn {
-    min-height: 1.875rem;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    flex-direction: row;
+.time-divider {
+    line-height: 1.3125;
+    font-size: 15px;
+    color: rgb(136, 153, 166);
+    font-weight: 400;
     padding-left: 5px;
     padding-right: 5px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-} */
+}
+
+.tweet-time {
+    color: rgb(136, 153, 166);
+    font-weight: 400;
+    line-height: 1.3125;
+    font-size: 15px;
+}
+
+.tweet-text {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2px;
+}
+
+.tweet-content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.tweet-body {
+    font-weight: 400;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    line-height: 1.3125;
+}
+
+.btn-cont {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.comment-btn {
+    color: rgb(136, 153, 166);
+    fill: rgb(136, 153, 166);
+    display: flex;
+    transition-duration: 0.2s;
+    margin-right: 30px;
+}
+.comment-btn:hover {
+    text-decoration: none;
+    color: rgb(29, 161, 242);
+    fill: rgb(29, 161, 242);
+}
+
+.like-btn:hover {
+    color: rgb(224, 36, 94);
+    fill: rgb(224, 36, 94);
+}
+
+.comment-svg {
+    width: 1.25em;
+    height: 1.25em;
+    max-width: 100%;
+    align-self: center;
+}
+
+.btn-label {
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 1.3125;
+    font-size: 13px;
+}

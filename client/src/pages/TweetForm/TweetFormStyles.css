@@ -80,6 +80,7 @@ textarea::placeholder {
     color: rgb(255, 255, 255);
     overflow-wrap: break-word;
     align-items: center;
+    cursor: pointer;
 }
 
 .divider {
@@ -89,5 +90,6 @@ textarea::placeholder {
 }
 
 .disabled {
+    cursor: default;
     opacity: 0.5;
 }

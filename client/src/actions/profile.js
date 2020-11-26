@@ -59,7 +59,7 @@ export const getFollowSuggestions = () => async (dispatch) => {
         type: CLEAR_PROFILE,
     });
     try {
-        const res = await axios.get("/api/profile/suggestions");
+        const res = await axios.get("/api/profile/suggestions/");
 
         dispatch({
             type: GET_PROFILES,

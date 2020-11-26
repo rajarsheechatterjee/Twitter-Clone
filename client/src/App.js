@@ -48,7 +48,11 @@ const App = () => {
                             path="/profile/me"
                             component={UserProfile}
                         />
-                        <Route exact path="/profile/:id" component={Profile} />
+                        <PrivateRoute
+                            exact
+                            path="/profile/:id"
+                            component={Profile}
+                        />
                         <PrivateRoute
                             exact
                             path="/tweets/:id"

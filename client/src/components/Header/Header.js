@@ -60,7 +60,9 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
                     <div className="header-item-text">Profile</div>
                 </div>
             </Link>
-            <button className="logout-button">Logout</button>
+            <button onClick={() => logout()} className="logout-button">
+                Logout
+            </button>
         </div>
     );
 };
