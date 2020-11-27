@@ -42,6 +42,14 @@ router.get("/user/:userId", auth, tweetsController.userTweets);
 router.get("/:id", auth, tweetsController.getTweet);
 
 /**
+ * @route   GET api/tweets/profile/me
+ * @desc    Fetch cureent user's tweets
+ * @access  Private
+ */
+
+router.get("/profile/me", auth, tweetsController.getCurrentUserTweets);
+
+/**
  * @route   DELETE api/tweets/:id
  * @desc    Delete a tweet
  * @access  Private

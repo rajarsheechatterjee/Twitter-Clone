@@ -30,7 +30,14 @@ const TweetItem = ({
                     />
                 </div>
                 <div className="tweet-content">
-                    <Link to={`/profile/${user}`} className="tweet-redirect">
+                    <Link
+                        to={
+                            auth.user._id === user
+                                ? `profile/me`
+                                : `/profile/${user}`
+                        }
+                        className="tweet-redirect"
+                    >
                         <div className="tweet-text">
                             <div className="tweet-name">{name}</div>
                             <div className="tweet-username">

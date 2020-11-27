@@ -225,6 +225,21 @@ const deleteReply = async (req, res) => {
     }
 };
 
+const getCurrentUserTweets = async (req, res) => {
+    try {
+        const tweets = await Tweet.find({
+            user: req.user.id,
+        }).sort({
+            date: -1,
+        });
+
+        res.json(tweets);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+};
+
 module.exports = tweetsController = {
     postTweet,
     getTweets,
@@ -234,4 +249,5 @@ module.exports = tweetsController = {
     likeTweet,
     postReply,
     deleteReply,
+    getCurrentUserTweets,
 };

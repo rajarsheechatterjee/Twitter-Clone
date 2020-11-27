@@ -61,6 +61,34 @@
     height: 39px;
     color: rgb(29, 161, 242);
     background-color: rgb(21, 32, 43);
+    margin-right: 10px;
+    transition-duration: 0.2s;
+}
+
+.follow-btn:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.delete-prof-btn {
+    border-color: rgb(224, 36, 94);
+    border-radius: 9999px;
+    border-style: solid;
+    border-width: 1px;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 15px;
+    min-width: calc(62.79px);
+    cursor: pointer;
+    min-height: 39px;
+    transition-duration: 0.2s;
+    height: 39px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(224, 36, 94);
+}
+.delete-prof-btn:hover {
+    background-color: rgba(224, 36, 94, 0.9);
+    border-color: rgba(224, 36, 94, 0.9);
 }
 
 .stats {

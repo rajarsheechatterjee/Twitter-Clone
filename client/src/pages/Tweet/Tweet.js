@@ -70,8 +70,8 @@ const Tweet = ({
                                             </g>
                                         </svg>
                                         <span className="btn-label">
-                                            {tweet.likes.length > 0 &&
-                                                tweet.likes.length}
+                                            {tweet.replies.length > 0 &&
+                                                tweet.replies.length}
                                         </span>
                                     </div>
                                     <div className="comment-btn like-btn">

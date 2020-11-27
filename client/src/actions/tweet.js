@@ -31,6 +31,26 @@ export const getTweets = () => async (dispatch) => {
     }
 };
 
+// Get Tweets
+export const getCurrentUserTweets = () => async (dispatch) => {
+    try {
+        const res = await axios.get("/api/tweets/profile/me");
+
+        dispatch({
+            type: GET_POSTS,
+            payload: res.data,
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: {
+                msg: err.response.statusText,
+                status: err.response.status,
+            },
+        });
+    }
+};
+
 // Get tweets of a user
 export const getUserTweets = (userId) => async (dispatch) => {
     try {
