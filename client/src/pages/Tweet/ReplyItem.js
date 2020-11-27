@@ -23,7 +23,14 @@ const ReplyItem = ({
                 <img className="tweet-avatar" src={avatar} alt="tweet-avatar" />
             </div>
             <div className="tweet-content">
-                <Link to={`/profile/${user}`} className="tweet-redirect">
+                <Link
+                    to={
+                        auth.user._id === user
+                            ? `/profile/me`
+                            : `/profile/${user}`
+                    }
+                    className="tweet-redirect"
+                >
                     <div className="tweet-text">
                         <div className="tweet-name">{name}</div>
                         <div className="tweet-username">{"@" + username}</div>
@@ -32,9 +39,29 @@ const ReplyItem = ({
                             <Moment fromNow>{date}</Moment>
                         </div>
                     </div>
+                    {!tweet.loading && (
+                        <div
+                            className="tweet-username"
+                            style={{ marginLeft: "0px" }}
+                        >
+                            <span>Replying to </span>
+                            <Link
+                                to={
+                                    auth.user._id === user
+                                        ? `/profile/me`
+                                        : `/profile/${user}`
+                                }
+                                className="tweet-redirect"
+                            >
+                                <span>{"@" + tweet.username}</span>
+                            </Link>
+                        </div>
+                    )}
                 </Link>
                 <Link to={`/tweets/${_id}`} className="tweet-redirect">
-                    <div className="tweet-body">{text}</div>
+                    <div className="tweet-body" style={{ marginTop: "10px" }}>
+                        {text}
+                    </div>
                 </Link>
             </div>
         </div>

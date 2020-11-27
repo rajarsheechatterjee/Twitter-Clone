@@ -33,7 +33,7 @@ const TweetItem = ({
                     <Link
                         to={
                             auth.user._id === user
-                                ? `profile/me`
+                                ? `/profile/me`
                                 : `/profile/${user}`
                         }
                         className="tweet-redirect"
