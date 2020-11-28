@@ -34,4 +34,5 @@
     color: rgba(29, 161, 242, 1);
     fill: rgba(29, 161, 242, 1);
     margin-right: 1.5rem;
+    transition-duration: 0.2s;
 }

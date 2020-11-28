@@ -10,6 +10,7 @@ import Header from "../../components/Header/Header";
 import Spinner from "../../components/Spinner/Spinner";
 import TweetItem from "../HomePage/TweetItem";
 import Divider from "../../components/Divider/Divider";
+import PageHeaderWithBack from "../../components/PageHeaderWithBack/PageHeaderWithBack";
 
 import "./ProfileStyles.css";
 
@@ -124,20 +125,3 @@ export default connect(mapStateToProps, {
     getUserTweets,
     followProfile,
 })(Profile);
-
-const PageHeaderWithBack = ({ title, history }) => (
-    <div className="page-header">
-        <Link
-            to="#"
-            onClick={() => history.goBack()}
-            className="back-btn-container"
-        >
-            <svg viewBox="0 0 24 24" class="back-btn">
-                <g>
-                    <path d="M20 11H7.414l4.293-4.293c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414 0l-6 6c-.39.39-.39 1.023 0 1.414l6 6c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L7.414 13H20c.553 0 1-.447 1-1s-.447-1-1-1z"></path>
-                </g>
-            </svg>
-        </Link>
-        <div className="page-header-text">{title}</div>
-    </div>
-);

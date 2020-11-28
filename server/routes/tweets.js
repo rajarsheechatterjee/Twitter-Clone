@@ -50,6 +50,22 @@ router.get("/:id", auth, tweetsController.getTweet);
 router.get("/profile/me", auth, tweetsController.getCurrentUserTweets);
 
 /**
+ * @route   GET api/tweets/bookmarks
+ * @desc    Fetch cureent user's bookmarks
+ * @access  Private
+ */
+
+router.get("/bookmarks", auth, tweetsController.getBookmarks);
+
+/**
+ * @route   PUT api/tweets/bookmarks/:userId
+ * @desc    Save or unsave a tweet
+ * @access  Private
+ */
+
+router.put("/bookmarks/:tweetId", auth, tweetsController.saveBookmark);
+
+/**
  * @route   DELETE api/tweets/:id
  * @desc    Delete a tweet
  * @access  Private

@@ -62,15 +62,22 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }, history }) => {
                                             className="profile-avatar"
                                         />
                                         <span className="follow-btn-container">
-                                            <span className="names-container">
-                                                <span className="profile-name">
-                                                    {profile.user.name}
+                                            <Link
+                                                to={`/profile/${profile.user._id}`}
+                                                className="tweet-redirect"
+                                                style={{ color: "white" }}
+                                            >
+                                                <span className="names-container">
+                                                    <span className="profile-name">
+                                                        {profile.user.name}
+                                                    </span>
+                                                    <span className="profile-username">
+                                                        {"@" +
+                                                            profile.user
+                                                                .username}
+                                                    </span>
                                                 </span>
-                                                <span className="profile-username">
-                                                    {"@" +
-                                                        profile.user.username}
-                                                </span>
-                                            </span>
+                                            </Link>
                                         </span>
                                         <span className="profile-bio">
                                             {profile.bio}

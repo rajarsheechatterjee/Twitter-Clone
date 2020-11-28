@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -42,14 +42,23 @@ const Tweet = ({
                                         className="tweet-page-avatar"
                                         src={tweet.avatar}
                                     />
-                                    <div className="name-user-cont">
-                                        <span className="name">
-                                            {tweet.name}
-                                        </span>
-                                        <span className="username">
-                                            {"@" + tweet.username}
-                                        </span>
-                                    </div>
+                                    <Link
+                                        to={
+                                            auth.user._id === tweet.user
+                                                ? `/profile/me`
+                                                : `/profile/${tweet.user}`
+                                        }
+                                        className="tweet-redirect"
+                                    >
+                                        <div className="name-user-cont">
+                                            <span className="name">
+                                                {tweet.name}
+                                            </span>
+                                            <span className="username">
+                                                {"@" + tweet.username}
+                                            </span>
+                                        </div>
+                                    </Link>
                                 </div>
                                 <div className="main-tweet-body">
                                     <span className="text">{tweet.text}</span>
@@ -97,6 +106,7 @@ const Tweet = ({
                                             className="comment-svg"
                                             onClick={(e) => {
                                                 deleteTweet(tweet._id);
+                                                history.goBack();
                                             }}
                                         >
                                             <g>

@@ -240,6 +240,54 @@ const getCurrentUserTweets = async (req, res) => {
     }
 };
 
+const getBookmarks = async (req, res) => {
+    try {
+        const currentUser = await Profile.findOne({
+            user: req.user.id,
+        });
+
+        res.json(currentUser.bookmarks);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+};
+
+const saveBookmark = async (req, res) => {
+    try {
+        const currentUser = await Profile.findOne({
+            user: req.user.id,
+        });
+
+        if (
+            currentUser.bookmarks.filter(
+                (bookmark) => bookmark.tweet.toString() === req.params.tweetId
+            ).length > 0
+        ) {
+            const removeIndex = currentUser.bookmarks
+                .map((bmark) => bmark.tweet.toString())
+                .indexOf(req.params.tweetId);
+
+            currentUser.bookmarks.splice(removeIndex, 1);
+
+            await currentUser.save();
+
+            res.json(currentUser.bookmarks);
+        } else {
+            currentUser.bookmarks.unshift({
+                tweet: req.params.tweetId,
+            });
+
+            await currentUser.save();
+
+            res.json(currentUser.bookmarks);
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+};
+
 module.exports = tweetsController = {
     postTweet,
     getTweets,
@@ -250,4 +298,6 @@ module.exports = tweetsController = {
     postReply,
     deleteReply,
     getCurrentUserTweets,
+    getBookmarks,
+    saveBookmark,
 };

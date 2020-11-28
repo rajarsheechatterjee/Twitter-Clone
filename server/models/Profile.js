@@ -33,6 +33,14 @@ const ProfileSchema = new Schema({
             },
         },
     ],
+    bookmarks: [
+        {
+            tweet: {
+                type: Schema.Types.ObjectId,
+                ref: "tweets",
+            },
+        },
+    ],
 });
 
 module.exports = Profile = mongoose.model("profile", ProfileSchema);
