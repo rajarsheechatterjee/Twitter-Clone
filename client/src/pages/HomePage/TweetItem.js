@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import Moment from "react-moment";
 
-import { addLike, deleteTweet } from "../../actions/tweet";
+import { addLike, deleteTweet, bookmarkTweet } from "../../actions/tweet";
 
 import Spinner from "../../components/Spinner/Spinner";
 
@@ -15,6 +15,7 @@ const TweetItem = ({
     auth,
     addLike,
     deleteTweet,
+    bookmarkTweet,
     tweet: { _id, text, name, username, avatar, user, likes, replies, date },
 }) => {
     return auth.loading ? (
@@ -97,6 +98,16 @@ const TweetItem = ({
                                 </svg>
                             </div>
                         )}
+                        <div
+                            className="comment-btn"
+                            onClick={() => bookmarkTweet(_id)}
+                        >
+                            <svg viewBox="0 0 24 24" className="comment-svg">
+                                <g>
+                                    <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+                                </g>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -109,10 +120,15 @@ TweetItem.propTypes = {
     auth: PropTypes.object.isRequired,
     addLike: PropTypes.func.isRequired,
     deleteTweet: PropTypes.func.isRequired,
+    bookmarkTweet: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     auth: state.auth,
 });
 
-export default connect(mapStateToProps, { addLike, deleteTweet })(TweetItem);
+export default connect(mapStateToProps, {
+    addLike,
+    deleteTweet,
+    bookmarkTweet,
+})(TweetItem);

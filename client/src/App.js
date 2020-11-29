@@ -19,6 +19,7 @@ import CreateProfile from "./components/ProfileForm/CreateProfile";
 import EditProfile from "./components/ProfileForm/EditProfile";
 import Profiles from "./pages/Profiles/Profiles";
 import Tweet from "./pages/Tweet/Tweet";
+import Bookmarks from "./pages/Bookmarks/Bookmarks";
 
 //Redux
 import { Provider } from "react-redux";
@@ -47,6 +48,11 @@ const App = () => {
                             exact
                             path="/profile/me"
                             component={UserProfile}
+                        />
+                        <PrivateRoute
+                            exact
+                            path="/bookmarks"
+                            component={Bookmarks}
                         />
                         <PrivateRoute
                             exact

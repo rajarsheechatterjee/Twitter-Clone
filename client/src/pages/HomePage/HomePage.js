@@ -85,6 +85,7 @@ HomePage.propTypes = {
     tweet: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
     getFollowSuggestions: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

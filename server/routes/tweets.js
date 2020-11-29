@@ -55,7 +55,7 @@ router.get("/profile/me", auth, tweetsController.getCurrentUserTweets);
  * @access  Private
  */
 
-router.get("/bookmarks", auth, tweetsController.getBookmarks);
+router.get("/profile/bookmarks", auth, tweetsController.getBookmarks);
 
 /**
  * @route   PUT api/tweets/bookmarks/:userId
@@ -63,7 +63,7 @@ router.get("/bookmarks", auth, tweetsController.getBookmarks);
  * @access  Private
  */
 
-router.put("/bookmarks/:tweetId", auth, tweetsController.saveBookmark);
+router.put("/profile/bookmarks/:tweetId", auth, tweetsController.saveBookmark);
 
 /**
  * @route   DELETE api/tweets/:id

@@ -9,6 +9,7 @@ import {
     GET_POST,
     ADD_COMMENT,
     REMOVE_COMMENT,
+    UPDATE_BOOKMARKS,
 } from "./types";
 
 // Get Tweets
@@ -235,11 +236,30 @@ export const deleteReply = (tweetId, replyId) => async (dispatch) => {
 // Get Tweets
 export const getBookmarks = () => async (dispatch) => {
     try {
-        const res = await axios.get("/api/tweets/bookmarks");
+        const res = await axios.get("/api/tweets/profile/bookmarks");
 
         dispatch({
             type: GET_POSTS,
             payload: res.data,
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: {
+                msg: err.response.statusText,
+                status: err.response.status,
+            },
+        });
+    }
+};
+
+// Follow a profile
+export const bookmarkTweet = (tweetId) => async (dispatch) => {
+    try {
+        const res = await axios.put(`/api/tweets/profile/bookmarks/${tweetId}`);
+
+        dispatch({
+            type: UPDATE_BOOKMARKS,
         });
     } catch (err) {
         dispatch({

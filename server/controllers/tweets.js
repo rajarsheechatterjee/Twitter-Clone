@@ -246,7 +246,13 @@ const getBookmarks = async (req, res) => {
             user: req.user.id,
         });
 
-        res.json(currentUser.bookmarks);
+        const tweets = await Tweet.find({
+            _id: currentUser.bookmarks.map((bookmark) => bookmark.tweet),
+        }).sort({
+            date: -1,
+        });
+
+        res.json(tweets);
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server Error");
