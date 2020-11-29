@@ -20,6 +20,7 @@ import EditProfile from "./components/ProfileForm/EditProfile";
 import Profiles from "./pages/Profiles/Profiles";
 import Tweet from "./pages/Tweet/Tweet";
 import Bookmarks from "./pages/Bookmarks/Bookmarks";
+import NotFound from "./pages/NotFound/NotFound";
 
 //Redux
 import { Provider } from "react-redux";
@@ -81,6 +82,7 @@ const App = () => {
                             component={RegisterPage}
                         />
                         <Route exact path="/login" component={LoginPage} />
+                        <Route component={NotFound} />
                     </Switch>
                 </Fragment>
             </Router>

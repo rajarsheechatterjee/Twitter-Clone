@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import ProfileCard from "./ProfileCard";
 import TweetItem from "./TweetItem";
 import TweetForm from "../TweetForm/TweetForm";
 
@@ -20,7 +19,7 @@ const HomePage = ({
     auth,
     getTweets,
     getFollowSuggestions,
-    profile: { profiles },
+    // profile: { profiles },
     tweet: { tweets, loading },
 }) => {
     useEffect(() => {
@@ -83,15 +82,15 @@ const HomePage = ({
 HomePage.propTypes = {
     getTweets: PropTypes.func.isRequired,
     tweet: PropTypes.object.isRequired,
-    profile: PropTypes.object.isRequired,
-    getFollowSuggestions: PropTypes.func.isRequired,
+    // profile: PropTypes.object.isRequired,
+    // getFollowSuggestions: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
     auth: state.auth,
     tweet: state.tweet,
-    profile: state.profile,
+    // profile: state.profile,
 });
 
 export default connect(mapStateToProps, { getTweets, getFollowSuggestions })(

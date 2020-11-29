@@ -37,7 +37,7 @@ const UserProfile = ({
                         history={history}
                     />
                     {profile === null ? (
-                        <Spinner />
+                        loading && <Spinner />
                     ) : (
                         <div className="profile-container">
                             <img
@@ -91,6 +91,24 @@ const UserProfile = ({
                                     </span>
                                 </span>
                             </span>
+                        </div>
+                    )}
+                    {!loading && profile === null && (
+                        <div className="no-bookmarks">
+                            <div className="bookmark-header">
+                                You don't have a profile yet yet
+                            </div>
+                            <div className="bookmarks-subtext">
+                                Create your profile
+                            </div>
+                            <div style={{ marginTop: "20px" }}>
+                                <Link
+                                    to="/createprofile"
+                                    className="follow-btn create-profile"
+                                >
+                                    Create Profile
+                                </Link>
+                            </div>
                         </div>
                     )}
                     <Divider />

@@ -41,6 +41,7 @@ const Tweet = ({
                                     <img
                                         className="tweet-page-avatar"
                                         src={tweet.avatar}
+                                        alt="tweet-page-avatar"
                                     />
                                     <Link
                                         to={

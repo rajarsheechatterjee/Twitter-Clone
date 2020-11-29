@@ -26,7 +26,9 @@ const Bookmarks = ({
             <div className="col-md-6">
                 <div className="timeline-container">
                     <PageHeaderWithBack history={history} title="Bookmarks" />
-                    {!loading && tweets.length > 0 ? (
+                    {loading ? (
+                        <Spinner />
+                    ) : tweets.length > 0 ? (
                         tweets.map((tweet) => (
                             <TweetItem key={tweet._id} tweet={tweet} />
                         ))
