@@ -9,12 +9,18 @@ import Spinner from "../Spinner/Spinner";
 
 import "./HeaderStyles.css";
 
-const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Header = ({ auth: { user, isAuthenticated, loading }, logout }) => {
     const pathName = window.location.pathname;
 
     return (
         <div className="col-md-3">
-            <div style={{ position: "fixed", width: "275px" }}>
+            <div
+                style={{
+                    position: "fixed",
+                    width: "275px",
+                    height: "100%",
+                }}
+            >
                 <div className="header-logo-container">
                     <Link to="/">
                         <svg viewBox="0 0 24 24" className="header-logo">
@@ -101,6 +107,22 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
                 <button onClick={() => logout()} className="logout-button">
                     Logout
                 </button>
+                {!loading && (
+                    <div className="profile-card-cont">
+                        <div className="profile-card">
+                            <img
+                                className="profile-card-avatar"
+                                src={user.avatar}
+                            />
+                        </div>
+                        <div className="card-name-cont">
+                            <span className="prof-card-name">{user.name}</span>
+                            <span className="prof-card-username">
+                                {"@" + user.username}
+                            </span>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -87,3 +87,55 @@
     background-color: rgb(26, 145, 218);
     border-color: rgb(26, 145, 218);
 }
+
+.profile-card-cont {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition-duration: 0.2s;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-radius: 9999px;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.profile-card-cont:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+}
+
+.profile-card-avatar {
+    height: 39px;
+    width: 39px;
+    border-radius: 9999px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.prof-card-name {
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    font-size: 15px;
+    line-height: 1.3125;
+}
+
+.prof-card-username {
+    font-weight: 400;
+    color: rgb(136, 153, 166);
+    white-space: nowrap;
+    font-size: 15px;
+    line-height: 1.3125;
+}
+
+.card-name-cont {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}

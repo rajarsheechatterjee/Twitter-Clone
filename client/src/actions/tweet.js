@@ -261,6 +261,7 @@ export const bookmarkTweet = (tweetId) => async (dispatch) => {
         dispatch({
             type: UPDATE_BOOKMARKS,
         });
+        dispatch(setAlert("Bookmark Added", "info"));
     } catch (err) {
         dispatch({
             type: POST_ERROR,
