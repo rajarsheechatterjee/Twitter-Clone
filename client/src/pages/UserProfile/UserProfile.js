@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Moment from "react-moment";
-
 import { getCurrentUserTweets } from "../../actions/tweet";
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 
@@ -112,7 +110,7 @@ const UserProfile = ({
                         </div>
                     )}
                     <Divider />
-                    {tweets === null ? (
+                    {tweets.loading ? (
                         <Spinner />
                     ) : (
                         tweets.map((tweet) => (

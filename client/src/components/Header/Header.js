@@ -5,11 +5,9 @@ import { Link } from "react-router-dom";
 
 import { logout } from "../../actions/auth";
 
-import Spinner from "../Spinner/Spinner";
-
 import "./HeaderStyles.css";
 
-const Header = ({ auth: { user, isAuthenticated, loading }, logout }) => {
+const Header = ({ auth: { user, loading }, logout }) => {
     const pathName = window.location.pathname;
 
     return (
@@ -113,6 +111,7 @@ const Header = ({ auth: { user, isAuthenticated, loading }, logout }) => {
                             <img
                                 className="profile-card-avatar"
                                 src={user.avatar}
+                                alt={user.name}
                             />
                         </div>
                         <div className="card-name-cont">

@@ -18,7 +18,7 @@ const Bookmarks = ({
 }) => {
     useEffect(() => {
         getBookmarks();
-    }, []);
+    }, [getBookmarks]);
 
     return (
         <div className="row">

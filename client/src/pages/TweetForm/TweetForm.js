@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { addPost } from "../../actions/tweet";
 
-import Spinner from "../../components/Spinner/Spinner";
+// import Spinner from "../../components/Spinner/Spinner";
 
 import "./TweetFormStyles.css";
 

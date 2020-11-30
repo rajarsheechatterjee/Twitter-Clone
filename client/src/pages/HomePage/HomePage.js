@@ -37,7 +37,8 @@ const HomePage = ({
                             <PageHeader />
                             {auth.loading ? <Spinner /> : <TweetForm />}
                             <Divider />
-                            {!loading &&
+                            {!auth.loading &&
+                                !loading &&
                                 tweets.map((tweet) => (
                                     <TweetItem key={tweet._id} tweet={tweet} />
                                 ))}

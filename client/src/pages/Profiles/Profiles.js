@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import { getProfiles } from "../../actions/profile";
 
-import ProfileItem from "./ProfileItem";
+// import ProfileItem from "./ProfileItem";
 import Spinner from "../../components/Spinner/Spinner";
 import Header from "../../components/Header/Header";
 
